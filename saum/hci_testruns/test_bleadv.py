@@ -9,13 +9,9 @@ scan_iterations=10 # unused
 i=0		
 lib_path="/home/pi/tagbox/ble/hci_testruns/" # dir path
 scantime=10 #scan duration in secs
-sleeptime=120 # sleep duration in secs
+sleeptime=20 # sleep duration in secs
 gatewayID=4  # gateway/room ID as specified in server data lists	
-<<<<<<< HEAD
 passAll=False # Set true to ignore gatewayID and update/upload all scanned tags
-=======
-passAll=True # Set true to ignore gatewayID and update/upload all scanned tags
->>>>>>> b7f314afc68f614933c6cc83a71a8fba3f4d59d1
 printUpData=True # Set true for displaying the uploaded data
 
 ## temp file names
@@ -25,23 +21,11 @@ advDataFile='./ble_data_parsed.txt'
 data_link='https://bliss-rdt.herokuapp.com/api/ble-data/'
 device_link='https://bliss-rdt.herokuapp.com/api/ble-device/'
 
-<<<<<<< HEAD
-## calling createDeviceList function to get ble_device list data
-Tag_List=bleadv.createDeviceList(device_link)['TagList']
-data_fields=bleadv.createDeviceList(device_link)['data_fields']
-
-print 'No. of devices in whitelist are',len(Tag_List)
-print 'Keys in whitelist:',data_fields
-
-
-while (1):
-=======
 while (1):
 	## calling createDeviceList function to get ble_device list data
 	Tag_List=bleadv.createDeviceList(device_link)
 	print('No. of devices in whitelist are: %d' %len(Tag_List))
 
->>>>>>> b7f314afc68f614933c6cc83a71a8fba3f4d59d1
 
 	## calling parseAdv to scan for ble devices, parse their adv packets and print out adv data
 	## in ble_data_parsed.txt

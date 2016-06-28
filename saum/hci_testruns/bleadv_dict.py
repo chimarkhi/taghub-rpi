@@ -43,18 +43,8 @@ def createDeviceList(device_link):
 	## Download tags defined in ble_devices and save it in a list of dicts
 	r=requests.get(device_link)
 	ble_devices=r.json()
-<<<<<<< HEAD
-
-	## Create a tuple containing keys of the json data
-	data_fields=()
-	if ble_devices:
-		for key in ble_devices[0]:
-			data_fields += (str(key),) 
-		
-=======
 	# Filter ble_devices list to remove unwanted items??
 
->>>>>>> b7f314afc68f614933c6cc83a71a8fba3f4d59d1
 	## Create a list of TagInfo objects filled with data from dled ble_devices list
 	
 	TagList=[]
@@ -62,22 +52,15 @@ def createDeviceList(device_link):
 		pass
 	
 	for i in ble_devices:
-		tag= TagInfo()
-		tag.macid=i['ble_device_id']
-		tag.name=i['name']
-		tag.notified=i['notified']
-		tag.gateway=i['gateway']
-		tag.environment=i['environment']
-		tag.humidity=0.0
-		tag.temp=0.0
-		tag.batt=100.0
-		tag.timestamp=""
+		tag = {
+		"macid" : i['ble_device_id'],
+		"name" : i['name'],
+		"notified" : i['notified'],
+		"gateway" : i['gateway'],
+		"environment" : i['environment']
+		}
 		TagList.append(tag)
-<<<<<<< HEAD
-	return {'data_fields':data_fields,'TagList':TagList};
-=======
 	return TagList;
->>>>>>> b7f314afc68f614933c6cc83a71a8fba3f4d59d1
 
 def parseAdv(scantime,lib_path,parseOutFile):
 	MACID=[]
@@ -98,57 +81,27 @@ def parseAdv(scantime,lib_path,parseOutFile):
 		Minor=data_words[2]
 		temp1 =int(Major[2:4]+Minor[0:2],16)
 		humid1=int(Major[0:2]+'00',16)
-		batt1=int(Minor[3],16)
 		temp=(175.52*temp1/(2**16))-46.85
 		humid=(125*temp1/(2**16))-6
-		batt=100*16/16
 		tstamp=datetime.datetime.now()
-		f_target.write(MACID+" "+str(temp)+" "+str(humid)+" "+str(tstamp)+" "+str(batt)+"\n") 
+		f_target.write(MACID+" "+str(temp)+" "+str(humid)+" "+str(tstamp)+"\n") 
 		line_num+=1		
-
+#		print(MACID,temp,humid,tstamp)
+#	        r=requests.post('https://bliss-rdt.herokuapp.com/api/ble-data/',data={"timestamp":tstamp,"temperature":temp,"humidity":humid,"device":"1"})
 	f_data.close()
 	f_target.close()
 	return line_num
 	
-def tagDataUpdate(TagList,advDataFile,gatewayID,passAll):
+def tagDataUpdate(TagList,advDataFile):
 	updatedTags=[]
 	with open(advDataFile,'r') as f_data:
 		for line in f_data:
 			data_words=line.split()
 			for tag in TagList:
-				if (tag.macid==data_words[0]) and ((tag.gateway==gatewayID) or passAll):
+				if tag.macid==data_words[0]:
 					tag.temp=data_words[1]
 					tag.humidity=data_words[2]
-					tag.timestamp=data_words[3]+" "+data_words[4]
-					tag.batt=data_words[5]
+					tag.timestamp=data_words[3:]
 					updatedTags.append(tag)
 	return updatedTags
 	
-
-
-def bleDataUp(data_link,TagList,indexTagsUp,printUpData):
-	count=0
-	for i in indexTagsUp:
-		try:
-<<<<<<< HEAD
-			r=requests.post(data_link,data={"device":i.macid,"device_datetime":i.timestamp,"humidity":i.humidity,"temperature":i.temp})			
-			print i.macid, i.timestamp, i.humidity, i.temp, i.batt
-			count+=1
-#			if (printUpData==True) and (r.status_code/100==2):
-#				print r.status_code, i.macid, i.timestamp, i.humidity, i.temp, i.batt
-#				count+=1
-#			else:
-#				print r.status_code
-		except:
-			print "Unable to upload/Timeout error"
-=======
-			r=requests.post(data_link,data={"device":i.macid,"device_datetime":i.timestamp,"humidity":i.humidity,"temperature":i.temp})
-		except requests.exceptions.RequestException as e:    # This is the correct syntax
-    			print e
-		if (printUpData==True) and (r.status_code/100==2):
-			print r.status_code, i.macid, i.timestamp, i.humidity, i.temp, i.batt
-			count+=1
-		else:
-			print r.status_code
->>>>>>> b7f314afc68f614933c6cc83a71a8fba3f4d59d1
-	return count==len(indexTagsUp)
