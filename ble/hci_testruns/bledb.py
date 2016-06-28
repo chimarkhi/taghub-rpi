@@ -3,6 +3,7 @@ import sqlite3 as sql
 
 
 ## datakeys is a tuple: (macid, dev_name, temp, humidity, tstamp, gateway)
+## database log
 def createDB(db_path,datakeys):
 	con = sql.connect("db_path")
 	
