@@ -1,0 +1,11 @@
+CF:77:A3:A6:19:3C (unknown)
+D9:A4:66:96:E9:89 (unknown)
+DC:5D:E8:A5:F1:DA (unknown)
+CA:A6:3B:2B:E0:10 (unknown)
+F3:78:56:6C:1B:C3 (unknown)
+
+
+C3:64:F2:73:58:06 Tag13
+D0:A4:3C:C1:45:5C MiniBeacon_00249
+D0:E7:9F:50:C7:0B (unknown)
+D7:B6:86:31:1D:BF (unknown)
