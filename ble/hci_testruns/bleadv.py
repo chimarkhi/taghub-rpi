@@ -43,18 +43,8 @@ def createDeviceList(device_link):
 	## Download tags defined in ble_devices and save it in a list of dicts
 	r=requests.get(device_link)
 	ble_devices=r.json()
-<<<<<<< HEAD
-
-	## Create a tuple containing keys of the json data
-	data_fields=()
-	if ble_devices:
-		for key in ble_devices[0]:
-			data_fields += (str(key),) 
-		
-=======
 	# Filter ble_devices list to remove unwanted items??
 
->>>>>>> b7f314afc68f614933c6cc83a71a8fba3f4d59d1
 	## Create a list of TagInfo objects filled with data from dled ble_devices list
 	
 	TagList=[]
@@ -73,18 +63,14 @@ def createDeviceList(device_link):
 		tag.batt=100.0
 		tag.timestamp=""
 		TagList.append(tag)
-<<<<<<< HEAD
-	return {'data_fields':data_fields,'TagList':TagList};
-=======
 	return TagList;
->>>>>>> b7f314afc68f614933c6cc83a71a8fba3f4d59d1
 
 def parseAdv(scantime,lib_path,parseOutFile):
 	MACID=[]
 	Major=[]
 	Minor=[]		
 	os.system("cd "+lib_path)
-	timeout_call = "timeout " + str(scantime) + "s ./ibeacon_scan  -b > scan_out.txt"
+	timeout_call = "timeout " + str(scantime) + "s ./ibeacon_scan.sh  -b > scan_out.txt"
 	os.system(timeout_call)
 	time.sleep(scantime)
 	os.system("sort -u scan_out.txt >  ble_data.txt")
@@ -130,7 +116,6 @@ def bleDataUp(data_link,TagList,indexTagsUp,printUpData):
 	count=0
 	for i in indexTagsUp:
 		try:
-<<<<<<< HEAD
 			r=requests.post(data_link,data={"device":i.macid,"device_datetime":i.timestamp,"humidity":i.humidity,"temperature":i.temp})			
 			print i.macid, i.timestamp, i.humidity, i.temp, i.batt
 			count+=1
@@ -141,14 +126,4 @@ def bleDataUp(data_link,TagList,indexTagsUp,printUpData):
 #				print r.status_code
 		except:
 			print "Unable to upload/Timeout error"
-=======
-			r=requests.post(data_link,data={"device":i.macid,"device_datetime":i.timestamp,"humidity":i.humidity,"temperature":i.temp})
-		except requests.exceptions.RequestException as e:    # This is the correct syntax
-    			print e
-		if (printUpData==True) and (r.status_code/100==2):
-			print r.status_code, i.macid, i.timestamp, i.humidity, i.temp, i.batt
-			count+=1
-		else:
-			print r.status_code
->>>>>>> b7f314afc68f614933c6cc83a71a8fba3f4d59d1
 	return count==len(indexTagsUp)

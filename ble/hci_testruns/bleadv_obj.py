@@ -66,7 +66,7 @@ def parseAdv(scantime,lib_path,parseOutFile):
 	Major=[]
 	Minor=[]		
 	os.system("cd "+lib_path)
-	timeout_call = "timeout " + str(scantime) + "s ./ibeacon_scan  -b > scan_out.txt"
+	timeout_call = "timeout " + str(scantime) + "s" + lib_path + "ibeacon_scan  -b > scan_out.txt"
 	os.system(timeout_call)
 	time.sleep(scantime)
 	os.system("sort -u scan_out.txt >  ble_data.txt")
