@@ -51,7 +51,7 @@ def pushDB(db_path, tagData, datakeys, bufferDays):
 		
 
 
-def popDB(db_path,data_link,bufferDays):
+def popDB(db_path,data_link,bufferDays,postTimeout):
 	class TagInfo:
 		pass
 	
@@ -77,7 +77,7 @@ def popDB(db_path,data_link,bufferDays):
 	
 		if roi[0]:
 			try:
-				r=requests.post(data_link,data={"device":str(roi[1]),"device_datetime":str(roi[5]),"humidity":roi[4],"temperature":roi[3]})			
+				r=requests.post(data_link,data={"device":str(roi[1]),"device_datetime":str(roi[5]),"humidity":roi[4],"temperature":roi[3]},timeout=postTimeout)			
 
 				try:
 					upDone = r.status_code
