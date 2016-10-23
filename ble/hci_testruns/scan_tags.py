@@ -13,7 +13,7 @@ while (i<10):
 	Major=[]
 	Minor=[]	
 	os.system("cd /home/pi/tagbox/ble/hci_testruns/ ")
-	os.system("timeout 15s ./ibeacon_scan  -b > scan_out.txt")
+	os.system("timeout 15s /home/pi/tagbox/ble/hci_testruns/ibeacon_scan  -b > scan_out.txt")
 	time.sleep(15)
 	os.system("sort -u scan_out.txt >  ble_data.txt")
 	
