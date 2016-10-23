@@ -1,0 +1,9 @@
+{
+    "ble_device_id": "2D6A4D64ADD0", 
+    "name": "Tag034", 
+    "current_temp": 1, 
+    "current_humidity": 1, 
+    "notified": true, 
+    "environment": 1, 
+    "gateway": 4
+}
