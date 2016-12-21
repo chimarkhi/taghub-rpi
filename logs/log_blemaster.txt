@@ -1,0 +1,866 @@
+[2016-12-21 11:37:18] INFO Logging started
+[2016-12-21 11:37:18] INFO Created Telemetry DB
+[2016-12-21 11:37:18] INFO Opening First scan window
+[2016-12-21 11:37:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.57, '2016-12-21 11:37:28', 0.0]
+[2016-12-21 11:37:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:37:28', 0.0]
+[2016-12-21 11:37:28] INFO Starting Scheduler 
+[2016-12-21 11:37:28] INFO Added job "scanParse" to job store "default"
+[2016-12-21 11:37:28] INFO Added job "dBToServer" to job store "default"
+[2016-12-21 11:37:28] INFO Added job "dBFlush" to job store "default"
+[2016-12-21 11:37:28] INFO Scheduler started
+[2016-12-21 11:37:28] DEBUG Looking for jobs to run
+[2016-12-21 11:37:28] DEBUG Next wakeup is due at 2016-12-21 11:38:18.507075+00:00 (in 49.843406 seconds)
+[2016-12-21 11:38:18] DEBUG Looking for jobs to run
+[2016-12-21 11:38:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:38:18 UTC)" (scheduled at 2016-12-21 11:38:18.507075+00:00)
+[2016-12-21 11:38:18] DEBUG Next wakeup is due at 2016-12-21 11:38:18.510871+00:00 (in 0.001921 seconds)
+[2016-12-21 11:38:18] DEBUG Looking for jobs to run
+[2016-12-21 11:38:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:38:18 UTC)" (scheduled at 2016-12-21 11:38:18.510871+00:00)
+[2016-12-21 11:38:18] DEBUG Next wakeup is due at 2016-12-21 11:39:18.507075+00:00 (in 59.987963 seconds)
+[2016-12-21 11:38:18] INFO Payload size 488
+[2016-12-21 11:38:18] INFO Payload components [(u'HumData', 159), (u'TempData', 159), (u'HumData', 160), (u'TempData', 160)]
+[2016-12-21 11:38:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 59.0, 
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:34:28"
+            }, 
+            {
+                "Hum": 59.0, 
+                "NdBat": 0.0, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:37:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:34:28", 
+                "Temp": 28.23
+            }, 
+            {
+                "NdBat": 0.0, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:37:28", 
+                "Temp": 28.57
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:38:18"
+}
+[2016-12-21 11:38:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:38:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:38:19] INFO Post request succesful with status : 204
+[2016-12-21 11:38:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:38:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:39:18 UTC)" executed successfully
+[2016-12-21 11:38:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.57, '2016-12-21 11:38:28', 0.0]
+[2016-12-21 11:38:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:38:28', 0.0]
+[2016-12-21 11:38:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:39:18 UTC)" executed successfully
+[2016-12-21 11:39:18] DEBUG Looking for jobs to run
+[2016-12-21 11:39:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:39:18 UTC)" (scheduled at 2016-12-21 11:39:18.507075+00:00)
+[2016-12-21 11:39:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:39:18 UTC)" (scheduled at 2016-12-21 11:39:18.510871+00:00)
+[2016-12-21 11:39:18] DEBUG Next wakeup is due at 2016-12-21 11:40:18.507075+00:00 (in 59.991167 seconds)
+[2016-12-21 11:39:18] INFO Payload size 304
+[2016-12-21 11:39:18] INFO Payload components [(u'HumData', 161), (u'TempData', 161)]
+[2016-12-21 11:39:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 59.0, 
+                "NdBat": 0.0, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:38:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 0.0, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:38:28", 
+                "Temp": 28.57
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:39:18"
+}
+[2016-12-21 11:39:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:39:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:39:19] INFO Post request succesful with status : 204
+[2016-12-21 11:39:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:39:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:40:18 UTC)" executed successfully
+[2016-12-21 11:39:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:40:18 UTC)" executed successfully
+[2016-12-21 11:40:18] DEBUG Looking for jobs to run
+[2016-12-21 11:40:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:40:18 UTC)" (scheduled at 2016-12-21 11:40:18.507075+00:00)
+[2016-12-21 11:40:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:40:18 UTC)" (scheduled at 2016-12-21 11:40:18.510871+00:00)
+[2016-12-21 11:40:18] DEBUG Next wakeup is due at 2016-12-21 11:41:18.507075+00:00 (in 59.971211 seconds)
+[2016-12-21 11:40:18] INFO No data in any table
+[2016-12-21 11:40:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:41:18 UTC)" executed successfully
+[2016-12-21 11:40:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.74, '2016-12-21 11:40:28', 10.24]
+[2016-12-21 11:40:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:40:28', 10.24]
+[2016-12-21 11:40:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:41:18 UTC)" executed successfully
+[2016-12-21 11:41:18] DEBUG Looking for jobs to run
+[2016-12-21 11:41:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:42:18 UTC)" (scheduled at 2016-12-21 11:41:18.507075+00:00)
+[2016-12-21 11:41:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:41:18 UTC)" (scheduled at 2016-12-21 11:41:18.510871+00:00)
+[2016-12-21 11:41:18] DEBUG Next wakeup is due at 2016-12-21 11:42:18.507075+00:00 (in 59.977906 seconds)
+[2016-12-21 11:41:18] INFO Payload size 308
+[2016-12-21 11:41:18] INFO Payload components [(u'HumData', 162), (u'TempData', 162)]
+[2016-12-21 11:41:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 59.0, 
+                "NdBat": 10.24, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:40:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 10.24, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:40:28", 
+                "Temp": 28.74
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:41:18"
+}
+[2016-12-21 11:41:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:41:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:41:19] INFO Post request succesful with status : 204
+[2016-12-21 11:41:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:41:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:42:18 UTC)" executed successfully
+[2016-12-21 11:41:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.74, '2016-12-21 11:41:28', 10.24]
+[2016-12-21 11:41:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:41:28', 10.24]
+[2016-12-21 11:41:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:42:18 UTC)" executed successfully
+[2016-12-21 11:42:18] DEBUG Looking for jobs to run
+[2016-12-21 11:42:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:42:18 UTC)" (scheduled at 2016-12-21 11:42:18.507075+00:00)
+[2016-12-21 11:42:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:42:18 UTC)" (scheduled at 2016-12-21 11:42:18.510871+00:00)
+[2016-12-21 11:42:18] DEBUG Next wakeup is due at 2016-12-21 11:43:18.507075+00:00 (in 59.980286 seconds)
+[2016-12-21 11:42:18] INFO Payload size 308
+[2016-12-21 11:42:18] INFO Payload components [(u'HumData', 163), (u'TempData', 163)]
+[2016-12-21 11:42:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 59.0, 
+                "NdBat": 10.24, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:41:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 10.24, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:41:28", 
+                "Temp": 28.74
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:42:18"
+}
+[2016-12-21 11:42:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:42:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:42:19] INFO Post request succesful with status : 204
+[2016-12-21 11:42:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:42:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:43:18 UTC)" executed successfully
+[2016-12-21 11:42:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.74, '2016-12-21 11:42:28', 10.24]
+[2016-12-21 11:42:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:42:28', 10.24]
+[2016-12-21 11:42:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:43:18 UTC)" executed successfully
+[2016-12-21 11:43:18] DEBUG Looking for jobs to run
+[2016-12-21 11:43:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:43:18 UTC)" (scheduled at 2016-12-21 11:43:18.507075+00:00)
+[2016-12-21 11:43:18] DEBUG Next wakeup is due at 2016-12-21 11:44:18.507075+00:00 (in 59.973344 seconds)
+[2016-12-21 11:43:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:44:18 UTC)" (scheduled at 2016-12-21 11:43:18.510871+00:00)
+[2016-12-21 11:43:18] INFO Payload size 308
+[2016-12-21 11:43:18] INFO Payload components [(u'HumData', 164), (u'TempData', 164)]
+[2016-12-21 11:43:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 59.0, 
+                "NdBat": 10.24, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:42:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 10.24, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:42:28", 
+                "Temp": 28.74
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:43:18"
+}
+[2016-12-21 11:43:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:43:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:43:19] INFO Post request succesful with status : 204
+[2016-12-21 11:43:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:43:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:44:18 UTC)" executed successfully
+[2016-12-21 11:43:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.74, '2016-12-21 11:43:28', 10.24]
+[2016-12-21 11:43:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:43:28', 10.24]
+[2016-12-21 11:43:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:44:18 UTC)" executed successfully
+[2016-12-21 11:44:18] DEBUG Looking for jobs to run
+[2016-12-21 11:44:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:45:18 UTC)" (scheduled at 2016-12-21 11:44:18.507075+00:00)
+[2016-12-21 11:44:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:45:18 UTC)" (scheduled at 2016-12-21 11:44:18.510871+00:00)
+[2016-12-21 11:44:18] DEBUG Next wakeup is due at 2016-12-21 11:45:18.507075+00:00 (in 59.986221 seconds)
+[2016-12-21 11:44:18] INFO Payload size 308
+[2016-12-21 11:44:18] INFO Payload components [(u'HumData', 165), (u'TempData', 165)]
+[2016-12-21 11:44:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 59.0, 
+                "NdBat": 10.24, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:43:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 10.24, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:43:28", 
+                "Temp": 28.74
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:44:18"
+}
+[2016-12-21 11:44:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:44:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:44:19] INFO Post request succesful with status : 204
+[2016-12-21 11:44:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:44:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:45:18 UTC)" executed successfully
+[2016-12-21 11:44:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:45:18 UTC)" executed successfully
+[2016-12-21 11:45:18] DEBUG Looking for jobs to run
+[2016-12-21 11:45:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:46:18 UTC)" (scheduled at 2016-12-21 11:45:18.507075+00:00)
+[2016-12-21 11:45:18] DEBUG Next wakeup is due at 2016-12-21 11:46:18.507075+00:00 (in 59.984297 seconds)
+[2016-12-21 11:45:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:46:18 UTC)" (scheduled at 2016-12-21 11:45:18.510871+00:00)
+[2016-12-21 11:45:18] INFO No data in any table
+[2016-12-21 11:45:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:46:18 UTC)" executed successfully
+[2016-12-21 11:45:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:45:28', 20.48]
+[2016-12-21 11:45:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:45:28', 20.48]
+[2016-12-21 11:45:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:46:18 UTC)" executed successfully
+[2016-12-21 11:46:18] DEBUG Looking for jobs to run
+[2016-12-21 11:46:18] DEBUG Next wakeup is due at 2016-12-21 11:47:18.507075+00:00 (in 59.980536 seconds)
+[2016-12-21 11:46:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:47:18 UTC)" (scheduled at 2016-12-21 11:46:18.507075+00:00)
+[2016-12-21 11:46:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:47:18 UTC)" (scheduled at 2016-12-21 11:46:18.510871+00:00)
+[2016-12-21 11:46:18] INFO Payload size 308
+[2016-12-21 11:46:18] INFO Payload components [(u'HumData', 166), (u'TempData', 166)]
+[2016-12-21 11:46:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:45:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:45:28", 
+                "Temp": 28.91
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:46:18"
+}
+[2016-12-21 11:46:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:46:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:46:19] INFO Post request succesful with status : 204
+[2016-12-21 11:46:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:46:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:47:18 UTC)" executed successfully
+[2016-12-21 11:46:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:46:28', 20.48]
+[2016-12-21 11:46:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:46:28', 20.48]
+[2016-12-21 11:46:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:47:18 UTC)" executed successfully
+[2016-12-21 11:47:18] DEBUG Looking for jobs to run
+[2016-12-21 11:47:18] DEBUG Next wakeup is due at 2016-12-21 11:48:18.507075+00:00 (in 59.994773 seconds)
+[2016-12-21 11:47:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:48:18 UTC)" (scheduled at 2016-12-21 11:47:18.507075+00:00)
+[2016-12-21 11:47:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:48:18 UTC)" (scheduled at 2016-12-21 11:47:18.510871+00:00)
+[2016-12-21 11:47:18] INFO Payload size 308
+[2016-12-21 11:47:18] INFO Payload components [(u'HumData', 167), (u'TempData', 167)]
+[2016-12-21 11:47:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:46:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:46:28", 
+                "Temp": 28.91
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:47:18"
+}
+[2016-12-21 11:47:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:47:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:47:19] INFO Post request succesful with status : 204
+[2016-12-21 11:47:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:47:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:48:18 UTC)" executed successfully
+[2016-12-21 11:47:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:47:28', 20.48]
+[2016-12-21 11:47:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:47:28', 20.48]
+[2016-12-21 11:47:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:48:18 UTC)" executed successfully
+[2016-12-21 11:48:18] DEBUG Looking for jobs to run
+[2016-12-21 11:48:18] DEBUG Next wakeup is due at 2016-12-21 11:49:18.507075+00:00 (in 59.994748 seconds)
+[2016-12-21 11:48:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:49:18 UTC)" (scheduled at 2016-12-21 11:48:18.507075+00:00)
+[2016-12-21 11:48:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:49:18 UTC)" (scheduled at 2016-12-21 11:48:18.510871+00:00)
+[2016-12-21 11:48:18] INFO Payload size 308
+[2016-12-21 11:48:18] INFO Payload components [(u'HumData', 168), (u'TempData', 168)]
+[2016-12-21 11:48:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:47:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:47:28", 
+                "Temp": 28.91
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:48:18"
+}
+[2016-12-21 11:48:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:48:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:48:19] INFO Post request succesful with status : 204
+[2016-12-21 11:48:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:48:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:49:18 UTC)" executed successfully
+[2016-12-21 11:48:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:48:28', 20.48]
+[2016-12-21 11:48:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:48:28', 20.48]
+[2016-12-21 11:48:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:49:18 UTC)" executed successfully
+[2016-12-21 11:49:18] DEBUG Looking for jobs to run
+[2016-12-21 11:49:18] DEBUG Next wakeup is due at 2016-12-21 11:50:18.507075+00:00 (in 59.994590 seconds)
+[2016-12-21 11:49:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:50:18 UTC)" (scheduled at 2016-12-21 11:49:18.507075+00:00)
+[2016-12-21 11:49:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:50:18 UTC)" (scheduled at 2016-12-21 11:49:18.510871+00:00)
+[2016-12-21 11:49:18] INFO Payload size 308
+[2016-12-21 11:49:18] INFO Payload components [(u'HumData', 169), (u'TempData', 169)]
+[2016-12-21 11:49:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:48:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:48:28", 
+                "Temp": 28.91
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:49:18"
+}
+[2016-12-21 11:49:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:49:20] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:49:20] INFO Post request succesful with status : 204
+[2016-12-21 11:49:20] INFO Payload uploaded with responnse 1
+[2016-12-21 11:49:20] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:50:18 UTC)" executed successfully
+[2016-12-21 11:49:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:50:18 UTC)" executed successfully
+[2016-12-21 11:50:18] DEBUG Looking for jobs to run
+[2016-12-21 11:50:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:51:18 UTC)" (scheduled at 2016-12-21 11:50:18.507075+00:00)
+[2016-12-21 11:50:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:50:18 UTC)" (scheduled at 2016-12-21 11:50:18.510871+00:00)
+[2016-12-21 11:50:18] DEBUG Next wakeup is due at 2016-12-21 11:51:18.507075+00:00 (in 59.994420 seconds)
+[2016-12-21 11:50:18] INFO No data in any table
+[2016-12-21 11:50:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:51:18 UTC)" executed successfully
+[2016-12-21 11:50:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:50:28', 20.48]
+[2016-12-21 11:50:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:50:28', 20.48]
+[2016-12-21 11:50:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:51:18 UTC)" executed successfully
+[2016-12-21 11:51:18] DEBUG Looking for jobs to run
+[2016-12-21 11:51:18] DEBUG Next wakeup is due at 2016-12-21 11:52:18.507075+00:00 (in 59.985262 seconds)
+[2016-12-21 11:51:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:52:18 UTC)" (scheduled at 2016-12-21 11:51:18.507075+00:00)
+[2016-12-21 11:51:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:52:18 UTC)" (scheduled at 2016-12-21 11:51:18.510871+00:00)
+[2016-12-21 11:51:18] INFO Payload size 308
+[2016-12-21 11:51:18] INFO Payload components [(u'HumData', 170), (u'TempData', 170)]
+[2016-12-21 11:51:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:50:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:50:28", 
+                "Temp": 28.91
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:51:18"
+}
+[2016-12-21 11:51:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:51:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:51:19] INFO Post request succesful with status : 204
+[2016-12-21 11:51:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:51:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:52:18 UTC)" executed successfully
+[2016-12-21 11:51:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:51:28', 20.48]
+[2016-12-21 11:51:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:51:28', 20.48]
+[2016-12-21 11:51:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:52:18 UTC)" executed successfully
+[2016-12-21 11:52:18] DEBUG Looking for jobs to run
+[2016-12-21 11:52:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:53:18 UTC)" (scheduled at 2016-12-21 11:52:18.507075+00:00)
+[2016-12-21 11:52:18] DEBUG Next wakeup is due at 2016-12-21 11:53:18.507075+00:00 (in 59.995345 seconds)
+[2016-12-21 11:52:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:53:18 UTC)" (scheduled at 2016-12-21 11:52:18.510871+00:00)
+[2016-12-21 11:52:18] INFO Payload size 308
+[2016-12-21 11:52:18] INFO Payload components [(u'HumData', 171), (u'TempData', 171)]
+[2016-12-21 11:52:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:51:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:51:28", 
+                "Temp": 28.91
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:52:18"
+}
+[2016-12-21 11:52:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:52:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:52:19] INFO Post request succesful with status : 204
+[2016-12-21 11:52:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:52:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:53:18 UTC)" executed successfully
+[2016-12-21 11:52:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:52:28', 20.48]
+[2016-12-21 11:52:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:52:28', 20.48]
+[2016-12-21 11:52:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:53:18 UTC)" executed successfully
+[2016-12-21 11:53:18] DEBUG Looking for jobs to run
+[2016-12-21 11:53:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:53:18 UTC)" (scheduled at 2016-12-21 11:53:18.507075+00:00)
+[2016-12-21 11:53:18] DEBUG Next wakeup is due at 2016-12-21 11:54:18.507075+00:00 (in 59.993458 seconds)
+[2016-12-21 11:53:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:54:18 UTC)" (scheduled at 2016-12-21 11:53:18.510871+00:00)
+[2016-12-21 11:53:18] INFO Payload size 308
+[2016-12-21 11:53:18] INFO Payload components [(u'HumData', 172), (u'TempData', 172)]
+[2016-12-21 11:53:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:52:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:52:28", 
+                "Temp": 28.91
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:53:18"
+}
+[2016-12-21 11:53:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:53:20] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:53:20] INFO Post request succesful with status : 204
+[2016-12-21 11:53:20] INFO Payload uploaded with responnse 1
+[2016-12-21 11:53:20] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:54:18 UTC)" executed successfully
+[2016-12-21 11:53:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:53:28', 20.48]
+[2016-12-21 11:53:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:53:28', 20.48]
+[2016-12-21 11:53:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:54:18 UTC)" executed successfully
+[2016-12-21 11:54:18] DEBUG Looking for jobs to run
+[2016-12-21 11:54:18] DEBUG Next wakeup is due at 2016-12-21 11:55:18.507075+00:00 (in 59.985529 seconds)
+[2016-12-21 11:54:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:55:18 UTC)" (scheduled at 2016-12-21 11:54:18.507075+00:00)
+[2016-12-21 11:54:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:55:18 UTC)" (scheduled at 2016-12-21 11:54:18.510871+00:00)
+[2016-12-21 11:54:18] INFO Payload size 308
+[2016-12-21 11:54:18] INFO Payload components [(u'HumData', 173), (u'TempData', 173)]
+[2016-12-21 11:54:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:53:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:53:28", 
+                "Temp": 28.91
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:54:18"
+}
+[2016-12-21 11:54:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:54:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:54:19] INFO Post request succesful with status : 204
+[2016-12-21 11:54:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:54:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:55:18 UTC)" executed successfully
+[2016-12-21 11:54:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:54:28', 20.48]
+[2016-12-21 11:54:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:54:28', 20.48]
+[2016-12-21 11:54:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:55:18 UTC)" executed successfully
+[2016-12-21 11:55:18] DEBUG Looking for jobs to run
+[2016-12-21 11:55:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:56:18 UTC)" (scheduled at 2016-12-21 11:55:18.507075+00:00)
+[2016-12-21 11:55:18] DEBUG Next wakeup is due at 2016-12-21 11:56:18.507075+00:00 (in 59.995410 seconds)
+[2016-12-21 11:55:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:56:18 UTC)" (scheduled at 2016-12-21 11:55:18.510871+00:00)
+[2016-12-21 11:55:18] INFO Payload size 308
+[2016-12-21 11:55:18] INFO Payload components [(u'HumData', 174), (u'TempData', 174)]
+[2016-12-21 11:55:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:54:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:54:28", 
+                "Temp": 28.91
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:55:18"
+}
+[2016-12-21 11:55:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:55:24] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:55:24] INFO Post request succesful with status : 204
+[2016-12-21 11:55:24] INFO Payload uploaded with responnse 1
+[2016-12-21 11:55:24] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:56:18 UTC)" executed successfully
+[2016-12-21 11:55:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:56:18 UTC)" executed successfully
+[2016-12-21 11:56:18] DEBUG Looking for jobs to run
+[2016-12-21 11:56:18] DEBUG Next wakeup is due at 2016-12-21 11:57:18.507075+00:00 (in 59.993538 seconds)
+[2016-12-21 11:56:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:57:18 UTC)" (scheduled at 2016-12-21 11:56:18.507075+00:00)
+[2016-12-21 11:56:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:57:18 UTC)" (scheduled at 2016-12-21 11:56:18.510871+00:00)
+[2016-12-21 11:56:18] INFO No data in any table
+[2016-12-21 11:56:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:57:18 UTC)" executed successfully
+[2016-12-21 11:56:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:57:18 UTC)" executed successfully
+[2016-12-21 11:57:18] DEBUG Looking for jobs to run
+[2016-12-21 11:57:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:58:18 UTC)" (scheduled at 2016-12-21 11:57:18.507075+00:00)
+[2016-12-21 11:57:18] DEBUG Next wakeup is due at 2016-12-21 11:58:18.507075+00:00 (in 59.996078 seconds)
+[2016-12-21 11:57:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:58:18 UTC)" (scheduled at 2016-12-21 11:57:18.510871+00:00)
+[2016-12-21 11:57:18] INFO No data in any table
+[2016-12-21 11:57:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:58:18 UTC)" executed successfully
+[2016-12-21 11:57:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:57:28', 20.48]
+[2016-12-21 11:57:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:57:28', 20.48]
+[2016-12-21 11:57:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:58:18 UTC)" executed successfully
+[2016-12-21 11:58:18] DEBUG Looking for jobs to run
+[2016-12-21 11:58:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:59:18 UTC)" (scheduled at 2016-12-21 11:58:18.507075+00:00)
+[2016-12-21 11:58:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:59:18 UTC)" (scheduled at 2016-12-21 11:58:18.510871+00:00)
+[2016-12-21 11:58:18] DEBUG Next wakeup is due at 2016-12-21 11:59:18.507075+00:00 (in 59.994296 seconds)
+[2016-12-21 11:58:18] INFO Payload size 308
+[2016-12-21 11:58:18] INFO Payload components [(u'HumData', 175), (u'TempData', 175)]
+[2016-12-21 11:58:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:57:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 20.48, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:57:28", 
+                "Temp": 28.91
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:58:18"
+}
+[2016-12-21 11:58:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:58:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:58:19] INFO Post request succesful with status : 204
+[2016-12-21 11:58:19] INFO Payload uploaded with responnse 1
+[2016-12-21 11:58:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:59:18 UTC)" executed successfully
+[2016-12-21 11:58:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 11:58:28', 30.72]
+[2016-12-21 11:58:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:58:28', 30.72]
+[2016-12-21 11:58:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:59:18 UTC)" executed successfully
+[2016-12-21 11:59:18] DEBUG Looking for jobs to run
+[2016-12-21 11:59:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:59:18 UTC)" (scheduled at 2016-12-21 11:59:18.507075+00:00)
+[2016-12-21 11:59:18] DEBUG Next wakeup is due at 2016-12-21 12:00:18.507075+00:00 (in 59.993194 seconds)
+[2016-12-21 11:59:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:00:18 UTC)" (scheduled at 2016-12-21 11:59:18.510871+00:00)
+[2016-12-21 11:59:18] INFO Payload size 308
+[2016-12-21 11:59:18] INFO Payload components [(u'HumData', 176), (u'TempData', 176)]
+[2016-12-21 11:59:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 30.72, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:58:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 30.72, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:58:28", 
+                "Temp": 29.08
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 11:59:18"
+}
+[2016-12-21 11:59:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 11:59:20] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 11:59:20] INFO Post request succesful with status : 204
+[2016-12-21 11:59:20] INFO Payload uploaded with responnse 1
+[2016-12-21 11:59:20] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:00:18 UTC)" executed successfully
+[2016-12-21 11:59:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 11:59:28', 30.72]
+[2016-12-21 11:59:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:59:28', 30.72]
+[2016-12-21 11:59:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:00:18 UTC)" executed successfully
+[2016-12-21 12:00:18] DEBUG Looking for jobs to run
+[2016-12-21 12:00:18] DEBUG Next wakeup is due at 2016-12-21 12:01:18.507075+00:00 (in 59.985527 seconds)
+[2016-12-21 12:00:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:01:18 UTC)" (scheduled at 2016-12-21 12:00:18.507075+00:00)
+[2016-12-21 12:00:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:01:18 UTC)" (scheduled at 2016-12-21 12:00:18.510871+00:00)
+[2016-12-21 12:00:18] INFO Payload size 308
+[2016-12-21 12:00:18] INFO Payload components [(u'HumData', 177), (u'TempData', 177)]
+[2016-12-21 12:00:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 30.72, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:59:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 30.72, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 11:59:28", 
+                "Temp": 29.08
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 12:00:18"
+}
+[2016-12-21 12:00:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 12:00:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 12:00:19] INFO Post request succesful with status : 204
+[2016-12-21 12:00:19] INFO Payload uploaded with responnse 1
+[2016-12-21 12:00:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:01:18 UTC)" executed successfully
+[2016-12-21 12:00:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 12:00:28', 30.72]
+[2016-12-21 12:00:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 12:00:28', 30.72]
+[2016-12-21 12:00:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:01:18 UTC)" executed successfully
+[2016-12-21 12:01:18] DEBUG Looking for jobs to run
+[2016-12-21 12:01:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:02:18 UTC)" (scheduled at 2016-12-21 12:01:18.507075+00:00)
+[2016-12-21 12:01:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:01:18 UTC)" (scheduled at 2016-12-21 12:01:18.510871+00:00)
+[2016-12-21 12:01:18] DEBUG Next wakeup is due at 2016-12-21 12:02:18.507075+00:00 (in 59.995365 seconds)
+[2016-12-21 12:01:18] INFO Payload size 308
+[2016-12-21 12:01:18] INFO Payload components [(u'HumData', 178), (u'TempData', 178)]
+[2016-12-21 12:01:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 30.72, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 12:00:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 30.72, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 12:00:28", 
+                "Temp": 29.08
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 12:01:18"
+}
+[2016-12-21 12:01:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 12:01:20] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 12:01:20] INFO Post request succesful with status : 204
+[2016-12-21 12:01:20] INFO Payload uploaded with responnse 1
+[2016-12-21 12:01:20] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:02:18 UTC)" executed successfully
+[2016-12-21 12:01:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:02:18 UTC)" executed successfully
+[2016-12-21 12:02:18] DEBUG Looking for jobs to run
+[2016-12-21 12:02:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:03:18 UTC)" (scheduled at 2016-12-21 12:02:18.507075+00:00)
+[2016-12-21 12:02:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:03:18 UTC)" (scheduled at 2016-12-21 12:02:18.510871+00:00)
+[2016-12-21 12:02:18] DEBUG Next wakeup is due at 2016-12-21 12:03:18.507075+00:00 (in 59.982816 seconds)
+[2016-12-21 12:02:18] INFO No data in any table
+[2016-12-21 12:02:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:03:18 UTC)" executed successfully
+[2016-12-21 12:02:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 12:02:28', 30.72]
+[2016-12-21 12:02:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 12:02:28', 30.72]
+[2016-12-21 12:02:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:03:18 UTC)" executed successfully
+[2016-12-21 12:03:18] DEBUG Looking for jobs to run
+[2016-12-21 12:03:18] DEBUG Next wakeup is due at 2016-12-21 12:04:18.507075+00:00 (in 59.993306 seconds)
+[2016-12-21 12:03:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:04:18 UTC)" (scheduled at 2016-12-21 12:03:18.507075+00:00)
+[2016-12-21 12:03:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:04:18 UTC)" (scheduled at 2016-12-21 12:03:18.510871+00:00)
+[2016-12-21 12:03:18] INFO Payload size 308
+[2016-12-21 12:03:18] INFO Payload components [(u'HumData', 179), (u'TempData', 179)]
+[2016-12-21 12:03:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 30.72, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 12:02:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 30.72, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 12:02:28", 
+                "Temp": 29.08
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 12:03:18"
+}
+[2016-12-21 12:03:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 12:03:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 12:03:19] INFO Post request succesful with status : 204
+[2016-12-21 12:03:19] INFO Payload uploaded with responnse 1
+[2016-12-21 12:03:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:04:18 UTC)" executed successfully
+[2016-12-21 12:03:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 12:03:28', 30.72]
+[2016-12-21 12:03:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 12:03:28', 30.72]
+[2016-12-21 12:03:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:04:18 UTC)" executed successfully
+[2016-12-21 12:04:18] DEBUG Looking for jobs to run
+[2016-12-21 12:04:18] DEBUG Next wakeup is due at 2016-12-21 12:05:18.507075+00:00 (in 59.994739 seconds)
+[2016-12-21 12:04:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:05:18 UTC)" (scheduled at 2016-12-21 12:04:18.507075+00:00)
+[2016-12-21 12:04:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:05:18 UTC)" (scheduled at 2016-12-21 12:04:18.510871+00:00)
+[2016-12-21 12:04:18] INFO Payload size 308
+[2016-12-21 12:04:18] INFO Payload components [(u'HumData', 180), (u'TempData', 180)]
+[2016-12-21 12:04:18] DEBUG {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 58.0, 
+                "NdBat": 30.72, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 12:03:28"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 30.72, 
+                "NdId": "ed:7b:32:31:6e:e2", 
+                "NdTs": "2016-12-21 12:03:28", 
+                "Temp": 29.08
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-21 12:04:18"
+}
+[2016-12-21 12:04:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-21 12:04:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-21 12:04:19] INFO Post request succesful with status : 204
+[2016-12-21 12:04:19] INFO Payload uploaded with responnse 1
+[2016-12-21 12:04:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:05:18 UTC)" executed successfully
+[2016-12-21 12:04:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 12:04:28', 30.72]
+[2016-12-21 12:04:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 12:04:28', 30.72]
+[2016-12-21 12:04:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:05:18 UTC)" executed successfully
