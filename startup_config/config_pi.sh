@@ -6,7 +6,7 @@ sudo cp /home/pi/tagbox/startup_config/wpa_supplicant.conf /etc/wpa_supplicant/w
 
 
 #sudo reboot
-cd bluez-5.37
+cd /home/pi/tagbox-rpi/bluez-5.40
 ./configure
 
 make
