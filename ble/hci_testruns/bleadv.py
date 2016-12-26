@@ -2,6 +2,7 @@ import time
 import datetime
 import requests
 import os
+import bledb
 
 
 ## Superclass containing a tag's info. Can create subclasses later to separate out ble-data 
@@ -94,19 +95,22 @@ def parseAdv(scantime,lib_path,parseOutFile):
 		
 		temp1=int(temp_hex,16)
 		humid1=int(humid_hex,16)
-		temp=(175.52*temp1/(2**16))-46.85
-		humid=(125*humid1/(2**16))-6
-		batt=100*batt1/16
-		tstamp=datetime.datetime.now()
+		temp=round(((175.52*temp1/(2**16))-46.85),2)
+		humid=round(((125*humid1/(2**16))-6),2)
+		batt=round(100*batt1/16,0)
+		tstamp=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 		f_target.write(MACID+" "+str(temp)+" "+str(humid)+" "+str(tstamp)+" "+str(batt)+"\n") 
 		line_num+=1		
 
 	f_data.close()
 	f_target.close()
 	return line_num
+
+
 	
 def tagDataUpdate(TagList,advDataFile,gatewayID,passAll):
 	updatedTags=[]
+	macidList = []
 	with open(advDataFile,'r') as f_data:
 		for line in f_data:
 			data_words=line.split()
@@ -116,7 +120,11 @@ def tagDataUpdate(TagList,advDataFile,gatewayID,passAll):
 					tag.humidity=data_words[2]
 					tag.timestamp=data_words[3]+" "+data_words[4]
 					tag.batt=data_words[5]
-					updatedTags.append(tag)
+					
+
+					if tag.macid not in macidList:
+						updatedTags.append(tag)
+					macidList.append(tag.macid)
 	return updatedTags
 	
 

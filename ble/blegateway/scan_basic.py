@@ -1,5 +1,7 @@
 from bluepy.btle import Scanner, DefaultDelegate, Peripheral, ADDR_TYPE_RANDOM, AssignedNumbers
 import time
+import struct
+
 
 class ScanDelegate(DefaultDelegate):
 	def __init__(self):
@@ -36,6 +38,9 @@ except Exception, error:
 	
 for dev in devices:
 	print "Device %s (%s), RSSI=%d dB" % (dev.addr, dev.addrType, dev.rssi)
+	print dev.serviceData
+	if 'ffe1' in dev.serviceData.keys():
+		print 'ITS HERE'
 	for (adtype, desc, value) in dev.getScanData():
 		print "  %s: %s = %s" % (adtype, desc, value)
 		if (adtype == typeCompanyName) and (value == manufacturerCappec):

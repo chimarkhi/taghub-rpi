@@ -1,866 +1,1826 @@
-[2016-12-21 11:37:18] INFO Logging started
-[2016-12-21 11:37:18] INFO Created Telemetry DB
-[2016-12-21 11:37:18] INFO Opening First scan window
-[2016-12-21 11:37:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.57, '2016-12-21 11:37:28', 0.0]
-[2016-12-21 11:37:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:37:28', 0.0]
-[2016-12-21 11:37:28] INFO Starting Scheduler 
-[2016-12-21 11:37:28] INFO Added job "scanParse" to job store "default"
-[2016-12-21 11:37:28] INFO Added job "dBToServer" to job store "default"
-[2016-12-21 11:37:28] INFO Added job "dBFlush" to job store "default"
-[2016-12-21 11:37:28] INFO Scheduler started
-[2016-12-21 11:37:28] DEBUG Looking for jobs to run
-[2016-12-21 11:37:28] DEBUG Next wakeup is due at 2016-12-21 11:38:18.507075+00:00 (in 49.843406 seconds)
-[2016-12-21 11:38:18] DEBUG Looking for jobs to run
-[2016-12-21 11:38:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:38:18 UTC)" (scheduled at 2016-12-21 11:38:18.507075+00:00)
-[2016-12-21 11:38:18] DEBUG Next wakeup is due at 2016-12-21 11:38:18.510871+00:00 (in 0.001921 seconds)
-[2016-12-21 11:38:18] DEBUG Looking for jobs to run
-[2016-12-21 11:38:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:38:18 UTC)" (scheduled at 2016-12-21 11:38:18.510871+00:00)
-[2016-12-21 11:38:18] DEBUG Next wakeup is due at 2016-12-21 11:39:18.507075+00:00 (in 59.987963 seconds)
-[2016-12-21 11:38:18] INFO Payload size 488
-[2016-12-21 11:38:18] INFO Payload components [(u'HumData', 159), (u'TempData', 159), (u'HumData', 160), (u'TempData', 160)]
-[2016-12-21 11:38:18] DEBUG {
+[2016-12-26 14:14:41] INFO Logging started
+[2016-12-26 14:14:41] INFO Created Telemetry DB
+[2016-12-26 14:14:41] INFO Opening First scan window
+[2016-12-26 14:14:51] INFO AM temp data:[u'eb:d3:c7:da:ba:2c', -6.74, '2016-12-26 14:14:51', 20.48]
+[2016-12-26 14:14:51] INFO AM humid data:[u'eb:d3:c7:da:ba:2c', 63.0, '2016-12-26 14:14:51', 20.48]
+[2016-12-26 14:14:51] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -5.71, '2016-12-26 14:14:51', 0.0]
+[2016-12-26 14:14:51] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 93.0, '2016-12-26 14:14:51', 0.0]
+[2016-12-26 14:14:51] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -5.03, '2016-12-26 14:14:51', 0.0]
+[2016-12-26 14:14:51] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 94.0, '2016-12-26 14:14:51', 0.0]
+[2016-12-26 14:14:51] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.08, '2016-12-26 14:14:51', 0.0]
+[2016-12-26 14:14:51] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 75.0, '2016-12-26 14:14:51', 0.0]
+[2016-12-26 14:14:51] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:14:51', 94]
+[2016-12-26 14:14:51] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:46', 27.1, '2016-12-26 14:14:51', 100]
+[2016-12-26 14:14:51] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:46', 36.2, '2016-12-26 14:14:51', 100]
+[2016-12-26 14:14:51] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:14:51', 100]
+[2016-12-26 14:14:51] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 35.4, '2016-12-26 14:14:51', 100]
+[2016-12-26 14:14:52] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:14:52', 10.24]
+[2016-12-26 14:14:52] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:14:52', 10.24]
+[2016-12-26 14:14:52] INFO Starting Scheduler 
+[2016-12-26 14:14:52] INFO Added job "scanParse" to job store "default"
+[2016-12-26 14:14:52] INFO Added job "dBToServer" to job store "default"
+[2016-12-26 14:14:52] INFO Added job "dBFlush" to job store "default"
+[2016-12-26 14:14:52] INFO Scheduler started
+[2016-12-26 14:14:52] DEBUG Looking for jobs to run
+[2016-12-26 14:14:52] DEBUG Next wakeup is due at 2016-12-26 14:15:01.297104+00:00 (in 9.062925 seconds)
+[2016-12-26 14:15:01] DEBUG Looking for jobs to run
+[2016-12-26 14:15:01] DEBUG Next wakeup is due at 2016-12-26 14:15:11.301008+00:00 (in 10.002207 seconds)
+[2016-12-26 14:15:01] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:15:21 UTC)" (scheduled at 2016-12-26 14:15:01.297104+00:00)
+[2016-12-26 14:15:11] DEBUG Looking for jobs to run
+[2016-12-26 14:15:11] INFO Running job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:15:11 UTC)" (scheduled at 2016-12-26 14:15:11.301008+00:00)
+[2016-12-26 14:15:11] DEBUG Next wakeup is due at 2016-12-26 14:15:21.297104+00:00 (in 9.991277 seconds)
+[2016-12-26 14:15:11] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -5.88, '2016-12-26 14:15:11', 30.72]
+[2016-12-26 14:15:11] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 92.0, '2016-12-26 14:15:11', 30.72]
+[2016-12-26 14:15:11] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -5.37, '2016-12-26 14:15:11', 20.48]
+[2016-12-26 14:15:11] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 93.0, '2016-12-26 14:15:11', 20.48]
+[2016-12-26 14:15:11] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:15:11', 94]
+[2016-12-26 14:15:11] INFO AM temp data:[u'cc:e8:4b:4d:30:ad', -7.08, '2016-12-26 14:15:11', 0.0]
+[2016-12-26 14:15:11] INFO AM humid data:[u'cc:e8:4b:4d:30:ad', 71.0, '2016-12-26 14:15:11', 0.0]
+[2016-12-26 14:15:11] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:15:11', 10.24]
+[2016-12-26 14:15:11] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:15:11', 10.24]
+[2016-12-26 14:15:11] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:15:21 UTC)" executed successfully
+[2016-12-26 14:15:14] INFO Payload size 2339
+[2016-12-26 14:15:14] INFO Payload components [(u'HumData', 3893), (u'TempData', 3893), (u'HumData', 3894), (u'TempData', 3894), (u'HumData', 3895), (u'TempData', 3895), (u'HumData', 3896), (u'TempData', 3896), (u'HumData', 3897), (u'TempData', 3897), (u'HumData', 3898), (u'TempData', 3898), (u'HumData', 3899), (u'TempData', 3899), (u'HumData', 3900), (u'TempData', 3900), (u'HumData', 3901), (u'TempData', 3901), (u'DoorActData', 461), (u'HumData', 3902), (u'TempData', 3902), (u'DoorActData', 462), (u'HumData', 3903), (u'TempData', 3903)]
+[2016-12-26 14:15:14] DEBUG {
     "Data": {
-        "HumData": [
+        "DoorActData": [
             {
-                "Hum": 59.0, 
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:34:28"
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:14:51"
             }, 
             {
-                "Hum": 59.0, 
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:15:11"
+            }
+        ], 
+        "HumData": [
+            {
+                "Hum": 63.0, 
+                "NdBat": 20.48, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:14:51"
+            }, 
+            {
+                "Hum": 93.0, 
                 "NdBat": 0.0, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:37:28"
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:14:51"
+            }, 
+            {
+                "Hum": 94.0, 
+                "NdBat": 0.0, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:14:51"
+            }, 
+            {
+                "Hum": 75.0, 
+                "NdBat": 0.0, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:14:51"
+            }, 
+            {
+                "Hum": 36.2, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:14:51"
+            }, 
+            {
+                "Hum": 35.4, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:14:51"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:14:52"
+            }, 
+            {
+                "Hum": 92.0, 
+                "NdBat": 30.72, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:15:11"
+            }, 
+            {
+                "Hum": 93.0, 
+                "NdBat": 20.48, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:15:11"
+            }, 
+            {
+                "Hum": 71.0, 
+                "NdBat": 0.0, 
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:15:11"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:15:11"
             }
         ], 
         "TempData": [
             {
                 "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:34:28", 
-                "Temp": 28.23
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:14:51", 
+                "Temp": -6.74
             }, 
             {
                 "NdBat": 0.0, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:37:28", 
-                "Temp": 28.57
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:38:18"
-}
-[2016-12-21 11:38:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:38:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:38:19] INFO Post request succesful with status : 204
-[2016-12-21 11:38:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:38:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:39:18 UTC)" executed successfully
-[2016-12-21 11:38:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.57, '2016-12-21 11:38:28', 0.0]
-[2016-12-21 11:38:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:38:28', 0.0]
-[2016-12-21 11:38:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:39:18 UTC)" executed successfully
-[2016-12-21 11:39:18] DEBUG Looking for jobs to run
-[2016-12-21 11:39:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:39:18 UTC)" (scheduled at 2016-12-21 11:39:18.507075+00:00)
-[2016-12-21 11:39:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:39:18 UTC)" (scheduled at 2016-12-21 11:39:18.510871+00:00)
-[2016-12-21 11:39:18] DEBUG Next wakeup is due at 2016-12-21 11:40:18.507075+00:00 (in 59.991167 seconds)
-[2016-12-21 11:39:18] INFO Payload size 304
-[2016-12-21 11:39:18] INFO Payload components [(u'HumData', 161), (u'TempData', 161)]
-[2016-12-21 11:39:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 59.0, 
-                "NdBat": 0.0, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:38:28"
-            }
-        ], 
-        "TempData": [
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:14:51", 
+                "Temp": -5.71
+            }, 
             {
                 "NdBat": 0.0, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:38:28", 
-                "Temp": 28.57
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:39:18"
-}
-[2016-12-21 11:39:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:39:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:39:19] INFO Post request succesful with status : 204
-[2016-12-21 11:39:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:39:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:40:18 UTC)" executed successfully
-[2016-12-21 11:39:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:40:18 UTC)" executed successfully
-[2016-12-21 11:40:18] DEBUG Looking for jobs to run
-[2016-12-21 11:40:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:40:18 UTC)" (scheduled at 2016-12-21 11:40:18.507075+00:00)
-[2016-12-21 11:40:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:40:18 UTC)" (scheduled at 2016-12-21 11:40:18.510871+00:00)
-[2016-12-21 11:40:18] DEBUG Next wakeup is due at 2016-12-21 11:41:18.507075+00:00 (in 59.971211 seconds)
-[2016-12-21 11:40:18] INFO No data in any table
-[2016-12-21 11:40:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:41:18 UTC)" executed successfully
-[2016-12-21 11:40:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.74, '2016-12-21 11:40:28', 10.24]
-[2016-12-21 11:40:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:40:28', 10.24]
-[2016-12-21 11:40:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:41:18 UTC)" executed successfully
-[2016-12-21 11:41:18] DEBUG Looking for jobs to run
-[2016-12-21 11:41:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:42:18 UTC)" (scheduled at 2016-12-21 11:41:18.507075+00:00)
-[2016-12-21 11:41:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:41:18 UTC)" (scheduled at 2016-12-21 11:41:18.510871+00:00)
-[2016-12-21 11:41:18] DEBUG Next wakeup is due at 2016-12-21 11:42:18.507075+00:00 (in 59.977906 seconds)
-[2016-12-21 11:41:18] INFO Payload size 308
-[2016-12-21 11:41:18] INFO Payload components [(u'HumData', 162), (u'TempData', 162)]
-[2016-12-21 11:41:18] DEBUG {
-    "Data": {
-        "HumData": [
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:14:51", 
+                "Temp": -5.03
+            }, 
             {
-                "Hum": 59.0, 
-                "NdBat": 10.24, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:40:28"
-            }
-        ], 
-        "TempData": [
+                "NdBat": 0.0, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:14:51", 
+                "Temp": -7.08
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:14:51", 
+                "Temp": 27.1
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:14:51", 
+                "Temp": 26.9
+            }, 
             {
                 "NdBat": 10.24, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:40:28", 
-                "Temp": 28.74
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:41:18"
-}
-[2016-12-21 11:41:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:41:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:41:19] INFO Post request succesful with status : 204
-[2016-12-21 11:41:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:41:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:42:18 UTC)" executed successfully
-[2016-12-21 11:41:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.74, '2016-12-21 11:41:28', 10.24]
-[2016-12-21 11:41:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:41:28', 10.24]
-[2016-12-21 11:41:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:42:18 UTC)" executed successfully
-[2016-12-21 11:42:18] DEBUG Looking for jobs to run
-[2016-12-21 11:42:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:42:18 UTC)" (scheduled at 2016-12-21 11:42:18.507075+00:00)
-[2016-12-21 11:42:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:42:18 UTC)" (scheduled at 2016-12-21 11:42:18.510871+00:00)
-[2016-12-21 11:42:18] DEBUG Next wakeup is due at 2016-12-21 11:43:18.507075+00:00 (in 59.980286 seconds)
-[2016-12-21 11:42:18] INFO Payload size 308
-[2016-12-21 11:42:18] INFO Payload components [(u'HumData', 163), (u'TempData', 163)]
-[2016-12-21 11:42:18] DEBUG {
-    "Data": {
-        "HumData": [
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:14:52", 
+                "Temp": 27.37
+            }, 
             {
-                "Hum": 59.0, 
-                "NdBat": 10.24, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:41:28"
-            }
-        ], 
-        "TempData": [
+                "NdBat": 30.72, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:15:11", 
+                "Temp": -5.88
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:15:11", 
+                "Temp": -5.37
+            }, 
+            {
+                "NdBat": 0.0, 
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:15:11", 
+                "Temp": -7.08
+            }, 
             {
                 "NdBat": 10.24, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:41:28", 
-                "Temp": 28.74
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:15:11", 
+                "Temp": 27.37
             }
         ]
     }, 
     "GwBat": "100", 
     "GwId": "dev_device_1", 
     "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:42:18"
+    "GwTs": "2016-12-26 14:15:11"
 }
-[2016-12-21 11:42:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:42:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:42:19] INFO Post request succesful with status : 204
-[2016-12-21 11:42:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:42:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:43:18 UTC)" executed successfully
-[2016-12-21 11:42:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.74, '2016-12-21 11:42:28', 10.24]
-[2016-12-21 11:42:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:42:28', 10.24]
-[2016-12-21 11:42:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:43:18 UTC)" executed successfully
-[2016-12-21 11:43:18] DEBUG Looking for jobs to run
-[2016-12-21 11:43:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:43:18 UTC)" (scheduled at 2016-12-21 11:43:18.507075+00:00)
-[2016-12-21 11:43:18] DEBUG Next wakeup is due at 2016-12-21 11:44:18.507075+00:00 (in 59.973344 seconds)
-[2016-12-21 11:43:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:44:18 UTC)" (scheduled at 2016-12-21 11:43:18.510871+00:00)
-[2016-12-21 11:43:18] INFO Payload size 308
-[2016-12-21 11:43:18] INFO Payload components [(u'HumData', 164), (u'TempData', 164)]
-[2016-12-21 11:43:18] DEBUG {
+[2016-12-26 14:15:14] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-26 14:15:18] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-26 14:15:18] INFO Post request succesful with status : 204
+[2016-12-26 14:15:18] INFO Payload uploaded with response 1
+[2016-12-26 14:15:18] INFO Job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:15:41 UTC)" executed successfully
+[2016-12-26 14:15:21] DEBUG Looking for jobs to run
+[2016-12-26 14:15:21] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:15:21 UTC)" (scheduled at 2016-12-26 14:15:21.297104+00:00)
+[2016-12-26 14:15:21] DEBUG Next wakeup is due at 2016-12-26 14:15:41.297104+00:00 (in 19.994511 seconds)
+[2016-12-26 14:15:31] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -5.88, '2016-12-26 14:15:31', 30.72]
+[2016-12-26 14:15:31] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 92.0, '2016-12-26 14:15:31', 30.72]
+[2016-12-26 14:15:31] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -5.37, '2016-12-26 14:15:31', 20.48]
+[2016-12-26 14:15:31] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 93.0, '2016-12-26 14:15:31', 20.48]
+[2016-12-26 14:15:31] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.26, '2016-12-26 14:15:31', 30.72]
+[2016-12-26 14:15:31] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 75.0, '2016-12-26 14:15:31', 30.72]
+[2016-12-26 14:15:31] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:15:31', 94]
+[2016-12-26 14:15:31] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:46', 27.1, '2016-12-26 14:15:31', 100]
+[2016-12-26 14:15:31] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:46', 35.0, '2016-12-26 14:15:31', 100]
+[2016-12-26 14:15:31] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:15:31', 100]
+[2016-12-26 14:15:31] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 35.0, '2016-12-26 14:15:31', 100]
+[2016-12-26 14:15:31] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:15:31', 10.24]
+[2016-12-26 14:15:31] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:15:31', 10.24]
+[2016-12-26 14:15:31] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:15:41 UTC)" executed successfully
+[2016-12-26 14:15:41] DEBUG Looking for jobs to run
+[2016-12-26 14:15:41] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:15:41 UTC)" (scheduled at 2016-12-26 14:15:41.297104+00:00)
+[2016-12-26 14:15:41] INFO Running job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:15:41 UTC)" (scheduled at 2016-12-26 14:15:41.301008+00:00)
+[2016-12-26 14:15:41] DEBUG Next wakeup is due at 2016-12-26 14:16:01.297104+00:00 (in 19.994683 seconds)
+[2016-12-26 14:15:42] INFO Payload size 1339
+[2016-12-26 14:15:42] INFO Payload components [(u'HumData', 3904), (u'TempData', 3904), (u'HumData', 3905), (u'TempData', 3905), (u'HumData', 3906), (u'TempData', 3906), (u'HumData', 3907), (u'TempData', 3907), (u'HumData', 3908), (u'TempData', 3908), (u'DoorActData', 463), (u'HumData', 3909), (u'TempData', 3909)]
+[2016-12-26 14:15:43] DEBUG {
     "Data": {
+        "DoorActData": [
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:15:31"
+            }
+        ], 
         "HumData": [
             {
-                "Hum": 59.0, 
+                "Hum": 92.0, 
+                "NdBat": 30.72, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:15:31"
+            }, 
+            {
+                "Hum": 93.0, 
+                "NdBat": 20.48, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:15:31"
+            }, 
+            {
+                "Hum": 75.0, 
+                "NdBat": 30.72, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:15:31"
+            }, 
+            {
+                "Hum": 35.0, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:15:31"
+            }, 
+            {
+                "Hum": 35.0, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:15:31"
+            }, 
+            {
+                "Hum": 39.0, 
                 "NdBat": 10.24, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:42:28"
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:15:31"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 30.72, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:15:31", 
+                "Temp": -5.88
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:15:31", 
+                "Temp": -5.37
+            }, 
+            {
+                "NdBat": 30.72, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:15:31", 
+                "Temp": -7.26
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:15:31", 
+                "Temp": 27.1
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:15:31", 
+                "Temp": 26.9
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:15:31", 
+                "Temp": 27.37
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-26 14:15:41"
+}
+[2016-12-26 14:15:43] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-26 14:15:44] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-26 14:15:44] INFO Post request succesful with status : 204
+[2016-12-26 14:15:44] INFO Payload uploaded with response 1
+[2016-12-26 14:15:44] INFO Job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:16:11 UTC)" executed successfully
+[2016-12-26 14:15:51] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -6.23, '2016-12-26 14:15:51', 10.24]
+[2016-12-26 14:15:51] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 92.0, '2016-12-26 14:15:51', 10.24]
+[2016-12-26 14:15:51] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -5.54, '2016-12-26 14:15:51', 10.24]
+[2016-12-26 14:15:51] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 93.0, '2016-12-26 14:15:51', 10.24]
+[2016-12-26 14:15:51] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.26, '2016-12-26 14:15:51', 30.72]
+[2016-12-26 14:15:51] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 77.0, '2016-12-26 14:15:51', 30.72]
+[2016-12-26 14:15:51] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:15:51', 94]
+[2016-12-26 14:15:51] INFO AM temp data:[u'cc:e8:4b:4d:30:ad', -7.26, '2016-12-26 14:15:51', 30.72]
+[2016-12-26 14:15:51] INFO AM humid data:[u'cc:e8:4b:4d:30:ad', 73.0, '2016-12-26 14:15:51', 30.72]
+[2016-12-26 14:15:51] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 27.0, '2016-12-26 14:15:51', 100]
+[2016-12-26 14:15:51] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 35.0, '2016-12-26 14:15:51', 100]
+[2016-12-26 14:15:51] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:15:51', 10.24]
+[2016-12-26 14:15:51] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:15:51', 10.24]
+[2016-12-26 14:15:51] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:16:01 UTC)" executed successfully
+[2016-12-26 14:16:01] DEBUG Looking for jobs to run
+[2016-12-26 14:16:01] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:16:01 UTC)" (scheduled at 2016-12-26 14:16:01.297104+00:00)
+[2016-12-26 14:16:01] DEBUG Next wakeup is due at 2016-12-26 14:16:11.301008+00:00 (in 9.985939 seconds)
+[2016-12-26 14:16:11] DEBUG Looking for jobs to run
+[2016-12-26 14:16:11] INFO Running job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:16:11 UTC)" (scheduled at 2016-12-26 14:16:11.301008+00:00)
+[2016-12-26 14:16:11] DEBUG Next wakeup is due at 2016-12-26 14:16:21.297104+00:00 (in 9.983354 seconds)
+[2016-12-26 14:16:11] INFO AM temp data:[u'eb:d3:c7:da:ba:2c', -7.43, '2016-12-26 14:16:11', 20.48]
+[2016-12-26 14:16:11] INFO AM humid data:[u'eb:d3:c7:da:ba:2c', 76.0, '2016-12-26 14:16:11', 20.48]
+[2016-12-26 14:16:11] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -6.4, '2016-12-26 14:16:11', 0.0]
+[2016-12-26 14:16:11] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 91.0, '2016-12-26 14:16:11', 0.0]
+[2016-12-26 14:16:11] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -5.88, '2016-12-26 14:16:11', 30.72]
+[2016-12-26 14:16:11] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 93.0, '2016-12-26 14:16:11', 30.72]
+[2016-12-26 14:16:11] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.26, '2016-12-26 14:16:11', 30.72]
+[2016-12-26 14:16:11] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 77.0, '2016-12-26 14:16:11', 30.72]
+[2016-12-26 14:16:11] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:16:11', 94]
+[2016-12-26 14:16:11] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 27.0, '2016-12-26 14:16:11', 100]
+[2016-12-26 14:16:11] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 35.0, '2016-12-26 14:16:11', 100]
+[2016-12-26 14:16:11] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:16:11', 10.24]
+[2016-12-26 14:16:11] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:16:11', 10.24]
+[2016-12-26 14:16:11] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:16:21 UTC)" executed successfully
+[2016-12-26 14:16:15] INFO Payload size 2534
+[2016-12-26 14:16:15] INFO Payload components [(u'HumData', 3910), (u'TempData', 3910), (u'HumData', 3911), (u'TempData', 3911), (u'HumData', 3912), (u'TempData', 3912), (u'HumData', 3913), (u'TempData', 3913), (u'HumData', 3914), (u'TempData', 3914), (u'HumData', 3915), (u'TempData', 3915), (u'HumData', 3916), (u'TempData', 3916), (u'HumData', 3917), (u'TempData', 3917), (u'HumData', 3918), (u'TempData', 3918), (u'HumData', 3919), (u'TempData', 3919), (u'DoorActData', 464), (u'HumData', 3920), (u'TempData', 3920), (u'DoorActData', 465), (u'HumData', 3921), (u'TempData', 3921)]
+[2016-12-26 14:16:16] DEBUG {
+    "Data": {
+        "DoorActData": [
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:15:51"
+            }, 
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:16:11"
+            }
+        ], 
+        "HumData": [
+            {
+                "Hum": 92.0, 
+                "NdBat": 10.24, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:15:51"
+            }, 
+            {
+                "Hum": 93.0, 
+                "NdBat": 10.24, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:15:51"
+            }, 
+            {
+                "Hum": 77.0, 
+                "NdBat": 30.72, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:15:51"
+            }, 
+            {
+                "Hum": 73.0, 
+                "NdBat": 30.72, 
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:15:51"
+            }, 
+            {
+                "Hum": 35.0, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:15:51"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:15:51"
+            }, 
+            {
+                "Hum": 76.0, 
+                "NdBat": 20.48, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:16:11"
+            }, 
+            {
+                "Hum": 91.0, 
+                "NdBat": 0.0, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:16:11"
+            }, 
+            {
+                "Hum": 93.0, 
+                "NdBat": 30.72, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:16:11"
+            }, 
+            {
+                "Hum": 77.0, 
+                "NdBat": 30.72, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:16:11"
+            }, 
+            {
+                "Hum": 35.0, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:16:11"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:16:11"
             }
         ], 
         "TempData": [
             {
                 "NdBat": 10.24, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:42:28", 
-                "Temp": 28.74
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:43:18"
-}
-[2016-12-21 11:43:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:43:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:43:19] INFO Post request succesful with status : 204
-[2016-12-21 11:43:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:43:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:44:18 UTC)" executed successfully
-[2016-12-21 11:43:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.74, '2016-12-21 11:43:28', 10.24]
-[2016-12-21 11:43:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 59.0, '2016-12-21 11:43:28', 10.24]
-[2016-12-21 11:43:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:44:18 UTC)" executed successfully
-[2016-12-21 11:44:18] DEBUG Looking for jobs to run
-[2016-12-21 11:44:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:45:18 UTC)" (scheduled at 2016-12-21 11:44:18.507075+00:00)
-[2016-12-21 11:44:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:45:18 UTC)" (scheduled at 2016-12-21 11:44:18.510871+00:00)
-[2016-12-21 11:44:18] DEBUG Next wakeup is due at 2016-12-21 11:45:18.507075+00:00 (in 59.986221 seconds)
-[2016-12-21 11:44:18] INFO Payload size 308
-[2016-12-21 11:44:18] INFO Payload components [(u'HumData', 165), (u'TempData', 165)]
-[2016-12-21 11:44:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 59.0, 
-                "NdBat": 10.24, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:43:28"
-            }
-        ], 
-        "TempData": [
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:15:51", 
+                "Temp": -6.23
+            }, 
             {
                 "NdBat": 10.24, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:43:28", 
-                "Temp": 28.74
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:44:18"
-}
-[2016-12-21 11:44:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:44:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:44:19] INFO Post request succesful with status : 204
-[2016-12-21 11:44:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:44:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:45:18 UTC)" executed successfully
-[2016-12-21 11:44:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:45:18 UTC)" executed successfully
-[2016-12-21 11:45:18] DEBUG Looking for jobs to run
-[2016-12-21 11:45:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:46:18 UTC)" (scheduled at 2016-12-21 11:45:18.507075+00:00)
-[2016-12-21 11:45:18] DEBUG Next wakeup is due at 2016-12-21 11:46:18.507075+00:00 (in 59.984297 seconds)
-[2016-12-21 11:45:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:46:18 UTC)" (scheduled at 2016-12-21 11:45:18.510871+00:00)
-[2016-12-21 11:45:18] INFO No data in any table
-[2016-12-21 11:45:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:46:18 UTC)" executed successfully
-[2016-12-21 11:45:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:45:28', 20.48]
-[2016-12-21 11:45:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:45:28', 20.48]
-[2016-12-21 11:45:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:46:18 UTC)" executed successfully
-[2016-12-21 11:46:18] DEBUG Looking for jobs to run
-[2016-12-21 11:46:18] DEBUG Next wakeup is due at 2016-12-21 11:47:18.507075+00:00 (in 59.980536 seconds)
-[2016-12-21 11:46:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:47:18 UTC)" (scheduled at 2016-12-21 11:46:18.507075+00:00)
-[2016-12-21 11:46:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:47:18 UTC)" (scheduled at 2016-12-21 11:46:18.510871+00:00)
-[2016-12-21 11:46:18] INFO Payload size 308
-[2016-12-21 11:46:18] INFO Payload components [(u'HumData', 166), (u'TempData', 166)]
-[2016-12-21 11:46:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 58.0, 
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:45:28"
-            }
-        ], 
-        "TempData": [
-            {
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:45:28", 
-                "Temp": 28.91
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:46:18"
-}
-[2016-12-21 11:46:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:46:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:46:19] INFO Post request succesful with status : 204
-[2016-12-21 11:46:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:46:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:47:18 UTC)" executed successfully
-[2016-12-21 11:46:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:46:28', 20.48]
-[2016-12-21 11:46:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:46:28', 20.48]
-[2016-12-21 11:46:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:47:18 UTC)" executed successfully
-[2016-12-21 11:47:18] DEBUG Looking for jobs to run
-[2016-12-21 11:47:18] DEBUG Next wakeup is due at 2016-12-21 11:48:18.507075+00:00 (in 59.994773 seconds)
-[2016-12-21 11:47:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:48:18 UTC)" (scheduled at 2016-12-21 11:47:18.507075+00:00)
-[2016-12-21 11:47:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:48:18 UTC)" (scheduled at 2016-12-21 11:47:18.510871+00:00)
-[2016-12-21 11:47:18] INFO Payload size 308
-[2016-12-21 11:47:18] INFO Payload components [(u'HumData', 167), (u'TempData', 167)]
-[2016-12-21 11:47:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 58.0, 
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:46:28"
-            }
-        ], 
-        "TempData": [
-            {
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:46:28", 
-                "Temp": 28.91
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:47:18"
-}
-[2016-12-21 11:47:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:47:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:47:19] INFO Post request succesful with status : 204
-[2016-12-21 11:47:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:47:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:48:18 UTC)" executed successfully
-[2016-12-21 11:47:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:47:28', 20.48]
-[2016-12-21 11:47:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:47:28', 20.48]
-[2016-12-21 11:47:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:48:18 UTC)" executed successfully
-[2016-12-21 11:48:18] DEBUG Looking for jobs to run
-[2016-12-21 11:48:18] DEBUG Next wakeup is due at 2016-12-21 11:49:18.507075+00:00 (in 59.994748 seconds)
-[2016-12-21 11:48:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:49:18 UTC)" (scheduled at 2016-12-21 11:48:18.507075+00:00)
-[2016-12-21 11:48:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:49:18 UTC)" (scheduled at 2016-12-21 11:48:18.510871+00:00)
-[2016-12-21 11:48:18] INFO Payload size 308
-[2016-12-21 11:48:18] INFO Payload components [(u'HumData', 168), (u'TempData', 168)]
-[2016-12-21 11:48:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 58.0, 
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:47:28"
-            }
-        ], 
-        "TempData": [
-            {
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:47:28", 
-                "Temp": 28.91
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:48:18"
-}
-[2016-12-21 11:48:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:48:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:48:19] INFO Post request succesful with status : 204
-[2016-12-21 11:48:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:48:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:49:18 UTC)" executed successfully
-[2016-12-21 11:48:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:48:28', 20.48]
-[2016-12-21 11:48:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:48:28', 20.48]
-[2016-12-21 11:48:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:49:18 UTC)" executed successfully
-[2016-12-21 11:49:18] DEBUG Looking for jobs to run
-[2016-12-21 11:49:18] DEBUG Next wakeup is due at 2016-12-21 11:50:18.507075+00:00 (in 59.994590 seconds)
-[2016-12-21 11:49:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:50:18 UTC)" (scheduled at 2016-12-21 11:49:18.507075+00:00)
-[2016-12-21 11:49:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:50:18 UTC)" (scheduled at 2016-12-21 11:49:18.510871+00:00)
-[2016-12-21 11:49:18] INFO Payload size 308
-[2016-12-21 11:49:18] INFO Payload components [(u'HumData', 169), (u'TempData', 169)]
-[2016-12-21 11:49:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 58.0, 
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:48:28"
-            }
-        ], 
-        "TempData": [
-            {
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:48:28", 
-                "Temp": 28.91
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:49:18"
-}
-[2016-12-21 11:49:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:49:20] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:49:20] INFO Post request succesful with status : 204
-[2016-12-21 11:49:20] INFO Payload uploaded with responnse 1
-[2016-12-21 11:49:20] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:50:18 UTC)" executed successfully
-[2016-12-21 11:49:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:50:18 UTC)" executed successfully
-[2016-12-21 11:50:18] DEBUG Looking for jobs to run
-[2016-12-21 11:50:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:51:18 UTC)" (scheduled at 2016-12-21 11:50:18.507075+00:00)
-[2016-12-21 11:50:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:50:18 UTC)" (scheduled at 2016-12-21 11:50:18.510871+00:00)
-[2016-12-21 11:50:18] DEBUG Next wakeup is due at 2016-12-21 11:51:18.507075+00:00 (in 59.994420 seconds)
-[2016-12-21 11:50:18] INFO No data in any table
-[2016-12-21 11:50:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:51:18 UTC)" executed successfully
-[2016-12-21 11:50:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:50:28', 20.48]
-[2016-12-21 11:50:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:50:28', 20.48]
-[2016-12-21 11:50:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:51:18 UTC)" executed successfully
-[2016-12-21 11:51:18] DEBUG Looking for jobs to run
-[2016-12-21 11:51:18] DEBUG Next wakeup is due at 2016-12-21 11:52:18.507075+00:00 (in 59.985262 seconds)
-[2016-12-21 11:51:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:52:18 UTC)" (scheduled at 2016-12-21 11:51:18.507075+00:00)
-[2016-12-21 11:51:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:52:18 UTC)" (scheduled at 2016-12-21 11:51:18.510871+00:00)
-[2016-12-21 11:51:18] INFO Payload size 308
-[2016-12-21 11:51:18] INFO Payload components [(u'HumData', 170), (u'TempData', 170)]
-[2016-12-21 11:51:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 58.0, 
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:50:28"
-            }
-        ], 
-        "TempData": [
-            {
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:50:28", 
-                "Temp": 28.91
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:51:18"
-}
-[2016-12-21 11:51:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:51:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:51:19] INFO Post request succesful with status : 204
-[2016-12-21 11:51:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:51:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:52:18 UTC)" executed successfully
-[2016-12-21 11:51:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:51:28', 20.48]
-[2016-12-21 11:51:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:51:28', 20.48]
-[2016-12-21 11:51:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:52:18 UTC)" executed successfully
-[2016-12-21 11:52:18] DEBUG Looking for jobs to run
-[2016-12-21 11:52:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:53:18 UTC)" (scheduled at 2016-12-21 11:52:18.507075+00:00)
-[2016-12-21 11:52:18] DEBUG Next wakeup is due at 2016-12-21 11:53:18.507075+00:00 (in 59.995345 seconds)
-[2016-12-21 11:52:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:53:18 UTC)" (scheduled at 2016-12-21 11:52:18.510871+00:00)
-[2016-12-21 11:52:18] INFO Payload size 308
-[2016-12-21 11:52:18] INFO Payload components [(u'HumData', 171), (u'TempData', 171)]
-[2016-12-21 11:52:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 58.0, 
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:51:28"
-            }
-        ], 
-        "TempData": [
-            {
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:51:28", 
-                "Temp": 28.91
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:52:18"
-}
-[2016-12-21 11:52:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:52:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:52:19] INFO Post request succesful with status : 204
-[2016-12-21 11:52:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:52:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:53:18 UTC)" executed successfully
-[2016-12-21 11:52:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:52:28', 20.48]
-[2016-12-21 11:52:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:52:28', 20.48]
-[2016-12-21 11:52:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:53:18 UTC)" executed successfully
-[2016-12-21 11:53:18] DEBUG Looking for jobs to run
-[2016-12-21 11:53:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:53:18 UTC)" (scheduled at 2016-12-21 11:53:18.507075+00:00)
-[2016-12-21 11:53:18] DEBUG Next wakeup is due at 2016-12-21 11:54:18.507075+00:00 (in 59.993458 seconds)
-[2016-12-21 11:53:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:54:18 UTC)" (scheduled at 2016-12-21 11:53:18.510871+00:00)
-[2016-12-21 11:53:18] INFO Payload size 308
-[2016-12-21 11:53:18] INFO Payload components [(u'HumData', 172), (u'TempData', 172)]
-[2016-12-21 11:53:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 58.0, 
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:52:28"
-            }
-        ], 
-        "TempData": [
-            {
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:52:28", 
-                "Temp": 28.91
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:53:18"
-}
-[2016-12-21 11:53:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:53:20] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:53:20] INFO Post request succesful with status : 204
-[2016-12-21 11:53:20] INFO Payload uploaded with responnse 1
-[2016-12-21 11:53:20] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:54:18 UTC)" executed successfully
-[2016-12-21 11:53:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:53:28', 20.48]
-[2016-12-21 11:53:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:53:28', 20.48]
-[2016-12-21 11:53:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:54:18 UTC)" executed successfully
-[2016-12-21 11:54:18] DEBUG Looking for jobs to run
-[2016-12-21 11:54:18] DEBUG Next wakeup is due at 2016-12-21 11:55:18.507075+00:00 (in 59.985529 seconds)
-[2016-12-21 11:54:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:55:18 UTC)" (scheduled at 2016-12-21 11:54:18.507075+00:00)
-[2016-12-21 11:54:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:55:18 UTC)" (scheduled at 2016-12-21 11:54:18.510871+00:00)
-[2016-12-21 11:54:18] INFO Payload size 308
-[2016-12-21 11:54:18] INFO Payload components [(u'HumData', 173), (u'TempData', 173)]
-[2016-12-21 11:54:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 58.0, 
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:53:28"
-            }
-        ], 
-        "TempData": [
-            {
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:53:28", 
-                "Temp": 28.91
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:54:18"
-}
-[2016-12-21 11:54:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:54:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:54:19] INFO Post request succesful with status : 204
-[2016-12-21 11:54:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:54:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:55:18 UTC)" executed successfully
-[2016-12-21 11:54:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:54:28', 20.48]
-[2016-12-21 11:54:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:54:28', 20.48]
-[2016-12-21 11:54:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:55:18 UTC)" executed successfully
-[2016-12-21 11:55:18] DEBUG Looking for jobs to run
-[2016-12-21 11:55:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:56:18 UTC)" (scheduled at 2016-12-21 11:55:18.507075+00:00)
-[2016-12-21 11:55:18] DEBUG Next wakeup is due at 2016-12-21 11:56:18.507075+00:00 (in 59.995410 seconds)
-[2016-12-21 11:55:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:56:18 UTC)" (scheduled at 2016-12-21 11:55:18.510871+00:00)
-[2016-12-21 11:55:18] INFO Payload size 308
-[2016-12-21 11:55:18] INFO Payload components [(u'HumData', 174), (u'TempData', 174)]
-[2016-12-21 11:55:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 58.0, 
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:54:28"
-            }
-        ], 
-        "TempData": [
-            {
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:54:28", 
-                "Temp": 28.91
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:55:18"
-}
-[2016-12-21 11:55:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:55:24] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:55:24] INFO Post request succesful with status : 204
-[2016-12-21 11:55:24] INFO Payload uploaded with responnse 1
-[2016-12-21 11:55:24] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:56:18 UTC)" executed successfully
-[2016-12-21 11:55:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:56:18 UTC)" executed successfully
-[2016-12-21 11:56:18] DEBUG Looking for jobs to run
-[2016-12-21 11:56:18] DEBUG Next wakeup is due at 2016-12-21 11:57:18.507075+00:00 (in 59.993538 seconds)
-[2016-12-21 11:56:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:57:18 UTC)" (scheduled at 2016-12-21 11:56:18.507075+00:00)
-[2016-12-21 11:56:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:57:18 UTC)" (scheduled at 2016-12-21 11:56:18.510871+00:00)
-[2016-12-21 11:56:18] INFO No data in any table
-[2016-12-21 11:56:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:57:18 UTC)" executed successfully
-[2016-12-21 11:56:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:57:18 UTC)" executed successfully
-[2016-12-21 11:57:18] DEBUG Looking for jobs to run
-[2016-12-21 11:57:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:58:18 UTC)" (scheduled at 2016-12-21 11:57:18.507075+00:00)
-[2016-12-21 11:57:18] DEBUG Next wakeup is due at 2016-12-21 11:58:18.507075+00:00 (in 59.996078 seconds)
-[2016-12-21 11:57:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:58:18 UTC)" (scheduled at 2016-12-21 11:57:18.510871+00:00)
-[2016-12-21 11:57:18] INFO No data in any table
-[2016-12-21 11:57:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:58:18 UTC)" executed successfully
-[2016-12-21 11:57:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 28.91, '2016-12-21 11:57:28', 20.48]
-[2016-12-21 11:57:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:57:28', 20.48]
-[2016-12-21 11:57:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:58:18 UTC)" executed successfully
-[2016-12-21 11:58:18] DEBUG Looking for jobs to run
-[2016-12-21 11:58:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:59:18 UTC)" (scheduled at 2016-12-21 11:58:18.507075+00:00)
-[2016-12-21 11:58:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:59:18 UTC)" (scheduled at 2016-12-21 11:58:18.510871+00:00)
-[2016-12-21 11:58:18] DEBUG Next wakeup is due at 2016-12-21 11:59:18.507075+00:00 (in 59.994296 seconds)
-[2016-12-21 11:58:18] INFO Payload size 308
-[2016-12-21 11:58:18] INFO Payload components [(u'HumData', 175), (u'TempData', 175)]
-[2016-12-21 11:58:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 58.0, 
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:57:28"
-            }
-        ], 
-        "TempData": [
-            {
-                "NdBat": 20.48, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:57:28", 
-                "Temp": 28.91
-            }
-        ]
-    }, 
-    "GwBat": "100", 
-    "GwId": "dev_device_1", 
-    "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:58:18"
-}
-[2016-12-21 11:58:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:58:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:58:19] INFO Post request succesful with status : 204
-[2016-12-21 11:58:19] INFO Payload uploaded with responnse 1
-[2016-12-21 11:58:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 11:59:18 UTC)" executed successfully
-[2016-12-21 11:58:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 11:58:28', 30.72]
-[2016-12-21 11:58:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:58:28', 30.72]
-[2016-12-21 11:58:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:59:18 UTC)" executed successfully
-[2016-12-21 11:59:18] DEBUG Looking for jobs to run
-[2016-12-21 11:59:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 11:59:18 UTC)" (scheduled at 2016-12-21 11:59:18.507075+00:00)
-[2016-12-21 11:59:18] DEBUG Next wakeup is due at 2016-12-21 12:00:18.507075+00:00 (in 59.993194 seconds)
-[2016-12-21 11:59:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:00:18 UTC)" (scheduled at 2016-12-21 11:59:18.510871+00:00)
-[2016-12-21 11:59:18] INFO Payload size 308
-[2016-12-21 11:59:18] INFO Payload components [(u'HumData', 176), (u'TempData', 176)]
-[2016-12-21 11:59:18] DEBUG {
-    "Data": {
-        "HumData": [
-            {
-                "Hum": 58.0, 
-                "NdBat": 30.72, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:58:28"
-            }
-        ], 
-        "TempData": [
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:15:51", 
+                "Temp": -5.54
+            }, 
             {
                 "NdBat": 30.72, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:58:28", 
-                "Temp": 29.08
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:15:51", 
+                "Temp": -7.26
+            }, 
+            {
+                "NdBat": 30.72, 
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:15:51", 
+                "Temp": -7.26
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:15:51", 
+                "Temp": 27.0
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:15:51", 
+                "Temp": 27.37
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:16:11", 
+                "Temp": -7.43
+            }, 
+            {
+                "NdBat": 0.0, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:16:11", 
+                "Temp": -6.4
+            }, 
+            {
+                "NdBat": 30.72, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:16:11", 
+                "Temp": -5.88
+            }, 
+            {
+                "NdBat": 30.72, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:16:11", 
+                "Temp": -7.26
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:16:11", 
+                "Temp": 27.0
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:16:11", 
+                "Temp": 27.37
             }
         ]
     }, 
     "GwBat": "100", 
     "GwId": "dev_device_1", 
     "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 11:59:18"
+    "GwTs": "2016-12-26 14:16:11"
 }
-[2016-12-21 11:59:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 11:59:20] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 11:59:20] INFO Post request succesful with status : 204
-[2016-12-21 11:59:20] INFO Payload uploaded with responnse 1
-[2016-12-21 11:59:20] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:00:18 UTC)" executed successfully
-[2016-12-21 11:59:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 11:59:28', 30.72]
-[2016-12-21 11:59:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 11:59:28', 30.72]
-[2016-12-21 11:59:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:00:18 UTC)" executed successfully
-[2016-12-21 12:00:18] DEBUG Looking for jobs to run
-[2016-12-21 12:00:18] DEBUG Next wakeup is due at 2016-12-21 12:01:18.507075+00:00 (in 59.985527 seconds)
-[2016-12-21 12:00:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:01:18 UTC)" (scheduled at 2016-12-21 12:00:18.507075+00:00)
-[2016-12-21 12:00:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:01:18 UTC)" (scheduled at 2016-12-21 12:00:18.510871+00:00)
-[2016-12-21 12:00:18] INFO Payload size 308
-[2016-12-21 12:00:18] INFO Payload components [(u'HumData', 177), (u'TempData', 177)]
-[2016-12-21 12:00:18] DEBUG {
+[2016-12-26 14:16:16] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-26 14:16:16] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-26 14:16:16] INFO Post request succesful with status : 204
+[2016-12-26 14:16:16] INFO Payload uploaded with response 1
+[2016-12-26 14:16:16] INFO Job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:16:41 UTC)" executed successfully
+[2016-12-26 14:16:21] DEBUG Looking for jobs to run
+[2016-12-26 14:16:21] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:16:21 UTC)" (scheduled at 2016-12-26 14:16:21.297104+00:00)
+[2016-12-26 14:16:21] DEBUG Next wakeup is due at 2016-12-26 14:16:41.297104+00:00 (in 19.994512 seconds)
+[2016-12-26 14:16:31] INFO AM temp data:[u'eb:d3:c7:da:ba:2c', -7.43, '2016-12-26 14:16:31', 20.48]
+[2016-12-26 14:16:31] INFO AM humid data:[u'eb:d3:c7:da:ba:2c', 76.0, '2016-12-26 14:16:31', 20.48]
+[2016-12-26 14:16:31] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -6.4, '2016-12-26 14:16:31', 0.0]
+[2016-12-26 14:16:31] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 91.0, '2016-12-26 14:16:31', 0.0]
+[2016-12-26 14:16:31] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -5.88, '2016-12-26 14:16:31', 30.72]
+[2016-12-26 14:16:31] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 93.0, '2016-12-26 14:16:31', 30.72]
+[2016-12-26 14:16:31] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.43, '2016-12-26 14:16:31', 20.48]
+[2016-12-26 14:16:31] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 80.0, '2016-12-26 14:16:31', 20.48]
+[2016-12-26 14:16:31] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:16:31', 94]
+[2016-12-26 14:16:31] INFO AM temp data:[u'f7:d8:ff:a6:38:81', 27.54, '2016-12-26 14:16:31', 20.48]
+[2016-12-26 14:16:31] INFO AM humid data:[u'f7:d8:ff:a6:38:81', 33.0, '2016-12-26 14:16:31', 20.48]
+[2016-12-26 14:16:31] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:46', 27.1, '2016-12-26 14:16:31', 100]
+[2016-12-26 14:16:31] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:46', 35.1, '2016-12-26 14:16:31', 100]
+[2016-12-26 14:16:32] INFO AM temp data:[u'cc:e8:4b:4d:30:ad', -7.43, '2016-12-26 14:16:32', 20.48]
+[2016-12-26 14:16:32] INFO AM humid data:[u'cc:e8:4b:4d:30:ad', 80.0, '2016-12-26 14:16:32', 20.48]
+[2016-12-26 14:16:32] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:16:32', 100]
+[2016-12-26 14:16:32] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 35.1, '2016-12-26 14:16:32', 100]
+[2016-12-26 14:16:32] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:16:41 UTC)" executed successfully
+[2016-12-26 14:16:41] DEBUG Looking for jobs to run
+[2016-12-26 14:16:41] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:16:41 UTC)" (scheduled at 2016-12-26 14:16:41.297104+00:00)
+[2016-12-26 14:16:41] INFO Running job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:16:41 UTC)" (scheduled at 2016-12-26 14:16:41.301008+00:00)
+[2016-12-26 14:16:41] DEBUG Next wakeup is due at 2016-12-26 14:17:01.297104+00:00 (in 19.981038 seconds)
+[2016-12-26 14:16:43] INFO Payload size 1702
+[2016-12-26 14:16:43] INFO Payload components [(u'HumData', 3922), (u'TempData', 3922), (u'HumData', 3923), (u'TempData', 3923), (u'HumData', 3924), (u'TempData', 3924), (u'HumData', 3925), (u'TempData', 3925), (u'HumData', 3926), (u'TempData', 3926), (u'HumData', 3927), (u'TempData', 3927), (u'HumData', 3928), (u'TempData', 3928), (u'DoorActData', 466), (u'HumData', 3929), (u'TempData', 3929)]
+[2016-12-26 14:16:43] DEBUG {
     "Data": {
+        "DoorActData": [
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:16:31"
+            }
+        ], 
         "HumData": [
             {
-                "Hum": 58.0, 
+                "Hum": 76.0, 
+                "NdBat": 20.48, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:16:31"
+            }, 
+            {
+                "Hum": 91.0, 
+                "NdBat": 0.0, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:16:31"
+            }, 
+            {
+                "Hum": 93.0, 
                 "NdBat": 30.72, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:59:28"
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:16:31"
+            }, 
+            {
+                "Hum": 80.0, 
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:16:31"
+            }, 
+            {
+                "Hum": 33.0, 
+                "NdBat": 20.48, 
+                "NdId": "f7:d8:ff:a6:38:81", 
+                "NdTs": "2016-12-26 14:16:31"
+            }, 
+            {
+                "Hum": 35.1, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:16:31"
+            }, 
+            {
+                "Hum": 80.0, 
+                "NdBat": 20.48, 
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:16:32"
+            }, 
+            {
+                "Hum": 35.1, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:16:32"
             }
         ], 
         "TempData": [
             {
+                "NdBat": 20.48, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:16:31", 
+                "Temp": -7.43
+            }, 
+            {
+                "NdBat": 0.0, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:16:31", 
+                "Temp": -6.4
+            }, 
+            {
                 "NdBat": 30.72, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 11:59:28", 
-                "Temp": 29.08
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:16:31", 
+                "Temp": -5.88
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:16:31", 
+                "Temp": -7.43
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "f7:d8:ff:a6:38:81", 
+                "NdTs": "2016-12-26 14:16:31", 
+                "Temp": 27.54
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:16:31", 
+                "Temp": 27.1
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:16:32", 
+                "Temp": -7.43
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:16:32", 
+                "Temp": 26.9
             }
         ]
     }, 
     "GwBat": "100", 
     "GwId": "dev_device_1", 
     "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 12:00:18"
+    "GwTs": "2016-12-26 14:16:41"
 }
-[2016-12-21 12:00:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 12:00:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 12:00:19] INFO Post request succesful with status : 204
-[2016-12-21 12:00:19] INFO Payload uploaded with responnse 1
-[2016-12-21 12:00:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:01:18 UTC)" executed successfully
-[2016-12-21 12:00:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 12:00:28', 30.72]
-[2016-12-21 12:00:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 12:00:28', 30.72]
-[2016-12-21 12:00:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:01:18 UTC)" executed successfully
-[2016-12-21 12:01:18] DEBUG Looking for jobs to run
-[2016-12-21 12:01:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:02:18 UTC)" (scheduled at 2016-12-21 12:01:18.507075+00:00)
-[2016-12-21 12:01:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:01:18 UTC)" (scheduled at 2016-12-21 12:01:18.510871+00:00)
-[2016-12-21 12:01:18] DEBUG Next wakeup is due at 2016-12-21 12:02:18.507075+00:00 (in 59.995365 seconds)
-[2016-12-21 12:01:18] INFO Payload size 308
-[2016-12-21 12:01:18] INFO Payload components [(u'HumData', 178), (u'TempData', 178)]
-[2016-12-21 12:01:18] DEBUG {
+[2016-12-26 14:16:43] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-26 14:16:44] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-26 14:16:44] INFO Post request succesful with status : 204
+[2016-12-26 14:16:44] INFO Payload uploaded with response 1
+[2016-12-26 14:16:44] INFO Job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:17:11 UTC)" executed successfully
+[2016-12-26 14:16:51] INFO AM temp data:[u'eb:d3:c7:da:ba:2c', -7.6, '2016-12-26 14:16:51', 10.24]
+[2016-12-26 14:16:51] INFO AM humid data:[u'eb:d3:c7:da:ba:2c', 80.0, '2016-12-26 14:16:51', 10.24]
+[2016-12-26 14:16:51] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -6.57, '2016-12-26 14:16:51', 30.72]
+[2016-12-26 14:16:51] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 91.0, '2016-12-26 14:16:51', 30.72]
+[2016-12-26 14:16:51] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -6.06, '2016-12-26 14:16:51', 20.48]
+[2016-12-26 14:16:51] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 92.0, '2016-12-26 14:16:51', 20.48]
+[2016-12-26 14:16:51] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.43, '2016-12-26 14:16:51', 20.48]
+[2016-12-26 14:16:51] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 83.0, '2016-12-26 14:16:51', 20.48]
+[2016-12-26 14:16:51] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:16:51', 94]
+[2016-12-26 14:16:51] INFO AM temp data:[u'f7:d8:ff:a6:38:81', 27.54, '2016-12-26 14:16:51', 20.48]
+[2016-12-26 14:16:51] INFO AM humid data:[u'f7:d8:ff:a6:38:81', 33.0, '2016-12-26 14:16:51', 20.48]
+[2016-12-26 14:16:51] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:46', 27.1, '2016-12-26 14:16:51', 100]
+[2016-12-26 14:16:51] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:46', 34.8, '2016-12-26 14:16:51', 100]
+[2016-12-26 14:16:52] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:16:52', 100]
+[2016-12-26 14:16:52] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 35.1, '2016-12-26 14:16:52', 100]
+[2016-12-26 14:16:52] INFO AM temp data:[u'c7:62:cb:9f:f0:c7', 27.54, '2016-12-26 14:16:52', 20.48]
+[2016-12-26 14:16:52] INFO AM humid data:[u'c7:62:cb:9f:f0:c7', 35.0, '2016-12-26 14:16:52', 20.48]
+[2016-12-26 14:16:52] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:16:52', 10.24]
+[2016-12-26 14:16:52] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:16:52', 10.24]
+[2016-12-26 14:16:52] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:17:01 UTC)" executed successfully
+[2016-12-26 14:17:01] DEBUG Looking for jobs to run
+[2016-12-26 14:17:01] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:17:01 UTC)" (scheduled at 2016-12-26 14:17:01.297104+00:00)
+[2016-12-26 14:17:01] DEBUG Next wakeup is due at 2016-12-26 14:17:11.301008+00:00 (in 9.979111 seconds)
+[2016-12-26 14:17:11] DEBUG Looking for jobs to run
+[2016-12-26 14:17:11] DEBUG Next wakeup is due at 2016-12-26 14:17:21.297104+00:00 (in 9.984117 seconds)
+[2016-12-26 14:17:11] INFO Running job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:17:41 UTC)" (scheduled at 2016-12-26 14:17:11.301008+00:00)
+[2016-12-26 14:17:11] INFO AM temp data:[u'eb:d3:c7:da:ba:2c', -7.6, '2016-12-26 14:17:11', 10.24]
+[2016-12-26 14:17:11] INFO AM humid data:[u'eb:d3:c7:da:ba:2c', 84.0, '2016-12-26 14:17:11', 10.24]
+[2016-12-26 14:17:11] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -6.57, '2016-12-26 14:17:11', 30.72]
+[2016-12-26 14:17:11] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 91.0, '2016-12-26 14:17:11', 30.72]
+[2016-12-26 14:17:11] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -6.23, '2016-12-26 14:17:11', 10.24]
+[2016-12-26 14:17:11] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 92.0, '2016-12-26 14:17:11', 10.24]
+[2016-12-26 14:17:11] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.43, '2016-12-26 14:17:11', 20.48]
+[2016-12-26 14:17:11] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 83.0, '2016-12-26 14:17:11', 20.48]
+[2016-12-26 14:17:11] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:17:11', 94]
+[2016-12-26 14:17:11] INFO AM temp data:[u'cc:e8:4b:4d:30:ad', -7.26, '2016-12-26 14:17:11', 30.72]
+[2016-12-26 14:17:11] INFO AM humid data:[u'cc:e8:4b:4d:30:ad', 84.0, '2016-12-26 14:17:11', 30.72]
+[2016-12-26 14:17:11] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:17:11', 100]
+[2016-12-26 14:17:11] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 35.0, '2016-12-26 14:17:11', 100]
+[2016-12-26 14:17:12] INFO AM temp data:[u'c7:62:cb:9f:f0:c7', 27.54, '2016-12-26 14:17:12', 20.48]
+[2016-12-26 14:17:12] INFO AM humid data:[u'c7:62:cb:9f:f0:c7', 35.0, '2016-12-26 14:17:12', 20.48]
+[2016-12-26 14:17:12] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:17:12', 10.24]
+[2016-12-26 14:17:12] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:17:12', 10.24]
+[2016-12-26 14:17:12] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:17:21 UTC)" executed successfully
+[2016-12-26 14:17:16] INFO Payload size 3456
+[2016-12-26 14:17:16] INFO Payload components [(u'HumData', 3930), (u'TempData', 3930), (u'HumData', 3931), (u'TempData', 3931), (u'HumData', 3932), (u'TempData', 3932), (u'HumData', 3933), (u'TempData', 3933), (u'HumData', 3934), (u'TempData', 3934), (u'HumData', 3935), (u'TempData', 3935), (u'HumData', 3936), (u'TempData', 3936), (u'HumData', 3937), (u'TempData', 3937), (u'HumData', 3938), (u'TempData', 3938), (u'HumData', 3939), (u'TempData', 3939), (u'HumData', 3940), (u'TempData', 3940), (u'HumData', 3941), (u'TempData', 3941), (u'HumData', 3942), (u'TempData', 3942), (u'HumData', 3943), (u'TempData', 3943), (u'HumData', 3944), (u'TempData', 3944), (u'DoorActData', 467), (u'HumData', 3945), (u'TempData', 3945), (u'DoorActData', 468), (u'HumData', 3946), (u'TempData', 3946)]
+[2016-12-26 14:17:16] DEBUG {
     "Data": {
+        "DoorActData": [
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:16:51"
+            }, 
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:17:11"
+            }
+        ], 
         "HumData": [
             {
-                "Hum": 58.0, 
+                "Hum": 80.0, 
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:16:51"
+            }, 
+            {
+                "Hum": 91.0, 
                 "NdBat": 30.72, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 12:00:28"
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:16:51"
+            }, 
+            {
+                "Hum": 92.0, 
+                "NdBat": 20.48, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:16:51"
+            }, 
+            {
+                "Hum": 83.0, 
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:16:51"
+            }, 
+            {
+                "Hum": 33.0, 
+                "NdBat": 20.48, 
+                "NdId": "f7:d8:ff:a6:38:81", 
+                "NdTs": "2016-12-26 14:16:51"
+            }, 
+            {
+                "Hum": 34.8, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:16:51"
+            }, 
+            {
+                "Hum": 35.1, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:16:52"
+            }, 
+            {
+                "Hum": 35.0, 
+                "NdBat": 20.48, 
+                "NdId": "c7:62:cb:9f:f0:c7", 
+                "NdTs": "2016-12-26 14:16:52"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:16:52"
+            }, 
+            {
+                "Hum": 84.0, 
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:17:11"
+            }, 
+            {
+                "Hum": 91.0, 
+                "NdBat": 30.72, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:17:11"
+            }, 
+            {
+                "Hum": 92.0, 
+                "NdBat": 10.24, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:17:11"
+            }, 
+            {
+                "Hum": 83.0, 
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:17:11"
+            }, 
+            {
+                "Hum": 84.0, 
+                "NdBat": 30.72, 
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:17:11"
+            }, 
+            {
+                "Hum": 35.0, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:17:11"
+            }, 
+            {
+                "Hum": 35.0, 
+                "NdBat": 20.48, 
+                "NdId": "c7:62:cb:9f:f0:c7", 
+                "NdTs": "2016-12-26 14:17:12"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:17:12"
             }
         ], 
         "TempData": [
             {
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:16:51", 
+                "Temp": -7.6
+            }, 
+            {
                 "NdBat": 30.72, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 12:00:28", 
-                "Temp": 29.08
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:16:51", 
+                "Temp": -6.57
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:16:51", 
+                "Temp": -6.06
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:16:51", 
+                "Temp": -7.43
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "f7:d8:ff:a6:38:81", 
+                "NdTs": "2016-12-26 14:16:51", 
+                "Temp": 27.54
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:16:51", 
+                "Temp": 27.1
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:16:52", 
+                "Temp": 26.9
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "c7:62:cb:9f:f0:c7", 
+                "NdTs": "2016-12-26 14:16:52", 
+                "Temp": 27.54
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:16:52", 
+                "Temp": 27.37
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:17:11", 
+                "Temp": -7.6
+            }, 
+            {
+                "NdBat": 30.72, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:17:11", 
+                "Temp": -6.57
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:17:11", 
+                "Temp": -6.23
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:17:11", 
+                "Temp": -7.43
+            }, 
+            {
+                "NdBat": 30.72, 
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:17:11", 
+                "Temp": -7.26
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:17:11", 
+                "Temp": 26.9
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "c7:62:cb:9f:f0:c7", 
+                "NdTs": "2016-12-26 14:17:12", 
+                "Temp": 27.54
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:17:12", 
+                "Temp": 27.37
             }
         ]
     }, 
     "GwBat": "100", 
     "GwId": "dev_device_1", 
     "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 12:01:18"
+    "GwTs": "2016-12-26 14:17:11"
 }
-[2016-12-21 12:01:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 12:01:20] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 12:01:20] INFO Post request succesful with status : 204
-[2016-12-21 12:01:20] INFO Payload uploaded with responnse 1
-[2016-12-21 12:01:20] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:02:18 UTC)" executed successfully
-[2016-12-21 12:01:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:02:18 UTC)" executed successfully
-[2016-12-21 12:02:18] DEBUG Looking for jobs to run
-[2016-12-21 12:02:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:03:18 UTC)" (scheduled at 2016-12-21 12:02:18.507075+00:00)
-[2016-12-21 12:02:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:03:18 UTC)" (scheduled at 2016-12-21 12:02:18.510871+00:00)
-[2016-12-21 12:02:18] DEBUG Next wakeup is due at 2016-12-21 12:03:18.507075+00:00 (in 59.982816 seconds)
-[2016-12-21 12:02:18] INFO No data in any table
-[2016-12-21 12:02:18] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:03:18 UTC)" executed successfully
-[2016-12-21 12:02:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 12:02:28', 30.72]
-[2016-12-21 12:02:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 12:02:28', 30.72]
-[2016-12-21 12:02:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:03:18 UTC)" executed successfully
-[2016-12-21 12:03:18] DEBUG Looking for jobs to run
-[2016-12-21 12:03:18] DEBUG Next wakeup is due at 2016-12-21 12:04:18.507075+00:00 (in 59.993306 seconds)
-[2016-12-21 12:03:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:04:18 UTC)" (scheduled at 2016-12-21 12:03:18.507075+00:00)
-[2016-12-21 12:03:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:04:18 UTC)" (scheduled at 2016-12-21 12:03:18.510871+00:00)
-[2016-12-21 12:03:18] INFO Payload size 308
-[2016-12-21 12:03:18] INFO Payload components [(u'HumData', 179), (u'TempData', 179)]
-[2016-12-21 12:03:18] DEBUG {
+[2016-12-26 14:17:16] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-26 14:17:17] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-26 14:17:17] INFO Post request succesful with status : 204
+[2016-12-26 14:17:17] INFO Payload uploaded with response 1
+[2016-12-26 14:17:17] INFO Job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:17:41 UTC)" executed successfully
+[2016-12-26 14:17:21] DEBUG Looking for jobs to run
+[2016-12-26 14:17:21] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:17:21 UTC)" (scheduled at 2016-12-26 14:17:21.297104+00:00)
+[2016-12-26 14:17:21] DEBUG Next wakeup is due at 2016-12-26 14:17:41.297104+00:00 (in 19.997076 seconds)
+[2016-12-26 14:17:31] INFO AM temp data:[u'eb:d3:c7:da:ba:2c', -7.6, '2016-12-26 14:17:31', 10.24]
+[2016-12-26 14:17:31] INFO AM humid data:[u'eb:d3:c7:da:ba:2c', 84.0, '2016-12-26 14:17:31', 10.24]
+[2016-12-26 14:17:31] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -6.74, '2016-12-26 14:17:31', 20.48]
+[2016-12-26 14:17:31] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 90.0, '2016-12-26 14:17:31', 20.48]
+[2016-12-26 14:17:31] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -6.23, '2016-12-26 14:17:31', 10.24]
+[2016-12-26 14:17:31] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 92.0, '2016-12-26 14:17:31', 10.24]
+[2016-12-26 14:17:31] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.43, '2016-12-26 14:17:31', 20.48]
+[2016-12-26 14:17:31] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 85.0, '2016-12-26 14:17:31', 20.48]
+[2016-12-26 14:17:31] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:17:31', 94]
+[2016-12-26 14:17:31] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:17:31', 10.24]
+[2016-12-26 14:17:31] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:17:31', 10.24]
+[2016-12-26 14:17:31] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:17:41 UTC)" executed successfully
+[2016-12-26 14:17:41] DEBUG Looking for jobs to run
+[2016-12-26 14:17:41] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:18:01 UTC)" (scheduled at 2016-12-26 14:17:41.297104+00:00)
+[2016-12-26 14:17:41] INFO Running job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:18:11 UTC)" (scheduled at 2016-12-26 14:17:41.301008+00:00)
+[2016-12-26 14:17:41] DEBUG Next wakeup is due at 2016-12-26 14:18:01.297104+00:00 (in 19.987803 seconds)
+[2016-12-26 14:17:42] INFO Payload size 1156
+[2016-12-26 14:17:42] INFO Payload components [(u'HumData', 3947), (u'TempData', 3947), (u'HumData', 3948), (u'TempData', 3948), (u'HumData', 3949), (u'TempData', 3949), (u'HumData', 3950), (u'TempData', 3950), (u'DoorActData', 469), (u'HumData', 3951), (u'TempData', 3951)]
+[2016-12-26 14:17:43] DEBUG {
     "Data": {
+        "DoorActData": [
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:17:31"
+            }
+        ], 
         "HumData": [
             {
-                "Hum": 58.0, 
-                "NdBat": 30.72, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 12:02:28"
+                "Hum": 84.0, 
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:17:31"
+            }, 
+            {
+                "Hum": 90.0, 
+                "NdBat": 20.48, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:17:31"
+            }, 
+            {
+                "Hum": 92.0, 
+                "NdBat": 10.24, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:17:31"
+            }, 
+            {
+                "Hum": 85.0, 
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:17:31"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:17:31"
             }
         ], 
         "TempData": [
             {
-                "NdBat": 30.72, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 12:02:28", 
-                "Temp": 29.08
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:17:31", 
+                "Temp": -7.6
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:17:31", 
+                "Temp": -6.74
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:17:31", 
+                "Temp": -6.23
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:17:31", 
+                "Temp": -7.43
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:17:31", 
+                "Temp": 27.37
             }
         ]
     }, 
     "GwBat": "100", 
     "GwId": "dev_device_1", 
     "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 12:03:18"
+    "GwTs": "2016-12-26 14:17:41"
 }
-[2016-12-21 12:03:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 12:03:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 12:03:19] INFO Post request succesful with status : 204
-[2016-12-21 12:03:19] INFO Payload uploaded with responnse 1
-[2016-12-21 12:03:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:04:18 UTC)" executed successfully
-[2016-12-21 12:03:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 12:03:28', 30.72]
-[2016-12-21 12:03:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 12:03:28', 30.72]
-[2016-12-21 12:03:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:04:18 UTC)" executed successfully
-[2016-12-21 12:04:18] DEBUG Looking for jobs to run
-[2016-12-21 12:04:18] DEBUG Next wakeup is due at 2016-12-21 12:05:18.507075+00:00 (in 59.994739 seconds)
-[2016-12-21 12:04:18] INFO Running job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:05:18 UTC)" (scheduled at 2016-12-21 12:04:18.507075+00:00)
-[2016-12-21 12:04:18] INFO Running job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:05:18 UTC)" (scheduled at 2016-12-21 12:04:18.510871+00:00)
-[2016-12-21 12:04:18] INFO Payload size 308
-[2016-12-21 12:04:18] INFO Payload components [(u'HumData', 180), (u'TempData', 180)]
-[2016-12-21 12:04:18] DEBUG {
+[2016-12-26 14:17:43] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-26 14:17:44] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-26 14:17:44] INFO Post request succesful with status : 204
+[2016-12-26 14:17:44] INFO Payload uploaded with response 1
+[2016-12-26 14:17:44] INFO Job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:18:11 UTC)" executed successfully
+[2016-12-26 14:17:51] INFO AM temp data:[u'eb:d3:c7:da:ba:2c', -7.6, '2016-12-26 14:17:51', 10.24]
+[2016-12-26 14:17:51] INFO AM humid data:[u'eb:d3:c7:da:ba:2c', 86.0, '2016-12-26 14:17:51', 10.24]
+[2016-12-26 14:17:51] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -6.91, '2016-12-26 14:17:51', 10.24]
+[2016-12-26 14:17:51] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 90.0, '2016-12-26 14:17:51', 10.24]
+[2016-12-26 14:17:51] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -6.4, '2016-12-26 14:17:51', 0.0]
+[2016-12-26 14:17:51] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 92.0, '2016-12-26 14:17:51', 0.0]
+[2016-12-26 14:17:51] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.43, '2016-12-26 14:17:51', 20.48]
+[2016-12-26 14:17:51] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 87.0, '2016-12-26 14:17:51', 20.48]
+[2016-12-26 14:17:51] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:17:51', 94]
+[2016-12-26 14:17:52] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:46', 27.0, '2016-12-26 14:17:52', 100]
+[2016-12-26 14:17:52] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:46', 34.9, '2016-12-26 14:17:52', 100]
+[2016-12-26 14:17:52] INFO AM temp data:[u'cc:e8:4b:4d:30:ad', -7.26, '2016-12-26 14:17:52', 30.72]
+[2016-12-26 14:17:52] INFO AM humid data:[u'cc:e8:4b:4d:30:ad', 86.0, '2016-12-26 14:17:52', 30.72]
+[2016-12-26 14:17:52] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:17:52', 100]
+[2016-12-26 14:17:52] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 35.1, '2016-12-26 14:17:52', 100]
+[2016-12-26 14:17:52] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:17:52', 10.24]
+[2016-12-26 14:17:52] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:17:52', 10.24]
+[2016-12-26 14:17:52] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:18:01 UTC)" executed successfully
+[2016-12-26 14:18:01] DEBUG Looking for jobs to run
+[2016-12-26 14:18:01] DEBUG Next wakeup is due at 2016-12-26 14:18:11.301008+00:00 (in 9.997255 seconds)
+[2016-12-26 14:18:01] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:18:21 UTC)" (scheduled at 2016-12-26 14:18:01.297104+00:00)
+[2016-12-26 14:18:11] DEBUG Looking for jobs to run
+[2016-12-26 14:18:11] DEBUG Next wakeup is due at 2016-12-26 14:18:21.297104+00:00 (in 9.992348 seconds)
+[2016-12-26 14:18:11] INFO Running job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:18:41 UTC)" (scheduled at 2016-12-26 14:18:11.301008+00:00)
+[2016-12-26 14:18:11] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -6.91, '2016-12-26 14:18:11', 10.24]
+[2016-12-26 14:18:11] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 90.0, '2016-12-26 14:18:11', 10.24]
+[2016-12-26 14:18:11] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -6.4, '2016-12-26 14:18:11', 0.0]
+[2016-12-26 14:18:11] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 92.0, '2016-12-26 14:18:11', 0.0]
+[2016-12-26 14:18:11] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.43, '2016-12-26 14:18:11', 20.48]
+[2016-12-26 14:18:11] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 87.0, '2016-12-26 14:18:11', 20.48]
+[2016-12-26 14:18:11] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:18:11', 94]
+[2016-12-26 14:18:11] INFO AM temp data:[u'f7:d8:ff:a6:38:81', 27.54, '2016-12-26 14:18:11', 20.48]
+[2016-12-26 14:18:11] INFO AM humid data:[u'f7:d8:ff:a6:38:81', 33.0, '2016-12-26 14:18:11', 20.48]
+[2016-12-26 14:18:11] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:18:11', 100]
+[2016-12-26 14:18:11] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 34.7, '2016-12-26 14:18:11', 100]
+[2016-12-26 14:18:11] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:18:11', 10.24]
+[2016-12-26 14:18:11] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:18:11', 10.24]
+[2016-12-26 14:18:12] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:18:21 UTC)" executed successfully
+[2016-12-26 14:18:15] INFO Payload size 2895
+[2016-12-26 14:18:15] INFO Payload components [(u'HumData', 3952), (u'TempData', 3952), (u'HumData', 3953), (u'TempData', 3953), (u'HumData', 3954), (u'TempData', 3954), (u'HumData', 3955), (u'TempData', 3955), (u'HumData', 3956), (u'TempData', 3956), (u'HumData', 3957), (u'TempData', 3957), (u'HumData', 3958), (u'TempData', 3958), (u'HumData', 3959), (u'TempData', 3959), (u'HumData', 3960), (u'TempData', 3960), (u'HumData', 3961), (u'TempData', 3961), (u'HumData', 3962), (u'TempData', 3962), (u'HumData', 3963), (u'TempData', 3963), (u'DoorActData', 470), (u'HumData', 3964), (u'TempData', 3964), (u'DoorActData', 471), (u'HumData', 3965), (u'TempData', 3965)]
+[2016-12-26 14:18:15] DEBUG {
     "Data": {
+        "DoorActData": [
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:17:51"
+            }, 
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:18:11"
+            }
+        ], 
         "HumData": [
             {
-                "Hum": 58.0, 
+                "Hum": 86.0, 
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:17:51"
+            }, 
+            {
+                "Hum": 90.0, 
+                "NdBat": 10.24, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:17:51"
+            }, 
+            {
+                "Hum": 92.0, 
+                "NdBat": 0.0, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:17:51"
+            }, 
+            {
+                "Hum": 87.0, 
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:17:51"
+            }, 
+            {
+                "Hum": 34.9, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:17:52"
+            }, 
+            {
+                "Hum": 86.0, 
                 "NdBat": 30.72, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 12:03:28"
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:17:52"
+            }, 
+            {
+                "Hum": 35.1, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:17:52"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:17:52"
+            }, 
+            {
+                "Hum": 90.0, 
+                "NdBat": 10.24, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:18:11"
+            }, 
+            {
+                "Hum": 92.0, 
+                "NdBat": 0.0, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:18:11"
+            }, 
+            {
+                "Hum": 87.0, 
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:18:11"
+            }, 
+            {
+                "Hum": 33.0, 
+                "NdBat": 20.48, 
+                "NdId": "f7:d8:ff:a6:38:81", 
+                "NdTs": "2016-12-26 14:18:11"
+            }, 
+            {
+                "Hum": 34.7, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:18:11"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:18:11"
             }
         ], 
         "TempData": [
             {
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:17:51", 
+                "Temp": -7.6
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:17:51", 
+                "Temp": -6.91
+            }, 
+            {
+                "NdBat": 0.0, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:17:51", 
+                "Temp": -6.4
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:17:51", 
+                "Temp": -7.43
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:17:52", 
+                "Temp": 27.0
+            }, 
+            {
                 "NdBat": 30.72, 
-                "NdId": "ed:7b:32:31:6e:e2", 
-                "NdTs": "2016-12-21 12:03:28", 
-                "Temp": 29.08
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:17:52", 
+                "Temp": -7.26
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:17:52", 
+                "Temp": 26.9
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:17:52", 
+                "Temp": 27.37
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:18:11", 
+                "Temp": -6.91
+            }, 
+            {
+                "NdBat": 0.0, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:18:11", 
+                "Temp": -6.4
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:18:11", 
+                "Temp": -7.43
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "f7:d8:ff:a6:38:81", 
+                "NdTs": "2016-12-26 14:18:11", 
+                "Temp": 27.54
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:18:11", 
+                "Temp": 26.9
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:18:11", 
+                "Temp": 27.37
             }
         ]
     }, 
     "GwBat": "100", 
     "GwId": "dev_device_1", 
     "GwIsPwr": "1", 
-    "GwTs": "2016-12-21 12:04:18"
+    "GwTs": "2016-12-26 14:18:11"
 }
-[2016-12-21 12:04:18] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
-[2016-12-21 12:04:19] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
-[2016-12-21 12:04:19] INFO Post request succesful with status : 204
-[2016-12-21 12:04:19] INFO Payload uploaded with responnse 1
-[2016-12-21 12:04:19] INFO Job "dBToServer (trigger: interval[0:01:00], next run at: 2016-12-21 12:05:18 UTC)" executed successfully
-[2016-12-21 12:04:28] INFO AM temp data:[u'ed:7b:32:31:6e:e2', 29.08, '2016-12-21 12:04:28', 30.72]
-[2016-12-21 12:04:28] INFO AM humid data:[u'ed:7b:32:31:6e:e2', 58.0, '2016-12-21 12:04:28', 30.72]
-[2016-12-21 12:04:28] INFO Job "scanParse (trigger: interval[0:01:00], next run at: 2016-12-21 12:05:18 UTC)" executed successfully
+[2016-12-26 14:18:15] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-26 14:18:16] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-26 14:18:16] INFO Post request succesful with status : 204
+[2016-12-26 14:18:16] INFO Payload uploaded with response 1
+[2016-12-26 14:18:16] INFO Job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:18:41 UTC)" executed successfully
+[2016-12-26 14:18:21] DEBUG Looking for jobs to run
+[2016-12-26 14:18:21] DEBUG Next wakeup is due at 2016-12-26 14:18:41.297104+00:00 (in 19.996332 seconds)
+[2016-12-26 14:18:21] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:18:41 UTC)" (scheduled at 2016-12-26 14:18:21.297104+00:00)
+[2016-12-26 14:18:31] INFO AM temp data:[u'eb:d3:c7:da:ba:2c', -7.6, '2016-12-26 14:18:31', 10.24]
+[2016-12-26 14:18:31] INFO AM humid data:[u'eb:d3:c7:da:ba:2c', 87.0, '2016-12-26 14:18:31', 10.24]
+[2016-12-26 14:18:31] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -6.91, '2016-12-26 14:18:31', 10.24]
+[2016-12-26 14:18:31] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 89.0, '2016-12-26 14:18:31', 10.24]
+[2016-12-26 14:18:31] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -6.4, '2016-12-26 14:18:31', 0.0]
+[2016-12-26 14:18:31] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 92.0, '2016-12-26 14:18:31', 0.0]
+[2016-12-26 14:18:31] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:18:31', 94]
+[2016-12-26 14:18:31] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:46', 27.0, '2016-12-26 14:18:31', 100]
+[2016-12-26 14:18:31] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:46', 35.1, '2016-12-26 14:18:31', 100]
+[2016-12-26 14:18:31] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:18:31', 100]
+[2016-12-26 14:18:31] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 35.1, '2016-12-26 14:18:31', 100]
+[2016-12-26 14:18:31] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:18:31', 10.24]
+[2016-12-26 14:18:31] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:18:31', 10.24]
+[2016-12-26 14:18:31] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:18:41 UTC)" executed successfully
+[2016-12-26 14:18:41] DEBUG Looking for jobs to run
+[2016-12-26 14:18:41] DEBUG Next wakeup is due at 2016-12-26 14:18:41.301008+00:00 (in 0.000530 seconds)
+[2016-12-26 14:18:41] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:19:01 UTC)" (scheduled at 2016-12-26 14:18:41.297104+00:00)
+[2016-12-26 14:18:41] DEBUG Looking for jobs to run
+[2016-12-26 14:18:41] DEBUG Next wakeup is due at 2016-12-26 14:19:01.297104+00:00 (in 19.992677 seconds)
+[2016-12-26 14:18:41] INFO Running job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:19:11 UTC)" (scheduled at 2016-12-26 14:18:41.301008+00:00)
+[2016-12-26 14:18:43] INFO Payload size 1333
+[2016-12-26 14:18:43] INFO Payload components [(u'HumData', 3966), (u'TempData', 3966), (u'HumData', 3967), (u'TempData', 3967), (u'HumData', 3968), (u'TempData', 3968), (u'HumData', 3969), (u'TempData', 3969), (u'HumData', 3970), (u'TempData', 3970), (u'DoorActData', 472), (u'HumData', 3971), (u'TempData', 3971)]
+[2016-12-26 14:18:43] DEBUG {
+    "Data": {
+        "DoorActData": [
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:18:31"
+            }
+        ], 
+        "HumData": [
+            {
+                "Hum": 87.0, 
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:18:31"
+            }, 
+            {
+                "Hum": 89.0, 
+                "NdBat": 10.24, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:18:31"
+            }, 
+            {
+                "Hum": 92.0, 
+                "NdBat": 0.0, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:18:31"
+            }, 
+            {
+                "Hum": 35.1, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:18:31"
+            }, 
+            {
+                "Hum": 35.1, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:18:31"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:18:31"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:18:31", 
+                "Temp": -7.6
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:18:31", 
+                "Temp": -6.91
+            }, 
+            {
+                "NdBat": 0.0, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:18:31", 
+                "Temp": -6.4
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:18:31", 
+                "Temp": 27.0
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:18:31", 
+                "Temp": 26.9
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:18:31", 
+                "Temp": 27.37
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-26 14:18:41"
+}
+[2016-12-26 14:18:43] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-26 14:18:44] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-26 14:18:44] INFO Post request succesful with status : 204
+[2016-12-26 14:18:44] INFO Payload uploaded with response 1
+[2016-12-26 14:18:44] INFO Job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:19:11 UTC)" executed successfully
+[2016-12-26 14:18:51] INFO AM temp data:[u'eb:d3:c7:da:ba:2c', -7.6, '2016-12-26 14:18:51', 10.24]
+[2016-12-26 14:18:51] INFO AM humid data:[u'eb:d3:c7:da:ba:2c', 88.0, '2016-12-26 14:18:51', 10.24]
+[2016-12-26 14:18:51] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -7.08, '2016-12-26 14:18:51', 0.0]
+[2016-12-26 14:18:51] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 89.0, '2016-12-26 14:18:51', 0.0]
+[2016-12-26 14:18:51] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -6.57, '2016-12-26 14:18:51', 30.72]
+[2016-12-26 14:18:51] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 92.0, '2016-12-26 14:18:51', 30.72]
+[2016-12-26 14:18:51] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.6, '2016-12-26 14:18:51', 10.24]
+[2016-12-26 14:18:51] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 88.0, '2016-12-26 14:18:51', 10.24]
+[2016-12-26 14:18:51] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:18:51', 94]
+[2016-12-26 14:18:51] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:46', 27.0, '2016-12-26 14:18:51', 100]
+[2016-12-26 14:18:51] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:46', 35.1, '2016-12-26 14:18:51', 100]
+[2016-12-26 14:18:51] INFO AM temp data:[u'cc:e8:4b:4d:30:ad', -7.26, '2016-12-26 14:18:51', 30.72]
+[2016-12-26 14:18:51] INFO AM humid data:[u'cc:e8:4b:4d:30:ad', 89.0, '2016-12-26 14:18:51', 30.72]
+[2016-12-26 14:18:51] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:18:51', 100]
+[2016-12-26 14:18:51] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 34.7, '2016-12-26 14:18:51', 100]
+[2016-12-26 14:18:52] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:18:52', 10.24]
+[2016-12-26 14:18:52] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:18:52', 10.24]
+[2016-12-26 14:18:52] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:19:01 UTC)" executed successfully
+[2016-12-26 14:19:01] DEBUG Looking for jobs to run
+[2016-12-26 14:19:01] DEBUG Next wakeup is due at 2016-12-26 14:19:11.301008+00:00 (in 10.000189 seconds)
+[2016-12-26 14:19:01] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:19:21 UTC)" (scheduled at 2016-12-26 14:19:01.297104+00:00)
+[2016-12-26 14:19:11] DEBUG Looking for jobs to run
+[2016-12-26 14:19:11] INFO Running job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:19:11 UTC)" (scheduled at 2016-12-26 14:19:11.301008+00:00)
+[2016-12-26 14:19:11] DEBUG Next wakeup is due at 2016-12-26 14:19:21.297104+00:00 (in 9.992264 seconds)
+[2016-12-26 14:19:11] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -7.08, '2016-12-26 14:19:11', 0.0]
+[2016-12-26 14:19:11] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 89.0, '2016-12-26 14:19:11', 0.0]
+[2016-12-26 14:19:12] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -6.57, '2016-12-26 14:19:12', 30.72]
+[2016-12-26 14:19:12] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 92.0, '2016-12-26 14:19:12', 30.72]
+[2016-12-26 14:19:13] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.6, '2016-12-26 14:19:12', 10.24]
+[2016-12-26 14:19:13] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 90.0, '2016-12-26 14:19:12', 10.24]
+[2016-12-26 14:19:13] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:19:13', 94]
+[2016-12-26 14:19:13] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:19:13', 100]
+[2016-12-26 14:19:13] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 34.8, '2016-12-26 14:19:13', 100]
+[2016-12-26 14:19:13] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:19:13', 10.24]
+[2016-12-26 14:19:13] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:19:13', 10.24]
+[2016-12-26 14:19:13] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:19:21 UTC)" executed successfully
+[2016-12-26 14:19:16] INFO Payload size 2711
+[2016-12-26 14:19:16] INFO Payload components [(u'HumData', 3972), (u'HumData', 3973), (u'TempData', 3972), (u'TempData', 3973), (u'HumData', 3974), (u'TempData', 3974), (u'HumData', 3975), (u'TempData', 3975), (u'HumData', 3976), (u'TempData', 3976), (u'HumData', 3977), (u'TempData', 3977), (u'HumData', 3978), (u'TempData', 3978), (u'HumData', 3979), (u'TempData', 3979), (u'HumData', 3980), (u'TempData', 3980), (u'HumData', 3981), (u'TempData', 3981), (u'HumData', 3982), (u'TempData', 3982), (u'DoorActData', 473), (u'HumData', 3983), (u'TempData', 3983), (u'DoorActData', 474), (u'HumData', 3984), (u'TempData', 3984)]
+[2016-12-26 14:19:16] DEBUG {
+    "Data": {
+        "DoorActData": [
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:18:51"
+            }, 
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:19:13"
+            }
+        ], 
+        "HumData": [
+            {
+                "Hum": 88.0, 
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:18:51"
+            }, 
+            {
+                "Hum": 89.0, 
+                "NdBat": 0.0, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:18:51"
+            }, 
+            {
+                "Hum": 92.0, 
+                "NdBat": 30.72, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:18:51"
+            }, 
+            {
+                "Hum": 88.0, 
+                "NdBat": 10.24, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:18:51"
+            }, 
+            {
+                "Hum": 35.1, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:18:51"
+            }, 
+            {
+                "Hum": 89.0, 
+                "NdBat": 30.72, 
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:18:51"
+            }, 
+            {
+                "Hum": 34.7, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:18:51"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:18:52"
+            }, 
+            {
+                "Hum": 89.0, 
+                "NdBat": 0.0, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:19:11"
+            }, 
+            {
+                "Hum": 92.0, 
+                "NdBat": 30.72, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:19:12"
+            }, 
+            {
+                "Hum": 90.0, 
+                "NdBat": 10.24, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:19:12"
+            }, 
+            {
+                "Hum": 34.8, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:19:13"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:19:13"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:18:51", 
+                "Temp": -7.6
+            }, 
+            {
+                "NdBat": 0.0, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:18:51", 
+                "Temp": -7.08
+            }, 
+            {
+                "NdBat": 30.72, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:18:51", 
+                "Temp": -6.57
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:18:51", 
+                "Temp": -7.6
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:18:51", 
+                "Temp": 27.0
+            }, 
+            {
+                "NdBat": 30.72, 
+                "NdId": "cc:e8:4b:4d:30:ad", 
+                "NdTs": "2016-12-26 14:18:51", 
+                "Temp": -7.26
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:18:51", 
+                "Temp": 26.9
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:18:52", 
+                "Temp": 27.37
+            }, 
+            {
+                "NdBat": 0.0, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:19:11", 
+                "Temp": -7.08
+            }, 
+            {
+                "NdBat": 30.72, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:19:12", 
+                "Temp": -6.57
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:19:12", 
+                "Temp": -7.6
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:19:13", 
+                "Temp": 26.9
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:19:13", 
+                "Temp": 27.37
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-26 14:19:11"
+}
+[2016-12-26 14:19:16] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-26 14:19:16] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-26 14:19:16] INFO Post request succesful with status : 204
+[2016-12-26 14:19:16] INFO Payload uploaded with response 1
+[2016-12-26 14:19:16] INFO Job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:19:41 UTC)" executed successfully
+[2016-12-26 14:19:21] DEBUG Looking for jobs to run
+[2016-12-26 14:19:21] DEBUG Next wakeup is due at 2016-12-26 14:19:41.297104+00:00 (in 19.992516 seconds)
+[2016-12-26 14:19:21] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:19:41 UTC)" (scheduled at 2016-12-26 14:19:21.297104+00:00)
+[2016-12-26 14:19:31] INFO AM temp data:[u'eb:d3:c7:da:ba:2c', -7.6, '2016-12-26 14:19:31', 10.24]
+[2016-12-26 14:19:31] INFO AM humid data:[u'eb:d3:c7:da:ba:2c', 89.0, '2016-12-26 14:19:31', 10.24]
+[2016-12-26 14:19:31] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -7.08, '2016-12-26 14:19:31', 0.0]
+[2016-12-26 14:19:31] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 89.0, '2016-12-26 14:19:31', 0.0]
+[2016-12-26 14:19:31] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -6.57, '2016-12-26 14:19:31', 30.72]
+[2016-12-26 14:19:31] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 92.0, '2016-12-26 14:19:31', 30.72]
+[2016-12-26 14:19:31] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.6, '2016-12-26 14:19:31', 10.24]
+[2016-12-26 14:19:31] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 91.0, '2016-12-26 14:19:31', 10.24]
+[2016-12-26 14:19:31] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:19:31', 94]
+[2016-12-26 14:19:31] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:46', 27.0, '2016-12-26 14:19:31', 100]
+[2016-12-26 14:19:31] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:46', 35.0, '2016-12-26 14:19:31', 100]
+[2016-12-26 14:19:31] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:19:31', 100]
+[2016-12-26 14:19:31] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 34.8, '2016-12-26 14:19:31', 100]
+[2016-12-26 14:19:32] INFO AM temp data:[u'c7:62:cb:9f:f0:c7', 27.54, '2016-12-26 14:19:32', 20.48]
+[2016-12-26 14:19:32] INFO AM humid data:[u'c7:62:cb:9f:f0:c7', 35.0, '2016-12-26 14:19:32', 20.48]
+[2016-12-26 14:19:32] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:19:32', 10.24]
+[2016-12-26 14:19:32] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:19:32', 10.24]
+[2016-12-26 14:19:32] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:19:41 UTC)" executed successfully
+[2016-12-26 14:19:41] DEBUG Looking for jobs to run
+[2016-12-26 14:19:41] INFO Running job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:19:41 UTC)" (scheduled at 2016-12-26 14:19:41.297104+00:00)
+[2016-12-26 14:19:41] DEBUG Next wakeup is due at 2016-12-26 14:19:41.301008+00:00 (in 0.000223 seconds)
+[2016-12-26 14:19:41] DEBUG Looking for jobs to run
+[2016-12-26 14:19:41] DEBUG Next wakeup is due at 2016-12-26 14:20:01.297104+00:00 (in 19.986940 seconds)
+[2016-12-26 14:19:41] INFO Running job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:20:11 UTC)" (scheduled at 2016-12-26 14:19:41.301008+00:00)
+[2016-12-26 14:19:43] INFO Payload size 1701
+[2016-12-26 14:19:43] INFO Payload components [(u'HumData', 3985), (u'TempData', 3985), (u'HumData', 3986), (u'TempData', 3986), (u'HumData', 3987), (u'TempData', 3987), (u'HumData', 3988), (u'TempData', 3988), (u'HumData', 3989), (u'TempData', 3989), (u'HumData', 3990), (u'TempData', 3990), (u'HumData', 3991), (u'TempData', 3991), (u'DoorActData', 475), (u'HumData', 3992), (u'TempData', 3992)]
+[2016-12-26 14:19:44] DEBUG {
+    "Data": {
+        "DoorActData": [
+            {
+                "DoorStatus": 1.0, 
+                "NdBat": 94.0, 
+                "NdId": "d7:b6:86:31:1d:bf", 
+                "NdTs": "2016-12-26 14:19:31"
+            }
+        ], 
+        "HumData": [
+            {
+                "Hum": 89.0, 
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:19:31"
+            }, 
+            {
+                "Hum": 89.0, 
+                "NdBat": 0.0, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:19:31"
+            }, 
+            {
+                "Hum": 92.0, 
+                "NdBat": 30.72, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:19:31"
+            }, 
+            {
+                "Hum": 91.0, 
+                "NdBat": 10.24, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:19:31"
+            }, 
+            {
+                "Hum": 35.0, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:19:31"
+            }, 
+            {
+                "Hum": 34.8, 
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:19:31"
+            }, 
+            {
+                "Hum": 35.0, 
+                "NdBat": 20.48, 
+                "NdId": "c7:62:cb:9f:f0:c7", 
+                "NdTs": "2016-12-26 14:19:32"
+            }, 
+            {
+                "Hum": 39.0, 
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:19:32"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": 10.24, 
+                "NdId": "eb:d3:c7:da:ba:2c", 
+                "NdTs": "2016-12-26 14:19:31", 
+                "Temp": -7.6
+            }, 
+            {
+                "NdBat": 0.0, 
+                "NdId": "d0:ad:64:4d:6a:2d", 
+                "NdTs": "2016-12-26 14:19:31", 
+                "Temp": -7.08
+            }, 
+            {
+                "NdBat": 30.72, 
+                "NdId": "c1:9d:bd:4d:ce:fb", 
+                "NdTs": "2016-12-26 14:19:31", 
+                "Temp": -6.57
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "f8:c7:8d:10:c6:f3", 
+                "NdTs": "2016-12-26 14:19:31", 
+                "Temp": -7.6
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:46", 
+                "NdTs": "2016-12-26 14:19:31", 
+                "Temp": 27.0
+            }, 
+            {
+                "NdBat": 100.0, 
+                "NdId": "ac:23:3f:a0:00:41", 
+                "NdTs": "2016-12-26 14:19:31", 
+                "Temp": 26.9
+            }, 
+            {
+                "NdBat": 20.48, 
+                "NdId": "c7:62:cb:9f:f0:c7", 
+                "NdTs": "2016-12-26 14:19:32", 
+                "Temp": 27.54
+            }, 
+            {
+                "NdBat": 10.24, 
+                "NdId": "ea:a8:d1:b3:41:41", 
+                "NdTs": "2016-12-26 14:19:32", 
+                "Temp": 27.37
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "dev_device_1", 
+    "GwIsPwr": "1", 
+    "GwTs": "2016-12-26 14:19:41"
+}
+[2016-12-26 14:19:44] INFO Starting new HTTPS connection (1): tbox-dev-hub.azure-devices.net
+[2016-12-26 14:19:44] DEBUG "POST /devices/dev_device_1/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+[2016-12-26 14:19:44] INFO Post request succesful with status : 204
+[2016-12-26 14:19:44] INFO Payload uploaded with response 1
+[2016-12-26 14:19:44] INFO Job "dBToServer (trigger: interval[0:00:30], next run at: 2016-12-26 14:20:11 UTC)" executed successfully
+[2016-12-26 14:19:51] INFO AM temp data:[u'eb:d3:c7:da:ba:2c', -7.6, '2016-12-26 14:19:51', 10.24]
+[2016-12-26 14:19:51] INFO AM humid data:[u'eb:d3:c7:da:ba:2c', 89.0, '2016-12-26 14:19:51', 10.24]
+[2016-12-26 14:19:51] INFO AM temp data:[u'd0:ad:64:4d:6a:2d', -7.08, '2016-12-26 14:19:51', 0.0]
+[2016-12-26 14:19:51] INFO AM humid data:[u'd0:ad:64:4d:6a:2d', 89.0, '2016-12-26 14:19:51', 0.0]
+[2016-12-26 14:19:51] INFO AM temp data:[u'c1:9d:bd:4d:ce:fb', -6.57, '2016-12-26 14:19:51', 30.72]
+[2016-12-26 14:19:51] INFO AM humid data:[u'c1:9d:bd:4d:ce:fb', 92.0, '2016-12-26 14:19:51', 30.72]
+[2016-12-26 14:19:51] INFO AM temp data:[u'f8:c7:8d:10:c6:f3', -7.6, '2016-12-26 14:19:51', 10.24]
+[2016-12-26 14:19:51] INFO AM humid data:[u'f8:c7:8d:10:c6:f3', 91.0, '2016-12-26 14:19:51', 10.24]
+[2016-12-26 14:19:51] INFO Door Activity data:[u'd7:b6:86:31:1d:bf', 1, '2016-12-26 14:19:51', 94]
+[2016-12-26 14:19:51] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:46', 27.0, '2016-12-26 14:19:51', 100]
+[2016-12-26 14:19:51] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:46', 34.8, '2016-12-26 14:19:51', 100]
+[2016-12-26 14:19:51] INFO MinewS1 temp data:[u'ac:23:3f:a0:00:41', 26.9, '2016-12-26 14:19:51', 100]
+[2016-12-26 14:19:51] INFO MinewS1 humid data:[u'ac:23:3f:a0:00:41', 34.7, '2016-12-26 14:19:51', 100]
+[2016-12-26 14:19:52] INFO AM temp data:[u'c7:62:cb:9f:f0:c7', 27.54, '2016-12-26 14:19:52', 20.48]
+[2016-12-26 14:19:52] INFO AM humid data:[u'c7:62:cb:9f:f0:c7', 35.0, '2016-12-26 14:19:52', 20.48]
+[2016-12-26 14:19:52] INFO AM temp data:[u'ea:a8:d1:b3:41:41', 27.37, '2016-12-26 14:19:52', 10.24]
+[2016-12-26 14:19:52] INFO AM humid data:[u'ea:a8:d1:b3:41:41', 39.0, '2016-12-26 14:19:52', 10.24]
+[2016-12-26 14:19:52] INFO Job "scanParse (trigger: interval[0:00:20], next run at: 2016-12-26 14:20:01 UTC)" executed successfully

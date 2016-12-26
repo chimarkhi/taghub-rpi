@@ -8,17 +8,17 @@ from gateway import GatewayParams
 from scan import ScanDelegate
 from cappec import CappecPeripheral
 from ankhmaway import AMScanHandler
-
+from minew import MinewScanHandler, MinewUUIDS
 
 manuNameCappec = "59002d01589086ea01"
 typeManuData = 255
-probe = None
+typeComplete16bServices = 3
 typeCompleteLocalName = 9
 cappecAdvName = "Cappec Blaze"
 manuNameAM = "4c000215ebefd08370a247c89837e7b5634df"
 
 sched = BlockingScheduler()
-
+probe = None
 
 @sched.scheduled_job('interval',seconds = GatewayParams.SCAN_INTERVAL)
 def scanParse():
@@ -47,28 +47,46 @@ def scanParse():
 						conTries = 0
 				except Exception, ex:
 					conTries -= 1
-					logging.error("Exception in Probe connection:%s",ex)
+					logging.error("Exception in Probe (%s) connection:%s",dev.addr, ex)
 				finally:
 					if probe:
 						probe.disconnect()
 					#print conTries	
 					
 		
-		# identifying AMtag out of scanned devices and then fetching data
+		# identifying AM Temp/RH tag out of scanned devices and then fetching data
 		elif str(dev.getValueText(typeManuData))[0:37]  == manuNameAM:
 			try:
 				amNode = AMScanHandler(dev)
 				##print amNode.getTemp(), amNode.getHumid(), amNode.getBatt()
 				amNode.pushToDB()
 			except Exception, ex:
-				logging.error("Exception in AM data handling:",ex)
+				logging.error("Exception in AM (%s) data handling: %s",dev.addr, ex)
+
+
+		# identifying Minew S1 Extreme Temp/RHtag out of scanned devices and then fetching data
+		elif MinewUUIDS.S1_SERVICE in dev.serviceData.keys() :
+			try:
+				minewNode = MinewScanHandler(dev)
+				minewNode.pushToDB()
+			except Exception, ex:
+				logging.error("Exception in MInew S1(%s) data handling: %s",dev.addr, ex)
+
+		# identifying Door Activity Sensors  out of scanned devices and then fetching data
+		elif MinewUUIDS.DOORACTSERVICE in dev.serviceData.keys() :
+			try:
+				minewNode = MinewScanHandler(dev)
+				minewNode.pushDoorActToDB()
+				print 'something'
+			except Exception, ex:
+				logging.error("Exception in Door Sensor (%s) data handling: %s",dev.addr, ex)
 
 
 @sched.scheduled_job('interval',seconds = GatewayParams.UPLOAD_INTERVAL)
 def dBToServer():
 	bledb.createPacket()
 	upStatus = bledb.uploadPayload()
-	logging.info('Payload uploaded with responnse %d', upStatus)	
+	logging.info('Payload uploaded with response %d', upStatus)	
 
 
 @sched.scheduled_job('interval',hours = GatewayParams.DBFLUSH_INTERVAL)

@@ -20,7 +20,7 @@ data_link='https://bliss-rdt.herokuapp.com/api/ble-data/'
 device_link='https://bliss-rdt.herokuapp.com/api/ble-device/'
 ##data_link='http://139.59.3.212:8002/api/ble-data/'
 ##device_link='http://139.59.3.212:8002/api/ble-device/'
-
+postHeaders={}
 
 ## Process parameters/variables
 gatewayID = 4  # gateway/room ID as specified in server data lists	

@@ -5,11 +5,11 @@ import logging
 class GatewayParams:
 	NAME  = 'dev_device_1' 
 	SCAN_WINDOW = 10				## seconds the scan window is open for
-	SCAN_INTERVAL = 60				## intervals (seconds) at which scanning window is opened
-	UPLOAD_INTERVAL = 60
+	SCAN_INTERVAL = 20				## intervals (seconds) at which scanning window is opened
+	UPLOAD_INTERVAL = 30
 
-	PACKET_SIZE = 2000
-	MAX_PACKET_UNITS = 25
+	PACKET_SIZE = 3500
+	MAX_PACKET_UNITS = 50
 	DBFLUSH_INTERVAL = 6
 	KEEPDATA_DAYS = 4
 
