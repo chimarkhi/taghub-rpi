@@ -9,7 +9,7 @@ import logging
 from gateway import Gateway, GatewayParams
 
 class PATHS:
-	DB_PATH = '/home/pi/tagbox/ble/blegateway/telemetryDB.db'
+	DB_PATH = '/home/pi/tagbox/ble/blegateway/telemetryDB'+GatewayParams.NAME+'.db'
 ## Create table if not already present 
 ## 
 def createDB():

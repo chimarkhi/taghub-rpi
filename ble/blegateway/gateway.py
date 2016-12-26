@@ -8,7 +8,7 @@ class GatewayParams:
 	SCAN_INTERVAL = 20				## intervals (seconds) at which scanning window is opened
 	UPLOAD_INTERVAL = 30
 
-	PACKET_SIZE = 3500
+	PACKET_SIZE = 3200
 	MAX_PACKET_UNITS = 50
 	DBFLUSH_INTERVAL = 6
 	KEEPDATA_DAYS = 4
@@ -21,7 +21,7 @@ class GatewayParams:
 	POST_HEADERS = {'Authorization' : SAS_KEY, 'Content-Type' : 'application/json'}
 	DATA_LINK = "https://"+IOTHUB+"/devices/"+NAME+"/messages/events?api-version=2016-02-03"
 
-	LOGFILE = "/home/pi/tagbox/logs/log_blemaster.txt"
+	LOGFILE = "/home/pi/tagbox/logs/log_blemaster"+NAME+".txt"
 	LOGLEVEL = logging.DEBUG
 
 class Gateway:

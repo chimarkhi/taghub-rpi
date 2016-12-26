@@ -77,7 +77,6 @@ def scanParse():
 			try:
 				minewNode = MinewScanHandler(dev)
 				minewNode.pushDoorActToDB()
-				print 'something'
 			except Exception, ex:
 				logging.error("Exception in Door Sensor (%s) data handling: %s",dev.addr, ex)
 

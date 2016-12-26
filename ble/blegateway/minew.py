@@ -82,7 +82,7 @@ class MinewScanHandler(object):
         
 	nodeTS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 	DoorActData  = [self.addr,self.getDoorStatus(),nodeTS, self.getBatt()]
-	print DoorActData
+#	print DoorActData
 	try:
 		con = sql.connect(bledb.PATHS.DB_PATH)
         	with con:
