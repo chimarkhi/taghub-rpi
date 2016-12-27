@@ -3,10 +3,10 @@ from collections import defaultdict
 import logging
 
 class GatewayParams:
-	NAME  = 'dev_device_1' 
+	NAME  = 'dev_device_4' 
 	SCAN_WINDOW = 10				## seconds the scan window is open for
 	SCAN_INTERVAL = 20				## intervals (seconds) at which scanning window is opened
-	UPLOAD_INTERVAL = 30
+	UPLOAD_INTERVAL = 20
 
 	PACKET_SIZE = 3200
 	MAX_PACKET_UNITS = 50
@@ -16,7 +16,7 @@ class GatewayParams:
 	MAX_PROBECON_ATTEMPTS = 5
 
 	POST_TIMEOUT = 120
-	SAS_KEY = """SharedAccessSignature sr=tbox-dev-hub.azure-devices.net%2Fdevices%2Fdev_device_1&sig=5AdACmgLDiCFiDWpfK7hH89oRMuUiUH4XnlBi89WdfI%3D&se=1513532812"""
+	SAS_KEY = """SharedAccessSignature sr=tbox-dev-hub.azure-devices.net&sig=KgDCAikL41mUAp12slI61usFc2VlEfG9p5yK1fpZMUE%3D&se=1514369868&skn=iothubowner"""
 	IOTHUB = 'tbox-dev-hub.azure-devices.net'
 	POST_HEADERS = {'Authorization' : SAS_KEY, 'Content-Type' : 'application/json'}
 	DATA_LINK = "https://"+IOTHUB+"/devices/"+NAME+"/messages/events?api-version=2016-02-03"

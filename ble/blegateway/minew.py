@@ -89,7 +89,7 @@ class MinewScanHandler(object):
                 	cur = con.cursor()
 				
 			cur.execute("""INSERT INTO DoorActData (NdId, \
-			DoorStatus,NdTs,NdBat,upFlag) \
+			DoorSts,NdTs,NdBat,upFlag) \
 			values (?,?,?,?,0);""", DoorActData)
 					
 			logging.info('Door Activity data:%s', DoorActData)

@@ -33,7 +33,7 @@ def createDB():
                 NdId TEXT NOT NULL, 
                 Temp REAL, 
                 NdTs TEXT, 
-		NdBat REAL,
+		NdBat INTEGER,
 		upFlag INTEGER);""")
 		
 	# Humidity table
@@ -43,7 +43,7 @@ def createDB():
                 NdId TEXT NOT NULL, 
                 Hum REAL, 
                 NdTs TEXT, 
-		NdBat REAL,
+		NdBat INTEGER,
 		upFlag INTEGER);""")
 
 	# Probe table
@@ -54,7 +54,7 @@ def createDB():
                 Prb1 REAL, \
                 Prb2 REAL, \
                 NdTs TEXT, \
-		NdBat REAL,
+		NdBat INTEGER,
 		upFlag INTEGER);""")
 		
 	# Door Activity  table
@@ -62,9 +62,9 @@ def createDB():
                 cur.execute("""CREATE TABLE IF NOT EXISTS DoorActData 
                 (seq INTEGER PRIMARY KEY AUTOINCREMENT, 
                 NdId TEXT NOT NULL, 
-                DoorStatus REAL, 
+                DoorSts INTEGER, 
                 NdTs TEXT, 
-		NdBat REAL,
+		NdBat INTEGER,
 		upFlag INTEGER);""")
 
 	
@@ -157,28 +157,30 @@ def createPacket():
 	dber = dbQuorer()
 	
 	data = defaultdict(dict)
-	
+	tables = dber.getTableNames()
 	dataDBInfo = []
 	payloadUnit = GatewayParams.MAX_PACKET_UNITS		
 
 	while (len(json.dumps(upPacket)) < GatewayParams.PACKET_SIZE) and payloadUnit > 0:
-		longestTable = dber.getPriority()
-		(rowId, rowData) = dber.readTable(longestTable) 
-		if rowId == None and payloadUnit == GatewayParams.MAX_PACKET_UNITS:
-			logging.info('No data in any table')
-			return False
-		elif rowId != None:
-			try:
-				data[longestTable].append(rowData)
-				dataDBInfo.append((longestTable,rowId))
-			except AttributeError  :
-				data[longestTable] =[]
-				data[longestTable].append(rowData)
-				dataDBInfo.append((longestTable,rowId))
-			## set telemetry tables' rows' upFlag using info from dataDBInfo entries
-			dber.updateRow(longestTable,rowId,'1')		
-		payloadUnit -= 1
-		upPacket.update({'Data':data})
+#		tab = dber.getPriority()
+#		(rowId, rowData) = dber.readTable(tab) 
+		for tab in tables:
+			(rowId, rowData) = dber.readTable(tab)
+			if rowId == None and payloadUnit == GatewayParams.MAX_PACKET_UNITS:
+				logging.info('No data in any table')
+				return False
+			elif rowId != None:
+				try:
+					data[tab].append(rowData)
+					dataDBInfo.append((tab,rowId))
+				except AttributeError  :
+					data[tab] =[]
+					data[tab].append(rowData)
+					dataDBInfo.append((tab,rowId))
+				## set telemetry tables' rows' upFlag using info from dataDBInfo entries
+				dber.updateRow(tab,rowId,'1')		
+				payloadUnit -= 1
+			upPacket.update({'Data':data})
 
 	logging.info('Payload size %d', len(json.dumps(upPacket)))
 	logging.info('Payload components %s', dataDBInfo)

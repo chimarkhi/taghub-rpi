@@ -32,6 +32,7 @@ class AMScanHandler(object):
 	
     def getBatt(self):
 	self.batt   = round((int(hex((int(self.minorID,16)&0xF000)>>8),16)*16.0/100),2)
+	self.batt   = None
 	return self.batt
 		
     def pushToDB(self):
