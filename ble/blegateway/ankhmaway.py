@@ -15,6 +15,7 @@ class AMScanHandler(object):
     def __init__(self, dev):
         self.advdata = dev.getValueText(UUIDS.TYPEMANUDATA)
 	self.addr    = dev.addr
+	self.macid = self.addr.replace(":","")
 	self.majorID = self.advdata[40:44]
 	self.minorID = self.advdata[44:48]
 
@@ -38,8 +39,8 @@ class AMScanHandler(object):
     def pushToDB(self):
         
 	nodeTS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-	amTempData  = [self.addr,self.getTemp(),nodeTS, self.getBatt()]
-	amHumidData = [self.addr,self.getHumid(),nodeTS,self.getBatt()]
+	amTempData  = [self.macid,self.getTemp(),nodeTS, self.getBatt()]
+	amHumidData = [self.macid,self.getHumid(),nodeTS,self.getBatt()]
 		
 	try:
 		con = sql.connect(bledb.PATHS.DB_PATH)
@@ -59,7 +60,7 @@ class AMScanHandler(object):
         	return True
 
 	except Exception as ex:
-		logging.error("Exception pushing AM data to DB: ",ex)
+		logging.error("Exception pushing AM data to DB: %s",ex)
 		return False
 
 

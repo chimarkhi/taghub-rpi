@@ -19,6 +19,7 @@ class MinewScanHandler(object):
         self.servicedata = dev.getValueText(MinewUUIDS.TYPE16BSERVICEDATA)
 	self.services = dev.serviceData
 	self.addr    = dev.addr
+	self.macid = self.addr.replace(":","")
 
     def getS1Temp(self):
 	rawTemp = self.servicedata[28:30] + self.servicedata[26:28]
@@ -53,8 +54,8 @@ class MinewScanHandler(object):
     def pushToDB(self):
         
 	nodeTS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-	minewTempData  = [self.addr,self.getS1Temp(),nodeTS, self.getS1Batt()]
-	minewHumidData = [self.addr,self.getS1Humid(),nodeTS,self.getS1Batt()]
+	minewTempData  = [self.macid,self.getS1Temp(),nodeTS, self.getS1Batt()]
+	minewHumidData = [self.macid,self.getS1Humid(),nodeTS,self.getS1Batt()]
 #	print minewTempData
 #	print minewHumidData
 	try:
@@ -75,13 +76,13 @@ class MinewScanHandler(object):
         	return True
 
 	except Exception as ex:
-		logging.error("Exception pushing MinewS1 data to DB: ",ex)
+		logging.error("Exception pushing MinewS1 data to DB: %s",ex)
 		return False
 
     def pushDoorActToDB(self):
         
 	nodeTS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-	DoorActData  = [self.addr,self.getDoorStatus(),nodeTS, self.getBatt()]
+	DoorActData  = [self.macid,self.getDoorStatus(),nodeTS, self.getBatt()]
 #	print DoorActData
 	try:
 		con = sql.connect(bledb.PATHS.DB_PATH)
@@ -96,6 +97,6 @@ class MinewScanHandler(object):
         	return True
 
 	except Exception as ex:
-		logging.error("Exception pushing MinewS1 data to DB: ",ex)
+		logging.error("Exception pushing MinewS1 data to DB: %s",ex)
 		return False
 

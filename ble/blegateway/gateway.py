@@ -3,7 +3,7 @@ from collections import defaultdict
 import logging
 
 class GatewayParams:
-	NAME  = 'dev_device_4' 
+	NAME  = 'dev_device_2' 
 	SCAN_WINDOW = 10				## seconds the scan window is open for
 	SCAN_INTERVAL = 20				## intervals (seconds) at which scanning window is opened
 	UPLOAD_INTERVAL = 20

@@ -20,6 +20,7 @@ class CappecPeripheral(btle.Peripheral):
         """
     	btle.Peripheral.__init__(self, dev.addr,addrType=btle.ADDR_TYPE_RANDOM)
 	self.addr = dev.addr
+	self.macid = self.addr.replace(":","")
 
 	
     def characteristic(self, uuid):
@@ -48,7 +49,7 @@ class CappecPeripheral(btle.Peripheral):
     def pushToDB(self):
         
 	nodeTS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-	probeData = [self.addr,self.getProbeTemp()[0],self.getProbeTemp()[1],nodeTS,None]
+	probeData = [self.macid,self.getProbeTemp()[0],self.getProbeTemp()[1],nodeTS,None]
 	
 	
 	try:
@@ -65,7 +66,7 @@ class CappecPeripheral(btle.Peripheral):
         	return True
 
 	except Exception as ex:
-		logging.error("Error pushing probeData to DB: ",ex)
+		logging.error("Error pushing probeData to DB: %s",ex)
 		return False
 
 
