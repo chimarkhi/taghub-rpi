@@ -9,6 +9,7 @@ from scan import ScanDelegate
 from cappec import CappecPeripheral
 from ankhmaway import AMScanHandler
 from minew import MinewScanHandler, MinewUUIDS
+from veritek import VeritekVips84
 
 manuNameCappec = "59002d01589086ea01"
 typeManuData = 255
@@ -79,6 +80,14 @@ def scanParse():
 				minewNode.pushDoorActToDB()
 			except Exception, ex:
 				logging.error("Exception in Door Sensor (%s) data handling: %s",dev.addr, ex)
+		
+	# Reading Veritek's Energy meter Modubus and fetching data	
+	try:
+		nrgMeter = VeritekVips84('/dev/ttyUSB0', 1)    
+	    	nrgMeter.debug = False
+		nrgMeter.pushToDB()
+	except Exception, ex:
+		logging.error("Exception in Energy Meter data handling : %s", ex)
 
 
 @sched.scheduled_job('interval',seconds = GatewayParams.UPLOAD_INTERVAL)

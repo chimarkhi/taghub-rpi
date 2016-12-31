@@ -67,6 +67,20 @@ def createDB():
 		NdBat INTEGER,
 		upFlag INTEGER);""")
 
+	# Energy Meter readings  table
+
+                cur.execute("""CREATE TABLE IF NOT EXISTS NrgData 
+                (seq INTEGER PRIMARY KEY AUTOINCREMENT, 
+                NdId TEXT NOT NULL, 
+                VoltRN REAL, 
+		CurrR REAL,
+		PfR REAL,
+		AppPwrR REAL,
+		ActNrg REAL,
+                NdTs TEXT, 
+		NdBat INTEGER,
+		upFlag INTEGER);""")
+
 	
 class dbQuorer():
 	def __init__(self):
