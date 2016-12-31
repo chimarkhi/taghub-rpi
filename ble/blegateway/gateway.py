@@ -6,9 +6,9 @@ class GatewayParams:
 	NAME  = 'dev_device_2' 
 	SCAN_WINDOW = 10				## seconds the scan window is open for
 	SCAN_INTERVAL = 20				## intervals (seconds) at which scanning window is opened
-	UPLOAD_INTERVAL = 20
+	UPLOAD_INTERVAL = 30
 
-	PACKET_SIZE = 3200
+	PACKET_SIZE = 3500
 	MAX_PACKET_UNITS = 50
 	DBFLUSH_INTERVAL = 6
 	KEEPDATA_DAYS = 4
@@ -23,6 +23,8 @@ class GatewayParams:
 
 	LOGFILE = "/home/pi/tagbox/logs/log_blemaster"+NAME+".txt"
 	LOGLEVEL = logging.DEBUG
+
+	READNRG = False
 
 class Gateway:
 	def __init__(self):

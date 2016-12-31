@@ -82,12 +82,13 @@ def scanParse():
 				logging.error("Exception in Door Sensor (%s) data handling: %s",dev.addr, ex)
 		
 	# Reading Veritek's Energy meter Modubus and fetching data	
-	try:
-		nrgMeter = VeritekVips84('/dev/ttyUSB0', 1)    
-	    	nrgMeter.debug = False
-		nrgMeter.pushToDB()
-	except Exception, ex:
-		logging.error("Exception in Energy Meter data handling : %s", ex)
+	if GatewayParams.READNRG is True :
+		try:
+			nrgMeter = VeritekVips84('/dev/ttyUSB0', 1)    
+		    	nrgMeter.debug = False
+			nrgMeter.pushToDB()
+		except Exception, ex:
+			logging.error("Exception in Energy Meter data handling : %s", ex)
 
 
 @sched.scheduled_job('interval',seconds = GatewayParams.UPLOAD_INTERVAL)
