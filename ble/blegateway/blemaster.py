@@ -2,6 +2,7 @@ import bluepy.btle as btle
 import time
 from apscheduler.schedulers.blocking import BlockingScheduler
 import logging
+import os
 
 import bledb
 from gateway import GatewayParams
@@ -28,6 +29,11 @@ def scanParse():
 	try:
 		scanner = btle.Scanner().withDelegate(ScanDelegate())
 		devices = scanner.scan(GatewayParams.SCAN_WINDOW)
+	
+	except UnboundLocalError:
+		os.system("sudo hciconfig hci0 down && sudo hciconfig hci0 up")
+		logging.error("Exception in BLE scanning: %s",ex)
+		time.sleep(5)
 			
 	except Exception, ex:
 		logging.error("Exception in BLE scanning: %s",ex)

@@ -17,3 +17,4 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 import sqlite3 as sql
 import requests
 import os
+import minimalmodbus

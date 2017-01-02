@@ -180,9 +180,11 @@ def createPacket():
 #		(rowId, rowData) = dber.readTable(tab) 
 		for tab in tables:
 			(rowId, rowData) = dber.readTable(tab)
-			if rowId == None and payloadUnit == GatewayParams.MAX_PACKET_UNITS:
-				logging.info('No data in any table')
-				return False
+			if rowId == None :
+				tables.remove(tab)
+				if len(tables) == 0 :
+					logging.info('No data in any table')
+					return GatewayParams.PACKET_SIZE - payloadUnit
 			elif rowId != None:
 				try:
 					data[tab].append(rowData)
@@ -195,7 +197,7 @@ def createPacket():
 				dber.updateRow(tab,rowId,'1')		
 				payloadUnit -= 1
 			upPacket.update({'Data':data})
-
+	
 	logging.info('Payload size %d', len(json.dumps(upPacket)))
 	logging.info('Payload components %s', dataDBInfo)
 
@@ -207,8 +209,8 @@ def createPacket():
 	dber.close()
 
 	logging.debug(upPacketJsonPretty)
+	return GatewayParams.PACKET_SIZE - payloadUnit
 		
-	return True
 
 def uploadPayload():
 	upDone = 0
