@@ -174,7 +174,8 @@ def createPacket():
 	tables = dber.getTableNames()
 	dataDBInfo = []
 	payloadUnit = GatewayParams.MAX_PACKET_UNITS		
-
+	
+	
 	while (len(json.dumps(upPacket)) < GatewayParams.PACKET_SIZE) and payloadUnit > 0:
 #		tab = dber.getPriority()
 #		(rowId, rowData) = dber.readTable(tab) 
@@ -183,8 +184,8 @@ def createPacket():
 			if rowId == None :
 				tables.remove(tab)
 				if len(tables) == 0 :
-					logging.info('No data in any table')
-					return GatewayParams.PACKET_SIZE - payloadUnit
+					logging.info('All data from all tables copied to Payloads table')
+					break
 			elif rowId != None:
 				try:
 					data[tab].append(rowData)
@@ -197,19 +198,27 @@ def createPacket():
 				dber.updateRow(tab,rowId,'1')		
 				payloadUnit -= 1
 			upPacket.update({'Data':data})
+		else :
+			continue
+		break
 	
-	logging.info('Payload size %d', len(json.dumps(upPacket)))
-	logging.info('Payload components %s', dataDBInfo)
+	if len(data) == 0:
+		logging.info('No data in any table')
+		return GatewayParams.PACKET_SIZE - payloadUnit
+		dber.close()
+	else:
+		logging.info('Payload size %d', len(json.dumps(upPacket)))
+		logging.info('Payload components %s', dataDBInfo)
 
-	packetTs =  datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")		
-	upPacketJson = json.dumps(upPacket)
-	upPacketJsonPretty = json.dumps(upPacket,indent=4, sort_keys=True)
-	dber.packetToDB(upPacketJson,packetTs)
-	
-	dber.close()
+		packetTs =  datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")		
+		upPacketJson = json.dumps(upPacket)
+		upPacketJsonPretty = json.dumps(upPacket,indent=4, sort_keys=True)
+		dber.packetToDB(upPacketJson,packetTs)
 
-	logging.debug(upPacketJsonPretty)
-	return GatewayParams.PACKET_SIZE - payloadUnit
+		dber.close()
+
+		logging.debug(upPacketJsonPretty)
+		return GatewayParams.PACKET_SIZE - payloadUnit
 		
 
 def uploadPayload():

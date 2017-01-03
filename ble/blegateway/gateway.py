@@ -4,15 +4,17 @@ import logging
 
 class GatewayParams:
 	NAME  = 'dev_device_2' 
-	SCAN_WINDOW = 10				## seconds the scan window is open for
-	SCAN_INTERVAL = 20				## intervals (seconds) at which scanning window is opened
-	UPLOAD_INTERVAL = 30
+	SCAN_WINDOW = 12					## seconds the scan window is open for
+	SCAN_INTERVAL = 30
+	PAYLOAD_INTERVAL = 15				## intervals (seconds) at which scanning window is opened
+	UPLOAD_INTERVAL = PAYLOAD_INTERVAL
 
 	PACKET_SIZE = 3500
 	MAX_PACKET_UNITS = 50
 	DBFLUSH_INTERVAL = 6
 	KEEPDATA_DAYS = 4
-
+	WHITELISTREAD_INTERVAL = 6			## hours in which whitelist is updated 	
+	
 	MAX_PROBECON_ATTEMPTS = 5
 
 	POST_TIMEOUT = 120
@@ -25,6 +27,8 @@ class GatewayParams:
 	LOGLEVEL = logging.DEBUG
 
 	READNRG = False
+	WHITELIST_FILE = "/home/pi/tagbox/ble/blegateway/whitelist.txt"
+	WHITELIST_ENABLE = True
 
 class Gateway:
 	def __init__(self):

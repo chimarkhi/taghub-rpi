@@ -78,9 +78,9 @@ class VeritekVips84(minimalmodbus.Instrument):
 
     def pushToDB(self):
 	nodeTS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-	nrgData  = [self.macid, round(self.get_voltage_r_n(),2), round(self.get_current_r(),2), \
+	nrgData  = [self.macid, round(self.get_voltage_r_n(),2), round(self.get_current_r(),3), \
 				round(self.get_pf_r(),2), round(self.get_apparent_power_r(),2),  \
-				round(self.get_active_power_r(),2), nodeTS, self.getBatt()]
+				round(self.get_import_active_energy()/1000000000.0,9), nodeTS, self.getBatt()]
 	print nrgData
 		
 	try:

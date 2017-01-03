@@ -22,6 +22,17 @@ manuNameAM = "4c000215ebefd08370a247c89837e7b5634df"
 sched = BlockingScheduler()
 probe = None
 
+
+@sched.scheduled_job('interval',hours = GatewayParams.WHITELISTREAD_INTERVAL)
+def readWhitelist():
+	whitelistFile = open(GatewayParams.WHITELIST_FILE,"r")
+	macidList =  whitelistFile.read().split("\n")
+	whitelist = [macid.lower() for macid in macidList]
+	logging.info("Whitelist elements %s", whitelist)
+	global whitelistGlobal 
+	whitelistGlobal = whitelist
+	return whitelist
+
 @sched.scheduled_job('interval',seconds = GatewayParams.SCAN_INTERVAL)
 def scanParse():
 	
@@ -30,16 +41,19 @@ def scanParse():
 		scanner = btle.Scanner().withDelegate(ScanDelegate())
 		devices = scanner.scan(GatewayParams.SCAN_WINDOW)
 	
-	except UnboundLocalError:
-		os.system("sudo hciconfig hci0 down && sudo hciconfig hci0 up")
+	except Exception, ex:
+		devices = []
+		os.system("sudo hciconfig hci0 reset")
 		logging.error("Exception in BLE scanning: %s",ex)
 		time.sleep(5)
-			
-	except Exception, ex:
-		logging.error("Exception in BLE scanning: %s",ex)
+	
+	if GatewayParams.WHITELIST_ENABLE :	
+		whitelistedDevices = [dev for dev in devices if dev.addr in whitelistGlobal]
+	else:
+		whitelistedDevices = devices	
 	
 	## iterate through devices 
-	for dev in devices:
+	for dev in whitelistedDevices:
 		conTries = GatewayParams.MAX_PROBECON_ATTEMPTS
 
 		# identifying Cappec probe out of scanned devices and then fetching data
@@ -97,9 +111,14 @@ def scanParse():
 			logging.error("Exception in Energy Meter data handling : %s", ex)
 
 
+@sched.scheduled_job('interval',seconds = GatewayParams.PAYLOAD_INTERVAL)
+def packetCreation():
+	bledb.createPacket()
+	logging.info('Payload created in DB')	
+
+
 @sched.scheduled_job('interval',seconds = GatewayParams.UPLOAD_INTERVAL)
 def dBToServer():
-	bledb.createPacket()
 	upStatus = bledb.uploadPayload()
 	logging.info('Payload uploaded with response %d', upStatus)	
 
@@ -121,6 +140,8 @@ def main() :
 						datefmt='%Y-%m-%d %H:%M:%S',  
 						level = GatewayParams.LOGLEVEL)
 	logging.info('Logging started')	
+	
+	whitelistGlobal = readWhitelist()
 
 	bledb.createDB()		
 	logging.info('Created Telemetry DB')
