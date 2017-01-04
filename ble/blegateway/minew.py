@@ -24,7 +24,7 @@ class MinewScanHandler(object):
     def getS1Temp(self):
 	rawTemp = self.servicedata[28:30] + self.servicedata[26:28]
 	tempInt1 = int(rawTemp,16)
-	tempInt2 = tempInt1 if tempInt1 < 0x7FFF else tempInt1 - 0x8000  
+	tempInt2 = tempInt1 if tempInt1 < 0x7FFF else tempInt1 - 0x8000 - 0x8000 
 	self.S1temp = tempInt2/10.0
 	print rawTemp, self.S1temp
 	return self.S1temp
@@ -32,7 +32,7 @@ class MinewScanHandler(object):
     def getS1Humid(self):
 	rawHumid = self.servicedata[32:34] + self.servicedata[30:32]
 	humidInt1 = int(rawHumid,16)
-	humidInt2 = humidInt1 if humidInt1 < 0x7FFF else humidInt1 - 0x8000  
+	humidInt2 = humidInt1 if humidInt1 < 0x7FFF else humidInt1 - 0x8000  - 0x8000
 	self.S1humid = humidInt2/10.0	
     	return self.S1humid
 	
