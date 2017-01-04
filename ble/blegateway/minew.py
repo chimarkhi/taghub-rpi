@@ -26,6 +26,7 @@ class MinewScanHandler(object):
 	tempInt1 = int(rawTemp,16)
 	tempInt2 = tempInt1 if tempInt1 < 0x7FFF else tempInt1 - 0x8000  
 	self.S1temp = tempInt2/10.0
+	print rawTemp, self.S1temp
 	return self.S1temp
     
     def getS1Humid(self):

@@ -26,7 +26,7 @@ class GatewayParams:
 	LOGFILE = "/home/pi/tagbox/logs/log_blemaster"+NAME+".txt"
 	LOGLEVEL = logging.DEBUG
 
-	READNRG = False
+	READNRG = True
 	WHITELIST_FILE = "/home/pi/tagbox/ble/blegateway/whitelist.txt"
 	WHITELIST_ENABLE = True
 
