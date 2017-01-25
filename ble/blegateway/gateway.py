@@ -22,13 +22,19 @@ class GatewayParams:
 	IOTHUB = 'tbox-dev-hub.azure-devices.net'
 	POST_HEADERS = {'Authorization' : SAS_KEY, 'Content-Type' : 'application/json'}
 	DATA_LINK = "https://"+IOTHUB+"/devices/"+NAME+"/messages/events?api-version=2016-02-03"
+	
+	MQTT_USERNAME =IOTHUB+"/"+NAME+"/"+"api-version=2016-11-14"
+	MQTT_KEEPALIVE = 60 					## seconds for which the connection is kept alive 
 
 	LOGFILE = "/home/pi/tagbox/logs/log_blemaster"+NAME+".txt"
 	LOGLEVEL = logging.DEBUG
 
-	READNRG = True
+	READNRG = False
 	WHITELIST_FILE = "/home/pi/tagbox/ble/blegateway/whitelist.txt"
-	WHITELIST_ENABLE = True
+	WHITELIST_ENABLE = False
+	
+
+	COMMTYPE = "MQTT" 					## HTTPS, MQTT 
 
 class Gateway:
 	def __init__(self):

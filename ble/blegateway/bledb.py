@@ -7,6 +7,7 @@ from collections import defaultdict
 import logging
 
 from gateway import Gateway, GatewayParams
+import mqttClient
 
 class PATHS:
 	DB_PATH = '/home/pi/tagbox/ble/blegateway/telemetryDB'+GatewayParams.NAME+'.db'
@@ -230,27 +231,46 @@ def uploadPayload():
 
 	if rowId != None:
 		try:
-			r = requests.post(GatewayParams.DATA_LINK,data=payload, headers=GatewayParams.POST_HEADERS,timeout=GatewayParams.POST_TIMEOUT)
-			if r != None:
+			if GatewayParams.COMMTYPE == "HTTPS" :			
+				r = requests.post(GatewayParams.DATA_LINK,data=payload, headers=GatewayParams.POST_HEADERS,timeout=GatewayParams.POST_TIMEOUT)
+			elif GatewayParams.COMMTYPE == "MQTT" :
+				mqtter = mqttClient.MQTTClient()
+				(r,mid) = mqtter.pubSingle(payload)
+			if r != None and GatewayParams.COMMTYPE == "HTTPS" :
 				upDone = r.status_code
 				if divmod(upDone,100)[0] == 2:						
 					dber.updateRow('Payloads',rowId,str(upDone)) 	
-					logging.info('Post request succesful with status : %d', upDone)
+					logging.info('Post request successful with status : %d', upDone)
 					dber.close()				
 					return True
 				else :
-					logging.info('Post request UNsuccesful with status : %d', upDone)					
+					logging.info('Post request UNsuccessful with status : %d', upDone)					
 					dber.close()					
 					return False
-			else :
-				logging.info('Payloads is empty')
+			elif r != None and GatewayParams.COMMTYPE == "MQTT":
+				upDone = r
+				if upDone == 0:						
+					dber.updateRow('Payloads', rowId, str(upDone)) 	
+					logging.info('Post request successful with status : %d', upDone)
+					dber.close()				
+					return True
+				else :
+					logging.info('Post request  UNsuccessful with status : %d', upDone)					
+					dber.close()					
+					return False
+			elif r == None  :
+				logging.info('Post request on HTTPS/MQTT returned a NULL status code')
 				dber.close()
 				return False
 		except Exception as ex:
 			logging.error( 'Payload POST request failed %s', ex)	
 			dber.close()			
 			return False
-		
+	else :
+		logging.info('Payloads is empty')
+		dber.close()
+		return False
+	
 
 
 
