@@ -4,14 +4,15 @@ import time
 import logging
 import ssl
 
-from  gateway import GatewayParams
+from  gateway import GatewayParamsStatic
+import msgParser
 
 broker_type = "notazure"
-azure_username = GatewayParams.IOTHUB + "/" + GatewayParams.NAME
-azure_password =  GatewayParams.SAS_KEY
+azure_username = GatewayParamsStatic.IOTHUB + "/" + GatewayParamsStatic.NAME
+azure_password =  GatewayParamsStatic.SAS_KEY
 ca_cert_path = "/etc/ssl/certs/ca-certificates.crt"
-dev_topic = "devices/"+GatewayParams.NAME+"/messages/events/"
-c2d_topic = "devices/"+GatewayParams.NAME+"/messages/devicebound/"
+dev_topic = "devices/"+GatewayParamsStatic.NAME+"/messages/events/"
+c2d_topic = "devices/"+GatewayParamsStatic.NAME+"/messages/devicebound/"
 
 
 # MQTT connection details
@@ -26,10 +27,10 @@ if broker_type == "azure" :
 	  'tls_version' : ssl.PROTOCOL_TLSv1
 	}
 	mqttPort = 8883
-	client_username = GatewayParams.MQTT_USERNAME
-	client_password = GatewayParams.SAS_KEY
-	client_id = GatewayParams.NAME
-	mqttKeepAlive = GatewayParams.MQTT_KEEPALIVE
+	client_username = GatewayParamsStatic.MQTT_USERNAME
+	client_password = GatewayParamsStatic.SAS_KEY
+	client_id = GatewayParamsStatic.NAME
+	mqttKeepAlive = GatewayParamsStatic.MQTT_KEEPALIVE
 else :
 	broker = "iot.eclipse.org"
 	auth = None
@@ -37,8 +38,8 @@ else :
 	mqttPort = 1883
 	client_username = ""
 	client_password = ""
-	client_id = GatewayParams.NAME
-	mqttKeepAlive = GatewayParams.MQTT_KEEPALIVE
+	client_id = GatewayParamsStatic.NAME
+	mqttKeepAlive = GatewayParamsStatic.MQTT_KEEPALIVE
 
 
 # The callback for when the client receives a CONNACK response from the server.
@@ -51,7 +52,12 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
 	print(msg.topic+" "+str(msg.payload))
 	logging.info("Message recieved from server TOPIC: %s, MSG: %s ", msg.topic, msg.payload)
-
+	try:
+		cmAck = msgParser.inMQTTJSON(msg.payload)
+		print cmAck.CmId, cmAck.GwTs, cmAck.CmSt
+	except Exception as ex:
+		logging.error("C2D message parsing failed : %s", ex)
+		print("C2D message parsing failed : %s", ex)
 # The callback for when broker has responded to SUBSCRIBE request.
 def on_subscribe(client, userdata, mid, granted_qos):
 	print("Subscribed: "+str(mid)+" "+str(granted_qos))
@@ -97,6 +103,6 @@ if __name__ == "__main__":
 	mqtter = MQTTClient()
 	(r,mid) = mqtter.pubSingle("testup through method")
 	print "through method", r,mid	
-#	mqtter.subscribe()
+	mqtter.subscribe()
 
 

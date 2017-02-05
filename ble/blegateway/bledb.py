@@ -6,11 +6,12 @@ import json
 from collections import defaultdict
 import logging
 
-from gateway import Gateway, GatewayParams
+from gateway import Gateway, GatewayParamsStatic
+import GatewayParams
 import mqttClient
 
 class PATHS:
-	DB_PATH = '/home/pi/tagbox/ble/blegateway/telemetryDB'+GatewayParams.NAME+'.db'
+	DB_PATH = '/home/pi/tagbox/ble/blegateway/telemetryDB'+GatewayParamsStatic.NAME+'.db'
 ## Create table if not already present 
 ## 
 def createDB():
@@ -232,7 +233,7 @@ def uploadPayload():
 	if rowId != None:
 		try:
 			if GatewayParams.COMMTYPE == "HTTPS" :			
-				r = requests.post(GatewayParams.DATA_LINK,data=payload, headers=GatewayParams.POST_HEADERS,timeout=GatewayParams.POST_TIMEOUT)
+				r = requests.post(GatewayParamsStatic.DATA_LINK,data=payload, headers=GatewayParamsStatic.POST_HEADERS,timeout=GatewayParams.POST_TIMEOUT)
 			elif GatewayParams.COMMTYPE == "MQTT" :
 				mqtter = mqttClient.MQTTClient()
 				(r,mid) = mqtter.pubSingle(payload)

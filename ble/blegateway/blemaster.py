@@ -5,7 +5,8 @@ import logging
 import os
 
 import bledb
-from gateway import GatewayParams
+import GatewayParams
+from gateway import GatewayParamsStatic
 from scan import ScanDelegate
 from cappec import CappecPeripheral
 from ankhmaway import AMScanHandler
@@ -22,16 +23,31 @@ manuNameAM = "4c000215ebefd08370a247c89837e7b5634df"
 sched = BlockingScheduler()
 probe = None
 
-
 @sched.scheduled_job('interval',hours = GatewayParams.WHITELISTREAD_INTERVAL)
 def readWhitelist():
-	whitelistFile = open(GatewayParams.WHITELIST_FILE,"r")
-	macidList =  whitelistFile.read().split("\n")
-	whitelist = [macid.lower() for macid in macidList]
-	logging.info("Whitelist elements %s", whitelist)
+	whitelistMaster =[]	
+	whitelst = []
+	for wlType in GatewayParamsStatic.WHITELIST_TYPES:
+		try:
+			with open(GatewayParamsStatic.WHITELIST_FILE + wlType+".txt","r") as whitelistFile:
+				macidList = [line.split(" ")[0] for line in whitelistFile]
+			whitelist = [macid.lower() for macid in macidList]
+			logging.debug("Whitelist %s elements %s", wlType, whitelist)
+		except IOError as ex:
+			whitelist = []
+			logging.debug("Whitlist file of type %s not present : %s", wlType, ex)		
+		except Exception as ex:
+			whitelist = []
+			logging.error("Error in reading whitelist %s: %s", wlType, ex)
+		finally:
+			 if wlType in GatewayParamsStatic.WHITELIST_TYPES[:GatewayParams.WHITELIST_ENABLE ] :							
+				whitelistMaster.extend(whitelist)
+	logging.debug("Whitelisting level : %s; Whitelist elements: %s", GatewayParams.WHITELIST_ENABLE, whitelistMaster)
+	logging.info("No. of devices in whitelist level %s are %d", GatewayParams.WHITELIST_ENABLE, len(whitelistMaster))
 	global whitelistGlobal 
-	whitelistGlobal = whitelist
-	return whitelist
+	if len(whitelistMaster) != 0:
+		whitelistGlobal = whitelistMaster
+	return whitelistMaster
 
 @sched.scheduled_job('interval',seconds = GatewayParams.SCAN_INTERVAL)
 def scanParse():
@@ -48,10 +64,13 @@ def scanParse():
 		time.sleep(5)
 	
 	if GatewayParams.WHITELIST_ENABLE :	
-		whitelistedDevices = [dev for dev in devices if dev.addr in whitelistGlobal]
+		whitelistedDevices = [dev for dev in devices if dev.addr.replace(":","") in whitelistGlobal]
 	else:
 		whitelistedDevices = devices	
 	
+	logging.info("No. of devices scanned are %d", len(devices))
+	logging.info("No. of scanned devices in whitelist are %d", len(whitelistedDevices))
+
 	## iterate through devices 
 	for dev in whitelistedDevices:
 		conTries = GatewayParams.MAX_PROBECON_ATTEMPTS
@@ -102,7 +121,7 @@ def scanParse():
 				logging.error("Exception in Door Sensor (%s) data handling: %s",dev.addr, ex)
 		
 	# Reading Veritek's Energy meter Modubus and fetching data	
-	if GatewayParams.READNRG is True :
+	if GatewayParams.READNRG == 1 :
 		try:
 			nrgMeter = VeritekVips84('/dev/ttyUSB0', 1)    
 		    	nrgMeter.debug = False
@@ -135,7 +154,7 @@ def dBFlush():
 
 
 def main() :
-	logging.basicConfig(filename=GatewayParams.LOGFILE, filemode = 'w', 
+	logging.basicConfig(filename=GatewayParamsStatic.LOGFILE, filemode = 'w', 
 						format='[%(asctime)s] %(levelname)s %(message)s', 
 						datefmt='%Y-%m-%d %H:%M:%S',  
 						level = GatewayParams.LOGLEVEL)
