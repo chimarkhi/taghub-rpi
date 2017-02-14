@@ -2,21 +2,60 @@ import json
 import logging
 import datetime
 import os
+import subprocess
 
 import blemaster
 import GatewayParams
-from gateway import GatewayParamsStatic
+from gateway import GatewayParamsStatic, GatewayParamsC2D, gatewayAction
 
 
-cmTyWL = 'WLs'
-cmTyGP = 'GwPr'
-gatewayType = "pi"
+cmTyWL = 'Wls'
+cmTyGp = 'GwParam'
+cmTyGpSp = "GwParamSp"
+cmTyGwPerCtrl = "GwPeripheralCtrl"
+cmTyCnData = "CnData"
+cmTyGwFunc = "GwFunc"
+
+
+gatewayType = GatewayParamsC2D.GATEWAY_TYPE
+commandIDKey = GatewayParamsC2D.COMMAND_ID_KEY
+gatewayTypeKey = GatewayParamsC2D.GATEWAY_TYPE_KEY
+commandTypeKey = GatewayParamsC2D.COMMAND_TYPE_KEY
+commandTimestampKey = GatewayParamsC2D.COMMAND_TS_KEY 
+commandDataKey = GatewayParamsC2D.COMMAND_DATA_KEY
+
+cmKeyAppRestart = "AppRestart"
+cmKeyGwReboot = "GwReboot"
+
+## C2D command to gateway parameter key map
+key_map = {	'ScWn'  : "SCAN_WINDOW", 	 						## seconds the scan window is open for
+			'ScIn'  : "SCAN_INTERVAL",							## seconds scan interval 
+			'UpIn'  : "UPLOAD_INTERVAL", 						## intervals (seconds) at which scanning window is opened	
+			'PkSz' : "PACKET_SIZE",								## bytes, max payload size
+			'PkNo' : "MAX_PACKET_UNITS",						## max data points in one payload
+			'MqttKA' : "MQTT_KEEPALIVE", 						## seconds for which the connection is kept alive 	
+			'WlEn'  : "WHITELIST_ENABLE",						## 0,1,2,3 enable whitelisting levels
+
+			'DbIn' : "DBFLUSH_INTERVAL",						## hours, interval at which db is flushed of data older than KEEPDATA_DAYS 
+			'DbKp' : "KEEPDATA_DAYS",							## days till which data is archived
+			'CnAt'  : "MAX_PROBECON_ATTEMPTS",				## max connect attempts to a peripheral
+			'UpTO' : "POST_TIMEOUT",							## seconds, post request timeout
+			'LogL'  : "LOGLEVEL",									## logging level
+			'CommTy'  : "COMMTYPE",							## HTTPS, MQTT 
+
+			'NrgCtrl'  : "READNRG",								## read modbus for energy data
+			'BlCtrl'	: "BLE_ENABLE"								## enable gateway's ble radio
+			}		
 
 class CommandAck:
 	GwId = GatewayParamsStatic.NAME
 	GwTs =  datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 	def __init__(self,msgIn):
-		self.CmId = msgIn["CmId"]
+		try:
+			self.CmId = msgIn[commandIDKey]
+		## If Command Id isnt present assign default CmId to return message
+		except :
+			self.CmId = "FFFFFFFF"
 		self.CmSt = 0
 	def updateSt(self,success):
 		self.CmSt = success
@@ -26,67 +65,93 @@ class CommandAck:
 def inMQTTJSON(payloadJSON):
 	msg = json.loads(payloadJSON)
 	c2dmsgJsonPretty = json.dumps(msg,indent=4, sort_keys=True)	
-	print c2dmsgJsonPretty
-	
+
+	## Create Command response packet with status intialized to failure (0)	
 	cmAck = CommandAck(msg)
 
+	## Parse Command for mandatory fields
 	try:
-		commandId = msg["CmId"]	
-		commandGwTy = msg["GwTy"]
-		commandType = msg["CmTy"]
-		commandTs = msg["CmTs"]	
+		commandId = msg[commandIDKey]	
+		commandGwTy = msg[gatewayTypeKey]
+		commandType = msg[commandTypeKey]
+		commandTs = msg[commandTimestampKey]	
 		commandValid = True
-	except:
+	except Exception as ex:
 		commandId = None
 		commandGwTy = None
 		commandType = None
-		print "C2D command does not have Id/GwTy/Ty/Ts data ", ex
-		logging.error("Exception updating whitelist %s", ex)
+		print "C2D command does not have Id/GwTy/Ty/Ts data ",ex
+		logging.error("C2D command does not have Id/GwTy/Ty/Ts data: %s", ex)
 		commandValid = False
 
+	## Check if Command Data is present
 	try: 
-		commandData = msg["CmData"]
-	except :
+		commandData = msg[commandDataKey]
+	except Exception as ex:
 		commandData = None
 		print "C2D command does not have Data field ", ex
 		logging.error("C2D command has no Data field %s", ex)
-			
+		cmAck.updateTs()
+		return cmAck
 
+	## For a valid command with correct gateway type value take actions according to command type
 	if commandGwTy == gatewayType and commandValid == True :
+
+		## Create Whitelist text files if type is "WLs" 
 		if commandType == cmTyWL:
 			try:
 				cmSuccess = createWLTxt(commandData)
 				cmAck.updateSt(cmSuccess)
 			except Exception as ex:
-				print "Exception updating whitelist ", wlType, ex
-				logging.error("Exception updating whitelist %s:%s", wlType, ex)
+				print "Exception updating whitelist ", ex
+				logging.error("Exception updating whitelist %s", ex)
+			finally:
+				cmAck.updateTs()
+
+		## Update GatewayParams.py text file if type is "GwParam", 'GwParamSp' or 'GwPeripheralCtrl'. Only dynamic params in this file		
+		elif commandType == cmTyGp or commandType == cmTyGpSp or commandType == cmTyGwPerCtrl:
+			try:
+				cmSuccess = updateParamFile(commandData, GatewayParamsStatic.GATEWAYPARAMS_FILE)
+				cmAck.updateSt(cmSuccess)			
+			except Exception as ex:
+				print "Exception updating  gateway params ", ex
+				logging.error("Exception updating gateway params: %s", ex)
 			finally:
 				cmAck.updateTs()
 		
-		elif commandType == cmTyGP:
+		## Run the command function as mentioned in GwFunc command 
+		elif commandType == cmTypeGwFunc :
 			try:
-				cmSuccess = createGPTxt(commandData)
+				cmSuccess = gwAction(commandData)
 				cmAck.updateSt(cmSuccess)			
 			except Exception as ex:
-				print "Exception updating  gateway params ", wlType, ex
-				logging.error("Exception updating gateway params %s:%s", wlType, ex)
+				print "Exception running gateway action ", ex
+				logging.error("Exception running gateway action: %s", ex)
 			finally:
 				cmAck.updateTs()
-		else :
+
+		## If no identifiable command type found in message		
+		else:
+			print "No actionable Command Type found"
+			logging.error("No actionable Command Type found")
 			cmAck.updateTs()
-			print "Command Type invalid ", wlType, ex
-			logging.warning("Command Type invalid", wlType, ex)			
-	else :
-		cmAck.updateTs()
+
+	else :		
 		print "Invalid C2D command "
 		logging.warning("Invalid C2D command")
+		cmAck.updateTs()
 
 	return cmAck
 		
 
 def createWLTxt(cmData):
+	wlUpList = []	
+	osMoveSt = 0
+	## Iterate through whitelist types in command
 	for wlType in cmData.keys() :
+		## Only for valid whitelist types 
 		if wlType in GatewayParamsStatic.WHITELIST_TYPES:
+			## Write whitelist data in bkup text files. Each whitelist has separate txt file
 			try:
 				wlList = cmData[wlType]
 				whitelistFile = open(GatewayParamsStatic.WHITELIST_FILE+str(wlType)+".txt_bkup","w")
@@ -94,61 +159,90 @@ def createWLTxt(cmData):
 					a = ""
 					for v in i.values():
 						a = a+v+" "
-						whitelistFile.write(str(a)+"\n")
+					whitelistFile.write(str(a)+"\n")
 				whitelistFile.close()
 				print "Whitelist type  updated", wlType
 				logging.info("Whitelist type %s  updated", wlType)
 				cmSuccess = 1 
+				wlUpList.append(wlType)
 			except Exception as ex:
 				print "Exception updating whitelist ", wlType, ex
 				logging.error("Exception updating whitelist %s: %s", wlType, ex)
+				## Even if any one whitelist file creation fails command action is assumed to fail				
 				cmSuccess = 0
 		else :
-			print "Command has incorrect  ", wlType, ex
-			logging.error("Exception updating whitelist %s: %s", wlType, ex)
+			print "Command has incorrect  whitelist type", wlType
+			logging.error("Command has incorrect whitelist type %s", wlType)
 			cmSuccess = 0
+	## Only if all bkup whitelist files created succesfully 
 	if cmSuccess:
-		r = os.system("rename 's/txt_bkup/txt/g' " + GatewayParamsStatic.WHITELIST_FILE +"*.txt_bkup") 
-		cmSuccess = 1 if r == 0 else  0 
+		try:
+			## Try moving bkup files to main 
+			r = os.system("rename -f 's/txt_bkup/txt/g' " + GatewayParamsStatic.WHITELIST_FILE +"*.txt_bkup")
+		except Exception as ex:
+			r = 256
+			print "Exception copying whitlelist .txt_bkup to txt ", ex
+			logging.error("Exception copying .txt_bkup to txt %s", ex)	
+	else: 
+		r = 256	
+	## Command action deemed succesful when all bkup files moved to main successfully	
+	cmSuccess = 1 if r == 0 else  0
+	return cmSuccess
+
+def updateParamFile(gpIn, filename):
+	origFile = filename
+	backupFile = filename +"_bkup"
+	updatedParamList = []
+
+	with open(origFile,"r") as f:
+		lines = f.readlines()
+	try:	
+		for key,value in gpIn.items() :
+			if key in key_map.keys():
+				lines = updateLines(key_map[key],key,value,lines); 
+				updatedParamList.append(key) 	 			
+		with open(backupFile,'w') as f:
+			f.writelines(lines)
+		cmSuccess = 1
+	except Exception as ex:
+		print "Exception updating Gateway Params ", ex
+		logging.error("Exception updating Gateway Params %s", ex)	
+		cmSuccess = 0
+	## Only if bkup gateway parameters file created succesfully 
+	if cmSuccess:
+		try:
+			## Try moving bkup files to main 
+			r = os.rename(backupFile, origFile)
+			r = 0 
+			print "Updated gateway params : ", updatedParamList
+			logging.info("Updated gateway params: %s", updatedParamList)	
+		except Exception as ex:
+			r = 256
+			print "Exception copying gateway parameters  .py_bkup to py ", ex
+			logging.error("Exception copying gateway parameters .py_bkup to py %s", ex)	
+	else: 
+		r = 256	
+	## Command action deemed succesful when all bkup files moved to main successfully	
+	cmSuccess = 1 if r == 0 else  0
 	return cmSuccess
 		
-
-
-
-def createGPTxt(gpIn):
-	gpFile = GatewayParamsStatic.GATEWAYPARAMS_FILE
-	gpFile = "/home/pi/tagbox/ble/blegateway/testOUT.py"
-		
-	for key,value in gpIn.items() :
-		if key == 'ScWn'  : updateTxT("SCAN_WINDOW",key,value,gpFile) 	 			## seconds the scan window is open for
-		elif key == 'ScIn'  : updateTxT("SCAN_INTERVAL",key,value,gpFile)					## seconds scan interval 
-		elif key == 'Upin'  : updateTxT("PAYLOAD_INTERVAL",key,value,gpFile) 				## intervals (seconds) at which scanning window is opened	
-		elif key == 'Upin'  : updateTxT("UPLOAD_INTERVAL",key,value,gpFile)
-		elif key == 'PkSz' : updateTxT("PACKET_SIZE",key,value,gpFile)						## bytes, max payload size
-		elif key =='PkNo' : updateTxT("MAX_PACKET_UNITS",key,value,gpFile)				## max data points in one payload
-		elif key == 'DbIn' : updateTxT("DBFLUSH_INTERVAL",key,value,gpFile)				## hours, interval at which db is flushed of data older than KEEPDATA_DAYS 
-		elif key == 'DbKp' : updateTxT("KEEPDATA_DAYS",key,value,gpFile)					## days till which data is archived
-		elif key =='CnAt'  : updateTxT("MAX_PROBECON_ATTEMPTS",key,value,gpFile)		## max connect attempts to a peripheral
-		elif key =='UpTO' : updateTxT("POST_TIMEOUT",key,value,gpFile)					## seconds, post request timeout
-		elif key =='MQKA' : updateTxT("MQTT_KEEPALIVE",key,value,gpFile) 					## seconds for which the connection is kept alive 	
-		elif key =='LogL'  : updateTxT("LOGLEVEL",key,value,gpFile)						## logging level
-		elif key =='NrgEn'  : updateTxT("READNRG",key,value,gpFile)							## read modbus for energy data
-		elif key =='WLEn'  : updateTxT("WHITELIST_ENABLE",key,value,gpFile)					## 0,1,2,3 enable whitelisting levels
-		elif key =='CmTy'  : updateTxT("COMMTYPE",key,value,gpFile)						## HTTPS, MQTT 
-	
-
-def updateTxT(oldStr, key, value, fileName):
+def updateLines(oldStr, key, value, lines):
+	newLines = []
 	try:
-		f = open(fileName,"w+") 
-		param_exists =0
-		for line in f:
-			if oldStr in line:
-				f.write(oldStr+" = "+str(value))
-				param_exists = 1
-				print("Gateway Parameter %s updated to %s",key,value)
-				logging.info("Gateway Parameter %s updated to %s",key,value)
+		for line in lines:
+			if line.startswith(oldStr):
+				linearray = line.rsplit()
+				linearray[2] = str(value) if type(value) == int else "\""+value+"\""
+				linearray.append("\n")
+				line = " ".join(linearray)
+			newLines.append(line)
 	except Exception as ex:
+		newLines = lines
 		logging.error("Exception in Gateway Parameter update : %s",ex)
 		print("Exception in Gateway Parameter update : %s",ex)
-	finally: 
-		f.close()
+	finally:
+		return newLines
+
+
+
+			

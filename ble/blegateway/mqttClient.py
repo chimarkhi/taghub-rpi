@@ -5,7 +5,9 @@ import logging
 import ssl
 
 from  gateway import GatewayParamsStatic
+import gateway
 import msgParser
+import GatewayParams
 
 broker_type = "notazure"
 azure_username = GatewayParamsStatic.IOTHUB + "/" + GatewayParamsStatic.NAME
@@ -30,7 +32,7 @@ if broker_type == "azure" :
 	client_username = GatewayParamsStatic.MQTT_USERNAME
 	client_password = GatewayParamsStatic.SAS_KEY
 	client_id = GatewayParamsStatic.NAME
-	mqttKeepAlive = GatewayParamsStatic.MQTT_KEEPALIVE
+	mqttKeepAlive = GatewayParams.MQTT_KEEPALIVE
 else :
 	broker = "iot.eclipse.org"
 	auth = None
@@ -39,7 +41,7 @@ else :
 	client_username = ""
 	client_password = ""
 	client_id = GatewayParamsStatic.NAME
-	mqttKeepAlive = GatewayParamsStatic.MQTT_KEEPALIVE
+	mqttKeepAlive = GatewayParams.MQTT_KEEPALIVE
 
 
 # The callback for when the client receives a CONNACK response from the server.
@@ -55,9 +57,11 @@ def on_message(client, userdata, msg):
 	try:
 		cmAck = msgParser.inMQTTJSON(msg.payload)
 		print cmAck.CmId, cmAck.GwTs, cmAck.CmSt
+		gateway.appRestart()
 	except Exception as ex:
-		logging.error("C2D message parsing failed : %s", ex)
+		logging.exception("C2D message parsing failed : %s", ex)
 		print("C2D message parsing failed : %s", ex)
+
 # The callback for when broker has responded to SUBSCRIBE request.
 def on_subscribe(client, userdata, mid, granted_qos):
 	print("Subscribed: "+str(mid)+" "+str(granted_qos))
@@ -99,10 +103,20 @@ def mqttPublish(payloadPacket):
 	qos = 1)	
 	return r
 
+def main() :
+	logging.basicConfig(filename=GatewayParamsStatic.LOGFILE_MQTT, filemode = 'w', 
+						format='[%(asctime)s] %(levelname)s %(message)s', 
+						datefmt='%Y-%m-%d %H:%M:%S',  
+						level = GatewayParams.LOGLEVEL)
+	logging.info('Logging started')	
+	
+
 if __name__ == "__main__":
+	main()
 	mqtter = MQTTClient()
 	(r,mid) = mqtter.pubSingle("testup through method")
 	print "through method", r,mid	
 	mqtter.subscribe()
+	
 
 

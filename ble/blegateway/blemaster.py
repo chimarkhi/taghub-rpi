@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import bluepy.btle as btle
 import time
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -130,7 +131,7 @@ def scanParse():
 			logging.error("Exception in Energy Meter data handling : %s", ex)
 
 
-@sched.scheduled_job('interval',seconds = GatewayParams.PAYLOAD_INTERVAL)
+@sched.scheduled_job('interval',seconds = GatewayParams.UPLOAD_INTERVAL)
 def packetCreation():
 	bledb.createPacket()
 	logging.info('Payload created in DB')	
@@ -154,7 +155,7 @@ def dBFlush():
 
 
 def main() :
-	logging.basicConfig(filename=GatewayParamsStatic.LOGFILE, filemode = 'w', 
+	logging.basicConfig(filename=GatewayParamsStatic.LOGFILE_BLE, filemode = 'w', 
 						format='[%(asctime)s] %(levelname)s %(message)s', 
 						datefmt='%Y-%m-%d %H:%M:%S',  
 						level = GatewayParams.LOGLEVEL)
