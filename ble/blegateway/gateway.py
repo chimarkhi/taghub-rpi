@@ -2,6 +2,8 @@ import datetime
 from collections import defaultdict
 import logging
 import subprocess
+import os
+import signal
 
 ## Gateway's static parameters
 class GatewayParamsStatic:
@@ -75,35 +77,24 @@ class Gateway:
 		gwInfo['GwBat'] = self.batt()
 		return gwInfo
 
-def gatewayAction(actionIn):
-	for key in actionIn.keys():
-		if key == cmKeyAppRestart :
-			cmSuccess = appRestart()
-		elif key == cmKeyGwRestart:
-			cmSuccess = reboot()
-		else :
-			cmSuccess = 0			
-			print "No actionable gateway action found"
-			logging.info("No actionable gateway action found")
-	return cmSuccess
 
 def appRestart():
 	try:
 		blemasterPID = map(int,subprocess.check_output(["pgrep","-f", "sudo python blemaster.py"]).split())
-		if len[blemasterPID] is not 0:
-			for i in enumerate(blemasterPID):			
-				os.kill(pid[i],signal.SIGTERM)
-		logging.info("All blemaster.py process killed. Relevant pids found %d", len(blemasterPID))
-		blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"])
+		if len(blemasterPID) is not 0:
+			for i in range(len(blemasterPID)):			
+				os.kill(blemasterPID[i],signal.SIGTERM)
+		logging.info("All blemaster.py processes killed. Relevant pids found %d", len(blemasterPID))
+		blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
 		logging.info("blemaster process started ")	
 		cmSuccess = 1
 	except subprocess.CalledProcessError:
 		logging.info("blemaster process not running ")	
-		blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"])
+		blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
 		logging.info("blemaster process started ")	
 		cmSuccess = 1
 	except Exception as ex:
-		logging.error("Exception during process restart : %s",ex)
+		logging.exception("Exception during process restart : %s",ex)
 		cmSuccess = 0
 	return cmSuccess
 

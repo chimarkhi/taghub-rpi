@@ -6,8 +6,8 @@ import subprocess
 
 import blemaster
 import GatewayParams
-from gateway import GatewayParamsStatic, GatewayParamsC2D, gatewayAction
-
+from gateway import GatewayParamsStatic, GatewayParamsC2D
+import gateway
 
 cmTyWL = 'Wls'
 cmTyGp = 'GwParam'
@@ -24,8 +24,10 @@ commandTypeKey = GatewayParamsC2D.COMMAND_TYPE_KEY
 commandTimestampKey = GatewayParamsC2D.COMMAND_TS_KEY 
 commandDataKey = GatewayParamsC2D.COMMAND_DATA_KEY
 
-cmKeyAppRestart = "AppRestart"
-cmKeyGwReboot = "GwReboot"
+cmKeyRestart = "Restart"
+cmValueAppRestart = "AppRestart"
+cmValueGwReboot = "GwReboot"
+
 
 ## C2D command to gateway parameter key map
 key_map = {	'ScWn'  : "SCAN_WINDOW", 	 						## seconds the scan window is open for
@@ -120,9 +122,9 @@ def inMQTTJSON(payloadJSON):
 				cmAck.updateTs()
 		
 		## Run the command function as mentioned in GwFunc command 
-		elif commandType == cmTypeGwFunc :
+		elif commandType == cmTyGwFunc :
 			try:
-				cmSuccess = gwAction(commandData)
+				cmSuccess = gatewayAction(commandData)
 				cmAck.updateSt(cmSuccess)			
 			except Exception as ex:
 				print "Exception running gateway action ", ex
@@ -143,6 +145,19 @@ def inMQTTJSON(payloadJSON):
 
 	return cmAck
 		
+def gatewayAction(actionIn):
+	for key in actionIn.keys():
+		if key == cmKeyRestart:
+			if actionIn[key] == cmValueAppRestart :
+				cmSuccess = gateway.appRestart()
+			elif actionIn[key] == cmValueGwRestart:
+				cmSuccess = gateway.reboot()
+			else :
+				cmSuccess = 0			
+				print "No actionable gateway action found"
+				logging.info("No actionable gateway action found")
+	return cmSuccess
+
 
 def createWLTxt(cmData):
 	wlUpList = []	
