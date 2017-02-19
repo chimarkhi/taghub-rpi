@@ -24,7 +24,11 @@
 #@reboot sudo /home/pi/ble_launcher.sh &
 #0,10,20,30,40,50 * * * * sudo /home/pi/blemaster_run_check.sh > /home/pi/blemaster_status.txt
 
-@reboot sudo /home/pi/tagbox/startup_config/ble_launcher.sh &
+#@reboot sudo /home/pi/tagbox/startup_config/ble_launcher.sh &
 
-*/10 * * * * sudo /home/pi/tagbox/startup_config/blemaster_run_check.sh > /home/pi/tagbox/startup_config/blemaster_status.txt
+#*/10 * * * * sudo /home/pi/tagbox/startup_config/blemaster_run_check.sh > /home/pi/tagbox/startup_config/blemaster_status.txt
+
+@reboot sudo /home/pi/tagbox/startup_config/mqttservice_launcher.sh &
+
+#*/10 * * * * sudo /home/pi/tagbox/startup_config/mqttservice_run_check.sh > /home/pi/tagbox/startup_config/mqttservie_status.txt
 

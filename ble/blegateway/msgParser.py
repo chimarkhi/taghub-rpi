@@ -30,28 +30,30 @@ cmValueGwReboot = "GwReboot"
 
 
 ## C2D command to gateway parameter key map
-key_map = {	'ScWn'  : "SCAN_WINDOW", 	 						## seconds the scan window is open for
-			'ScIn'  : "SCAN_INTERVAL",							## seconds scan interval 
-			'UpIn'  : "UPLOAD_INTERVAL", 						## intervals (seconds) at which scanning window is opened	
-			'PkSz' : "PACKET_SIZE",								## bytes, max payload size
-			'PkNo' : "MAX_PACKET_UNITS",						## max data points in one payload
-			'MqttKA' : "MQTT_KEEPALIVE", 						## seconds for which the connection is kept alive 	
-			'WlEn'  : "WHITELIST_ENABLE",						## 0,1,2,3 enable whitelisting levels
+key_map = {'ScWn'  : "SCAN_WINDOW", 	 				## seconds the scan window is open for
+	'ScIn'  : "SCAN_INTERVAL",					## seconds scan interval 
+	'UpIn'  : "UPLOAD_INTERVAL", 					## intervals (seconds) at which scanning window is opened	
+	'PkSz' : "PACKET_SIZE",						## bytes, max payload size
+	'PkNo' : "MAX_PACKET_UNITS",					## max data points in one payload
+	'MqttKA' : "MQTT_KEEPALIVE", 					## seconds for which the connection is kept alive 	
+	'WlEn'  : "WHITELIST_ENABLE",					## 0,1,2,3 enable whitelisting levels
 
-			'DbIn' : "DBFLUSH_INTERVAL",						## hours, interval at which db is flushed of data older than KEEPDATA_DAYS 
-			'DbKp' : "KEEPDATA_DAYS",							## days till which data is archived
-			'CnAt'  : "MAX_PROBECON_ATTEMPTS",				## max connect attempts to a peripheral
-			'UpTO' : "POST_TIMEOUT",							## seconds, post request timeout
-			'LogL'  : "LOGLEVEL",									## logging level
-			'CommTy'  : "COMMTYPE",							## HTTPS, MQTT 
+	'DbIn' : "DBFLUSH_INTERVAL",					## hours, interval at which db is flushed of data older than KEEPDATA_DAYS 
+	'DbKp' : "KEEPDATA_DAYS",					## days till which data is archived
+	'CnAt'  : "MAX_PROBECON_ATTEMPTS",				## max connect attempts to a peripheral
+	'UpTO' : "POST_TIMEOUT",					## seconds, post request timeout
+	'LogL'  : "LOGLEVEL",						## logging level
+	'CommTy'  : "COMMTYPE",						## HTTPS, MQTT 
 
-			'NrgCtrl'  : "READNRG",								## read modbus for energy data
-			'BlCtrl'	: "BLE_ENABLE"								## enable gateway's ble radio
-			}		
+	'NrgCtrl'  : "READNRG",						## read modbus for energy data
+	'BlCtrl'	: "BLE_ENABLE"					## enable gateway's ble radio
+	}		
 
 class CommandAck:
 	GwId = GatewayParamsStatic.NAME
 	GwTs =  datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+	Message =	None
+	CmData = None
 	def __init__(self,msgIn):
 		try:
 			self.CmId = msgIn[commandIDKey]
@@ -64,7 +66,7 @@ class CommandAck:
 	def updateTs(self):
 		self.GwTs = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 
-def inMQTTJSON(payloadJSON):
+def inMQTTJSON(payloadJSON):	
 	msg = json.loads(payloadJSON)
 	c2dmsgJsonPretty = json.dumps(msg,indent=4, sort_keys=True)	
 
@@ -88,7 +90,7 @@ def inMQTTJSON(payloadJSON):
 
 	## Check if Command Data is present
 	try: 
-		commandData = msg[commandDataKey]
+		commandData = json.loads(msg[commandDataKey])
 	except Exception as ex:
 		commandData = None
 		print "C2D command does not have Data field ", ex
@@ -106,7 +108,7 @@ def inMQTTJSON(payloadJSON):
 				cmAck.updateSt(cmSuccess)
 			except Exception as ex:
 				print "Exception updating whitelist ", ex
-				logging.error("Exception updating whitelist %s", ex)
+				logging.exception("Exception updating whitelist %s", ex)
 			finally:
 				cmAck.updateTs()
 
@@ -117,7 +119,7 @@ def inMQTTJSON(payloadJSON):
 				cmAck.updateSt(cmSuccess)			
 			except Exception as ex:
 				print "Exception updating  gateway params ", ex
-				logging.error("Exception updating gateway params: %s", ex)
+				logging.exception("Exception updating gateway params: %s", ex)
 			finally:
 				cmAck.updateTs()
 		
@@ -128,7 +130,7 @@ def inMQTTJSON(payloadJSON):
 				cmAck.updateSt(cmSuccess)			
 			except Exception as ex:
 				print "Exception running gateway action ", ex
-				logging.error("Exception running gateway action: %s", ex)
+				logging.exception("Exception running gateway action: %s", ex)
 			finally:
 				cmAck.updateTs()
 

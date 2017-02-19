@@ -7,12 +7,13 @@ import signal
 
 ## Gateway's static parameters
 class GatewayParamsStatic:
-	NAME  = 'dev_device_2' 
+	NAME  = 'dev_device_5' 
 	WHITELISTREAD_INTERVAL = 6			## hours in which whitelist is updated 		
-	SAS_KEY = """SharedAccessSignature sr=tbox-dev-hub.azure-devices.net&sig=KgDCAikL41mUAp12slI61usFc2VlEfG9p5yK1fpZMUE%3D&se=1514369868&skn=iothubowner"""
+	SAS_KEY = """SharedAccessSignature sr=tbox-dev-hub.azure-devices.net%2Fdevices%2Fdev_device_5&sig=XIWDTVdAuPIaKGr0RhA1%2BwianeEUiI07yTbAkXeSTz0%3D&se=1518717799"""
 	IOTHUB = 'tbox-dev-hub.azure-devices.net'
 	POST_HEADERS = {'Authorization' : SAS_KEY, 'Content-Type' : 'application/json'}
 	DATA_LINK = "https://"+IOTHUB+"/devices/"+NAME+"/messages/events?api-version=2016-02-03"	
+	D2C_ACK_LINK = "http://52.172.40.101:8080/restservice/v1/d2c/cmdresponse"
 	MQTT_USERNAME =IOTHUB+"/"+NAME+"/"+"api-version=2016-11-14"
 	LOGFILE_BLE = "/home/pi/tagbox/logs/log_blemaster"+NAME+".txt"
 	LOGFILE_MQTT = "/home/pi/tagbox/logs/log_blemaster"+"_MQTT"+".txt"
