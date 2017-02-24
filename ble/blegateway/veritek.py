@@ -6,6 +6,7 @@ import sqlite3 as sql
 
 import bledb
 
+logger = logging.getLogger(__name__)
 
 class VeritekVips84(minimalmodbus.Instrument):
     """Instrument class for Veritek VIPS84.
@@ -92,11 +93,11 @@ class VeritekVips84(minimalmodbus.Instrument):
 			VoltRN, CurrR, PfR, AppPwrR, ActNrg, NdTs, NdBat, upFlag) \
 			values (?,?,?,?,?,?,?,?,0);""", nrgData)
 
-			logging.info('Energy Meter  data:%s', nrgData)
+			logger.info('Energy Meter  data:%s', nrgData)
         	return True
 
 	except Exception as ex:
-		logging.error("Exception pushing energy data to DB: %s",ex)
+		logger.exception("Exception pushing energy data to DB: %s",ex)
 		return False
     	
    

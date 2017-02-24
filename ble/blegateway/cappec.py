@@ -6,6 +6,8 @@ import logging
 
 import bledb
 
+logger = logging.getLogger(__name__)
+
 class UUIDS:
 	TEMP_SERVICE 	= btle.UUID("fe551580-4180-8a02-ef2c-1b42a0ac3f83")
 	TEMP_CHAR	= btle.UUID("fe551582-4180-8a02-ef2c-1b42a0ac3f83")	
@@ -61,12 +63,12 @@ class CappecPeripheral(btle.Peripheral):
 			Prb1,Prb2,NdTs,NdBat,upFlag) \
 			values (?,?,?,?,?,0);""", probeData)
 		
-			logging.info('Probe temp readings : %s',probeData)
+			logger.info('Probe temp readings : %s',probeData)
 			
         	return True
 
 	except Exception as ex:
-		logging.error("Error pushing probeData to DB: %s",ex)
+		logger.exception("Error pushing probeData to DB: %s",ex)
 		return False
 
 

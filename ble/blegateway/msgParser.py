@@ -9,6 +9,8 @@ import GatewayParams
 from gateway import GatewayParamsStatic, GatewayParamsC2D
 import gateway
 
+logger = logging.getLogger(__name__)
+
 cmTyWL = 'Wls'
 cmTyGp = 'GwParam'
 cmTyGpSp = "GwParamSp"
@@ -43,6 +45,8 @@ key_map = {'ScWn'  : "SCAN_WINDOW", 	 				## seconds the scan window is open for
 	'CnAt'  : "MAX_PROBECON_ATTEMPTS",				## max connect attempts to a peripheral
 	'UpTO' : "POST_TIMEOUT",					## seconds, post request timeout
 	'LogL'  : "LOGLEVEL",						## logging level
+	'LogSz'	: "LOGFILE_SIZE",					## size of logfile before rollover
+	'LogBkup':"LOG_BACKUPS",					## number of logfiel backups
 	'CommTy'  : "COMMTYPE",						## HTTPS, MQTT 
 
 	'NrgCtrl'  : "READNRG",						## read modbus for energy data
@@ -85,7 +89,7 @@ def inMQTTJSON(payloadJSON):
 		commandGwTy = None
 		commandType = None
 		print "C2D command does not have Id/GwTy/Ty/Ts data ",ex
-		logging.error("C2D command does not have Id/GwTy/Ty/Ts data: %s", ex)
+		logger.exception("C2D command does not have Id/GwTy/Ty/Ts data: %s", ex)
 		commandValid = False
 
 	## Check if Command Data is present
@@ -94,7 +98,7 @@ def inMQTTJSON(payloadJSON):
 	except Exception as ex:
 		commandData = None
 		print "C2D command does not have Data field ", ex
-		logging.error("C2D command has no Data field %s", ex)
+		logger.exception("C2D command has no Data field %s", ex)
 		cmAck.updateTs()
 		return cmAck
 
@@ -108,7 +112,7 @@ def inMQTTJSON(payloadJSON):
 				cmAck.updateSt(cmSuccess)
 			except Exception as ex:
 				print "Exception updating whitelist ", ex
-				logging.exception("Exception updating whitelist %s", ex)
+				logger.exception("Exception updating whitelist %s", ex)
 			finally:
 				cmAck.updateTs()
 
@@ -119,7 +123,7 @@ def inMQTTJSON(payloadJSON):
 				cmAck.updateSt(cmSuccess)			
 			except Exception as ex:
 				print "Exception updating  gateway params ", ex
-				logging.exception("Exception updating gateway params: %s", ex)
+				logger.exception("Exception updating gateway params: %s", ex)
 			finally:
 				cmAck.updateTs()
 		
@@ -130,19 +134,19 @@ def inMQTTJSON(payloadJSON):
 				cmAck.updateSt(cmSuccess)			
 			except Exception as ex:
 				print "Exception running gateway action ", ex
-				logging.exception("Exception running gateway action: %s", ex)
+				logger.exception("Exception running gateway action: %s", ex)
 			finally:
 				cmAck.updateTs()
 
 		## If no identifiable command type found in message		
 		else:
 			print "No actionable Command Type found"
-			logging.error("No actionable Command Type found")
+			logger.error("No actionable Command Type found")
 			cmAck.updateTs()
 
 	else :		
 		print "Invalid C2D command "
-		logging.warning("Invalid C2D command")
+		logger.warning("Invalid C2D command")
 		cmAck.updateTs()
 
 	return cmAck
@@ -157,7 +161,7 @@ def gatewayAction(actionIn):
 			else :
 				cmSuccess = 0			
 				print "No actionable gateway action found"
-				logging.info("No actionable gateway action found")
+				logger.info("No actionable gateway action found")
 	return cmSuccess
 
 
@@ -179,17 +183,17 @@ def createWLTxt(cmData):
 					whitelistFile.write(str(a)+"\n")
 				whitelistFile.close()
 				print "Whitelist type  updated", wlType
-				logging.info("Whitelist type %s  updated", wlType)
+				logger.info("Whitelist type %s  updated", wlType)
 				cmSuccess = 1 
 				wlUpList.append(wlType)
 			except Exception as ex:
 				print "Exception updating whitelist ", wlType, ex
-				logging.error("Exception updating whitelist %s: %s", wlType, ex)
+				logger.exception("Exception updating whitelist %s: %s", wlType, ex)
 				## Even if any one whitelist file creation fails command action is assumed to fail				
 				cmSuccess = 0
 		else :
 			print "Command has incorrect  whitelist type", wlType
-			logging.error("Command has incorrect whitelist type %s", wlType)
+			logger.error("Command has incorrect whitelist type %s", wlType)
 			cmSuccess = 0
 	## Only if all bkup whitelist files created succesfully 
 	if cmSuccess:
@@ -199,7 +203,7 @@ def createWLTxt(cmData):
 		except Exception as ex:
 			r = 256
 			print "Exception copying whitlelist .txt_bkup to txt ", ex
-			logging.error("Exception copying .txt_bkup to txt %s", ex)	
+			logger.exception("Exception copying .txt_bkup to txt %s", ex)	
 	else: 
 		r = 256	
 	## Command action deemed succesful when all bkup files moved to main successfully	
@@ -223,7 +227,7 @@ def updateParamFile(gpIn, filename):
 		cmSuccess = 1
 	except Exception as ex:
 		print "Exception updating Gateway Params ", ex
-		logging.error("Exception updating Gateway Params %s", ex)	
+		logger.exception("Exception updating Gateway Params %s", ex)	
 		cmSuccess = 0
 	## Only if bkup gateway parameters file created succesfully 
 	if cmSuccess:
@@ -232,11 +236,11 @@ def updateParamFile(gpIn, filename):
 			r = os.rename(backupFile, origFile)
 			r = 0 
 			print "Updated gateway params : ", updatedParamList
-			logging.info("Updated gateway params: %s", updatedParamList)	
+			logger.info("Updated gateway params: %s", updatedParamList)	
 		except Exception as ex:
 			r = 256
 			print "Exception copying gateway parameters  .py_bkup to py ", ex
-			logging.error("Exception copying gateway parameters .py_bkup to py %s", ex)	
+			logger.exception("Exception copying gateway parameters .py_bkup to py %s", ex)	
 	else: 
 		r = 256	
 	## Command action deemed succesful when all bkup files moved to main successfully	
@@ -255,7 +259,7 @@ def updateLines(oldStr, key, value, lines):
 			newLines.append(line)
 	except Exception as ex:
 		newLines = lines
-		logging.error("Exception in Gateway Parameter update : %s",ex)
+		logger.exception("Exception in Gateway Parameter update : %s",ex)
 		print("Exception in Gateway Parameter update : %s",ex)
 	finally:
 		return newLines

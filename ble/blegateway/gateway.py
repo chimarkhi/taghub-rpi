@@ -5,18 +5,22 @@ import subprocess
 import os
 import signal
 
+import GatewayParams
+
+logger = logging.getLogger(__name__)
+
 ## Gateway's static parameters
 class GatewayParamsStatic:
-	NAME  = 'dev_device_5' 
+	NAME  = 'som_pi_0001' 
 	WHITELISTREAD_INTERVAL = 6			## hours in which whitelist is updated 		
-	SAS_KEY = """SharedAccessSignature sr=tbox-dev-hub.azure-devices.net%2Fdevices%2Fdev_device_5&sig=XIWDTVdAuPIaKGr0RhA1%2BwianeEUiI07yTbAkXeSTz0%3D&se=1518717799"""
-	IOTHUB = 'tbox-dev-hub.azure-devices.net'
+	SAS_KEY = "SharedAccessSignature sr=sub-som-hub.azure-devices.net%2Fdevices%2Fsom_pi_0001&sig=%2BsaeHIbmN2gT7Goj95wkVuNyqn5G%2FwaN3%2BYHcZappUM%3D&se=1519212605"
+	IOTHUB = 'sub-som-hub.azure-devices.net'
 	POST_HEADERS = {'Authorization' : SAS_KEY, 'Content-Type' : 'application/json'}
 	DATA_LINK = "https://"+IOTHUB+"/devices/"+NAME+"/messages/events?api-version=2016-02-03"	
 	D2C_ACK_LINK = "http://52.172.40.101:8080/restservice/v1/d2c/cmdresponse"
 	MQTT_USERNAME =IOTHUB+"/"+NAME+"/"+"api-version=2016-11-14"
-	LOGFILE_BLE = "/home/pi/tagbox/logs/log_blemaster"+NAME+".txt"
-	LOGFILE_MQTT = "/home/pi/tagbox/logs/log_blemaster"+"_MQTT"+".txt"
+	LOGFILE_BLE = "/home/pi/tagbox/logs/blemaster_"+NAME+".log"
+	LOGFILE_MQTT = "/home/pi/tagbox/logs/mqttservice_"+NAME+".log"
 	WHITELIST_FILE = "/home/pi/tagbox/ble/blegateway/whitelist"
 	WHITELIST_TYPES = ["Wl_1","Wl_2","Wl_3"]	
 	GATEWAYPARAMS_FILE = "/home/pi/tagbox/ble/blegateway/GatewayParams.py"
@@ -85,17 +89,17 @@ def appRestart():
 		if len(blemasterPID) is not 0:
 			for i in range(len(blemasterPID)):			
 				os.kill(blemasterPID[i],signal.SIGTERM)
-		logging.info("All blemaster.py processes killed. Relevant pids found %d", len(blemasterPID))
+		logger.info("All blemaster.py processes killed. Relevant pids found %d", len(blemasterPID))
 		blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-		logging.info("blemaster process started ")	
+		logger.info("blemaster process started ")	
 		cmSuccess = 1
 	except subprocess.CalledProcessError:
-		logging.info("blemaster process not running ")	
+		logger.info("blemaster process not running ")	
 		blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-		logging.info("blemaster process started ")	
+		logger.info("blemaster process started ")	
 		cmSuccess = 1
 	except Exception as ex:
-		logging.exception("Exception during process restart : %s",ex)
+		logger.exception("Exception during process restart : %s",ex)
 		cmSuccess = 0
 	return cmSuccess
 
@@ -105,9 +109,59 @@ def reboot():
 		blemasterProcess = subprocess.Popen(["sudo","reboot"])
 		cmSuccess = 1
 	except Exception as ex:
-		logging.error("Exception during gateway reboot : %s",ex)
+		logger.exception("Exception during gateway reboot : %s",ex)
 		print("Exception during gateway reboot : %s",ex)
 		cmSuccess = 0
 	return cmSuccess
 
 	
+LOG_SETTINGS = {
+'version': 1,
+'disable_existing_loggers':False,
+'handlers': {
+    'console': {
+        'class': 'logging.StreamHandler',
+        'level': 'INFO',
+        'formatter': 'detailed',
+        'stream': 'ext://sys.stdout',
+    },
+    'ble_handler': {
+        'class': 'logging.handlers.RotatingFileHandler',
+        'level': 10,
+        'formatter': 'detailed',
+        'filename': GatewayParamsStatic.LOGFILE_BLE,
+        'mode': 'a',
+        'maxBytes': 2*10485760,
+        'backupCount': 2,
+    },
+    'mqtt_handler': {
+        'class': 'logging.handlers.RotatingFileHandler',
+        'level': GatewayParams.LOGLEVEL,
+        'formatter': 'detailed',
+        'filename': GatewayParamsStatic.LOGFILE_MQTT,
+        'mode': 'a',
+        'maxBytes': 2*10485760,
+        'backupCount': 2,
+    },
+
+},
+'formatters': {
+    'detailed': {
+        'format': '[%(asctime)s] %(name)s %(levelname)s : %(message)s',
+	'datefmt': '%Y-%m-%d %H:%M:%S',
+    },
+    'email': {
+        'format': 'Timestamp: %(asctime)s\nModule: %(module)s\n' \
+        'Line: %(lineno)d\nMessage: %(message)s',
+    },
+},
+'loggers': {
+    'ble': {
+        'handlers': ['ble_handler',]
+        },
+    'mqtt': {
+        'handlers': ['mqtt_handler',]
+        },
+
+}
+}

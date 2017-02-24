@@ -6,6 +6,8 @@ import logging
 
 import bledb
 
+logger = logging.getLogger(__name__)
+
 class MinewUUIDS:
 	S1_SERVICE = "ffe1"
 	DOORACTSERVICE = 'abcd'
@@ -72,12 +74,12 @@ class MinewScanHandler(object):
 			Hum,NdTs,NdBat,upFlag) \
 			values (?,?,?,?,0);""", minewHumidData)
 
-			logging.info('MinewS1 temp data:%s', minewTempData)
-			logging.info('MinewS1 humid data:%s', minewHumidData)
+			logger.info('MinewS1 temp data:%s', minewTempData)
+			logger.info('MinewS1 humid data:%s', minewHumidData)
         	return True
 
 	except Exception as ex:
-		logging.error("Exception pushing MinewS1 data to DB: %s",ex)
+		logger.exception("Exception pushing MinewS1 data to DB: %s",ex)
 		return False
 
     def pushDoorActToDB(self):
@@ -94,10 +96,10 @@ class MinewScanHandler(object):
 			DoorSts,NdTs,NdBat,upFlag) \
 			values (?,?,?,?,0);""", DoorActData)
 					
-			logging.info('Door Activity data:%s', DoorActData)
+			logger.info('Door Activity data:%s', DoorActData)
         	return True
 
 	except Exception as ex:
-		logging.error("Exception pushing MinewS1 data to DB: %s",ex)
+		logger.exception("Exception pushing MinewS1 data to DB: %s",ex)
 		return False
 

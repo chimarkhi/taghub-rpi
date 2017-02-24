@@ -6,6 +6,8 @@ import logging
 
 import bledb
 
+logger = logging.getLogger(__name__)
+
 class UUIDS:
 	TEMP_SERVICE 	= btle.UUID("fe551580-4180-8a02-ef2c-1b42a0ac3f83")
 	TEMP_CHAR	= btle.UUID("fe551582-4180-8a02-ef2c-1b42a0ac3f83")	
@@ -55,12 +57,12 @@ class AMScanHandler(object):
 			Hum,NdTs,NdBat,upFlag) \
 			values (?,?,?,?,0);""", amHumidData)
 
-			logging.info('AM temp data:%s', amTempData)
-			logging.info('AM humid data:%s', amHumidData)
+			logger.info('AM temp data:%s', amTempData)
+			logger.info('AM humid data:%s', amHumidData)
         	return True
 
 	except Exception as ex:
-		logging.error("Exception pushing AM data to DB: %s",ex)
+		logger.error("Exception pushing AM data to DB: %s",ex)
 		return False
 
 

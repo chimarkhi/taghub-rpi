@@ -4,10 +4,11 @@ import time
 from apscheduler.schedulers.blocking import BlockingScheduler
 import logging
 import os
+import logging.config
 
 import bledb
 import GatewayParams
-from gateway import GatewayParamsStatic
+from gateway import GatewayParamsStatic, LOG_SETTINGS
 from scan import ScanDelegate
 from cappec import CappecPeripheral
 from ankhmaway import AMScanHandler
@@ -33,18 +34,18 @@ def readWhitelist():
 			with open(GatewayParamsStatic.WHITELIST_FILE + wlType+".txt","r") as whitelistFile:
 				macidList = [line.split(" ")[0] for line in whitelistFile]
 			whitelist = [macid.lower() for macid in macidList]
-			logging.debug("Whitelist %s elements %s", wlType, whitelist)
+			logger.debug("Whitelist %s elements %s", wlType, whitelist)
 		except IOError as ex:
 			whitelist = []
-			logging.debug("Whitlist file of type %s not present : %s", wlType, ex)		
+			logger.debug("Whitlist file of type %s not present : %s", wlType, ex)		
 		except Exception as ex:
 			whitelist = []
-			logging.error("Error in reading whitelist %s: %s", wlType, ex)
+			logger.exception("Error in reading whitelist %s: %s", wlType, ex)
 		finally:
 			 if wlType in GatewayParamsStatic.WHITELIST_TYPES[:GatewayParams.WHITELIST_ENABLE ] :							
 				whitelistMaster.extend(whitelist)
-	logging.debug("Whitelisting level : %s; Whitelist elements: %s", GatewayParams.WHITELIST_ENABLE, whitelistMaster)
-	logging.info("No. of devices in whitelist level %s are %d", GatewayParams.WHITELIST_ENABLE, len(whitelistMaster))
+	logger.debug("Whitelisting level : %s; Whitelist elements: %s", GatewayParams.WHITELIST_ENABLE, whitelistMaster)
+	logger.info("No. of devices in whitelist level %s are %d", GatewayParams.WHITELIST_ENABLE, len(whitelistMaster))
 	global whitelistGlobal 
 	if len(whitelistMaster) != 0:
 		whitelistGlobal = whitelistMaster
@@ -61,7 +62,7 @@ def scanParse():
 	except Exception, ex:
 		devices = []
 		os.system("sudo hciconfig hci0 reset")
-		logging.error("Exception in BLE scanning: %s",ex)
+		logger.exception("Exception in BLE scanning: %s",ex)
 		time.sleep(5)
 	
 	if GatewayParams.WHITELIST_ENABLE :	
@@ -69,8 +70,8 @@ def scanParse():
 	else:
 		whitelistedDevices = devices	
 	
-	logging.info("No. of devices scanned are %d", len(devices))
-	logging.info("No. of scanned devices in whitelist are %d", len(whitelistedDevices))
+	logger.info("No. of devices scanned are %d", len(devices))
+	logger.info("No. of scanned devices in whitelist are %d", len(whitelistedDevices))
 
 	## iterate through devices 
 	for dev in whitelistedDevices:
@@ -84,11 +85,11 @@ def scanParse():
 					probe = CappecPeripheral(dev)
 					if probe:
 						probe.pushToDB()
-						logging.info('Probe connected in %d attempts',(GatewayParams.MAX_PROBECON_ATTEMPTS-conTries))
+						logger.info('Probe connected in %d attempts',(GatewayParams.MAX_PROBECON_ATTEMPTS-conTries))
 						conTries = 0
 				except Exception, ex:
 					conTries -= 1
-					logging.error("Exception in Probe (%s) connection:%s",dev.addr, ex)
+					logger.exception("Exception in Probe (%s) connection:%s",dev.addr, ex)
 				finally:
 					if probe:
 						probe.disconnect()
@@ -102,7 +103,7 @@ def scanParse():
 				##print amNode.getTemp(), amNode.getHumid(), amNode.getBatt()
 				amNode.pushToDB()
 			except Exception, ex:
-				logging.error("Exception in AM (%s) data handling: %s",dev.addr, ex)
+				logger.exception("Exception in AM (%s) data handling: %s",dev.addr, ex)
 
 
 		# identifying Minew S1 Extreme Temp/RHtag out of scanned devices and then fetching data
@@ -111,7 +112,7 @@ def scanParse():
 				minewNode = MinewScanHandler(dev)
 				minewNode.pushToDB()
 			except Exception, ex:
-				logging.error("Exception in MInew S1(%s) data handling: %s",dev.addr, ex)
+				logger.exception("Exception in MInew S1(%s) data handling: %s",dev.addr, ex)
 
 		# identifying Door Activity Sensors  out of scanned devices and then fetching data
 		elif MinewUUIDS.DOORACTSERVICE in dev.serviceData.keys() :
@@ -119,7 +120,7 @@ def scanParse():
 				minewNode = MinewScanHandler(dev)
 				minewNode.pushDoorActToDB()
 			except Exception, ex:
-				logging.error("Exception in Door Sensor (%s) data handling: %s",dev.addr, ex)
+				logger.exception("Exception in Door Sensor (%s) data handling: %s",dev.addr, ex)
 		
 	# Reading Veritek's Energy meter Modubus and fetching data	
 	if GatewayParams.READNRG == 1 :
@@ -128,19 +129,19 @@ def scanParse():
 		    	nrgMeter.debug = False
 			nrgMeter.pushToDB()
 		except Exception, ex:
-			logging.error("Exception in Energy Meter data handling : %s", ex)
+			logger.exception("Exception in Energy Meter data handling : %s", ex)
 
 
 @sched.scheduled_job('interval',seconds = GatewayParams.UPLOAD_INTERVAL)
 def packetCreation():
 	bledb.createPacket()
-	logging.info('Payload created in DB')	
+	logger.info('Payload created in DB')	
 
 
 @sched.scheduled_job('interval',seconds = GatewayParams.UPLOAD_INTERVAL)
 def dBToServer():
 	upStatus = bledb.uploadPayload()
-	logging.info('Payload uploaded with response %d', upStatus)	
+	logger.info('Payload uploaded with response %d', upStatus)	
 
 
 @sched.scheduled_job('interval',hours = GatewayParams.DBFLUSH_INTERVAL)
@@ -150,27 +151,44 @@ def dBFlush():
 	
 	for table in tab:
 		dber.delOldRows(table,GatewayParams.KEEPDATA_DAYS)
-		logging.info('Deleted Records older than %d days from %s', GatewayParams.KEEPDATA_DAYS, table)
+		logger.info('Deleted Records older than %d days from %s', GatewayParams.KEEPDATA_DAYS, table)
 	dber.close()
 
 
-def main() :
-	logging.basicConfig(filename=GatewayParamsStatic.LOGFILE_BLE, filemode = 'w', 
-						format='[%(asctime)s] %(levelname)s %(message)s', 
-						datefmt='%Y-%m-%d %H:%M:%S',  
-						level = GatewayParams.LOGLEVEL)
-	logging.info('Logging started')	
-	
+def logging_init():
+	log_formatter = logging.Formatter('[%(asctime)s] %(levelname)s %(message)s',datefmt='%Y-%m-%d %H:%M:%S')
+	logFile = 'C:\\Temp\\log'
+	my_handler = RotatingFileHandler(logFile, mode='a', maxBytes=5*1024*1024, 
+                                	backupCount=2, encoding=None, delay=0)
+	my_handler.setFormatter(log_formatter)
+	my_handler.setLevel(logging.INFO)
+
+	app_log = logging.getLogger('root')
+	app_log.setLevel(logging.INFO)
+
+	app_log.addHandler(my_handler)
+
+
+if __name__ ==  "__main__" :
+	logging.config.fileConfig('./logging.conf',
+				disable_existing_loggers = False,
+				defaults={'logFileName'	:GatewayParamsStatic.LOGFILE_BLE,
+					  'logLevel'	:GatewayParams.LOGLEVEL,
+					  'logFileSize' :GatewayParams.LOGFILE_SIZE,
+					  'logBackupCount':GatewayParams.LOG_BACKUPS })
+					  
+	logger = logging.getLogger('__main__')	
+
+	logger.info('Logging started')	
+	logger.error('ERORRR||')
 	whitelistGlobal = readWhitelist()
 
 	bledb.createDB()		
-	logging.info('Created Telemetry DB')
+	logger.info('Created Telemetry DB')
 
-	logging.info('Opening First scan window')
+	logger.info('Opening First scan window')
 	scanParse()
 
-	logging.info('Starting Scheduler ')
+	logger.info('Starting Scheduler ')
 	sched.start()
 
-if __name__ == "__main__":
-	main()

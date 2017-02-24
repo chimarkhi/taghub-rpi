@@ -10,6 +10,8 @@ from gateway import Gateway, GatewayParamsStatic
 import GatewayParams
 import mqttClient
 
+logger = logging.getLogger(__name__)
+
 class PATHS:
 	DB_PATH = '/home/pi/tagbox/ble/blegateway/telemetryDB'+GatewayParamsStatic.NAME+'.db'
 ## Create table if not already present 
@@ -89,38 +91,38 @@ class dbQuorer():
 		self.con = sql.connect(PATHS.DB_PATH)
 	
 	def query_db(self,query, args=(), one=True):
-        	cur = self.con.cursor()
-        	cur.execute(query, args)
-        	r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
-        	cur.close()
+        	with self.con:
+			cur = cself.con.cursor()
+        		cur.execute(query, args)
+     		   	r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
         	return (r[0] if r else None) if one else r
 
 	def getTableLen(self,table):
-        	cur = self.con.cursor()
-        	cur.execute("select count(*) from %s where upFlag == 0" %table)
-		(tableLen,) = cur.fetchone()
-		cur.close()
+        	with self.con :
+			cur = self.con.cursor()
+        		cur.execute("select count(*) from %s where upFlag == 0" %table)
+			(tableLen,) = cur.fetchone()
 		return tableLen
 	
 	def readTable(self,table):
-        	cur = self.con.cursor()
-        	cur.execute("select *,min(seq) from %s where upFlag == 0" %table)
+        	with self.con :
+			cur = self.con.cursor()
+        		cur.execute("select *,min(seq) from %s where upFlag == 0" %table)
         	
-		try:
-			rawRow = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
-			row    = {k:v for k,v in rawRow[0].items() if (k != 'seq' and k != 'upFlag' and k!='min(seq)')}		
+			try:
+				rawRow = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
+				row    = {k:v for k,v in rawRow[0].items() if (k != 'seq' and k != 'upFlag' and k!='min(seq)')}		
 			
-		except Exception as ex:
-			logging.info("Exception reading table entry %s", ex)
-        	
-		cur.close()
+			except Exception as ex:
+				logger.info("Exception reading table entry %s", ex)
+
 		return (rawRow[0]['seq'],row)
 
 	def delRow(self,table,rowId):
-        	cur = self.con.cursor()
-        	cur.execute("delete from %s where seq = %s" %[table,rowId])
-		cur.close()
-
+        	with self.con :
+			cur = self.con.cursor()
+        		cur.execute("delete from %s where seq = %s" %[table,rowId])
+		
 	def delOldRows(self,table,keepDays):
 		if table == 'Payloads':
 			self.con.execute("delete from %s where PacketTs<DATE('now', '- %s days');"  %(table,keepDays)) 
@@ -141,25 +143,26 @@ class dbQuorer():
 		return priority
 	
 	def getTableNames(self):
-  		cur = self.con.cursor()
-		tables = cur.execute("select name from sqlite_master where type='table'")
-		tables = tables.fetchall()
-		tab=[name[0] for name in tables if (name[0] != 'sqlite_sequence'and name[0] != 'Payloads')]
-		cur.close()
+  		with self.con:
+			cur = self.con.cursor()
+			tables = cur.execute("select name from sqlite_master where type='table'")
+			tables = tables.fetchall()
+			tab=[name[0] for name in tables if (name[0] != 'sqlite_sequence'and name[0] != 'Payloads')]
 		return tab
 	
 	def packetToDB(self, data, Ts):
 		try:		
 			self.con.execute("insert into Payloads (Packet, PacketTs,upFlag) values(?,?,0)",[data,Ts])
+			self.con.commit()
 		except Exception as ex:
-			logging.error("Exception pushing payload to DB %s", ex)		
+			logger.exception("Exception pushing payload to DB %s", ex)		
 		self.con.commit()
 		
 	def updateRow(self,table,seq,value):
 		try:
 			self.con.execute("UPDATE %s SET upFlag = %s WHERE seq = %s;" %(table,value,seq))
 		except Exception as ex:
-			logging.erro('Exception setting upFlag %s', ex)
+			logger.exception('Exception setting upFlag %s', ex)
 		self.con.commit()
 
 	def close(self):
@@ -186,7 +189,7 @@ def createPacket():
 			if rowId == None :
 				tables.remove(tab)
 				if len(tables) == 0 :
-					logging.info('All data from all tables copied to Payloads table')
+					logger.info('All data from all tables copied to Payloads table')
 					break
 			elif rowId != None:
 				try:
@@ -205,12 +208,12 @@ def createPacket():
 		break
 	
 	if len(data) == 0:
-		logging.info('No data in any table')
+		logger.info('No data in any table')
 		return GatewayParams.PACKET_SIZE - payloadUnit
 		dber.close()
 	else:
-		logging.info('Payload size %d', len(json.dumps(upPacket)))
-		logging.info('Payload components %s', dataDBInfo)
+		logger.info('Payload size %d', len(json.dumps(upPacket)))
+		logger.info('Payload components %s', dataDBInfo)
 
 		packetTs =  datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")		
 		upPacketJson = json.dumps(upPacket)
@@ -219,7 +222,7 @@ def createPacket():
 
 		dber.close()
 
-		logging.debug(upPacketJsonPretty)
+		logger.debug(upPacketJsonPretty)
 		return GatewayParams.PACKET_SIZE - payloadUnit
 		
 
@@ -235,40 +238,40 @@ def uploadPayload():
 			if GatewayParams.COMMTYPE == "HTTPS" :			
 				r = requests.post(GatewayParamsStatic.DATA_LINK,data=payload, headers=GatewayParamsStatic.POST_HEADERS,timeout=GatewayParams.POST_TIMEOUT)
 			elif GatewayParams.COMMTYPE == "MQTT" :
-				mqtter = mqttClient.MQTTClient()
+				mqtter = mqttClient.MQTTClient("azure")
 				(r,mid) = mqtter.pubSingle(payload)
 			if r != None and GatewayParams.COMMTYPE == "HTTPS" :
 				upDone = r.status_code
 				if divmod(upDone,100)[0] == 2:						
 					dber.updateRow('Payloads',rowId,str(upDone)) 	
-					logging.info('Post request successful with status : %d', upDone)
+					logger.info('Post request successful with status : %d', upDone)
 					dber.close()				
 					return True
 				else :
-					logging.info('Post request UNsuccessful with status : %d', upDone)					
+					logger.info('Post request UNsuccessful with status : %d', upDone)					
 					dber.close()					
 					return False
 			elif r != None and GatewayParams.COMMTYPE == "MQTT":
 				upDone = r
 				if upDone == 0:						
 					dber.updateRow('Payloads', rowId, str(upDone)) 	
-					logging.info('Post request successful with status : %d', upDone)
+					logger.info('Post request successful with status : %d', upDone)
 					dber.close()				
 					return True
 				else :
-					logging.info('Post request  UNsuccessful with status : %d', upDone)					
+					logger.info('Post request  UNsuccessful with status : %d', upDone)					
 					dber.close()					
 					return False
 			elif r == None  :
-				logging.info('Post request on HTTPS/MQTT returned a NULL status code')
+				logger.info('Post request on HTTPS/MQTT returned a NULL status code')
 				dber.close()
 				return False
 		except Exception as ex:
-			logging.error( 'Payload POST request failed %s', ex)	
+			logger.exception( 'Payload POST request failed %s', ex)	
 			dber.close()			
 			return False
 	else :
-		logging.info('Payloads is empty')
+		logger.info('Payloads is empty')
 		dber.close()
 		return False
 	
