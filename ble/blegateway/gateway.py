@@ -18,6 +18,7 @@ class GatewayParamsStatic:
 	POST_HEADERS = {'Authorization' : SAS_KEY, 'Content-Type' : 'application/json'}
 	DATA_LINK = "https://"+IOTHUB+"/devices/"+NAME+"/messages/events?api-version=2016-02-03"	
 	D2C_ACK_LINK = "http://52.172.40.101:8080/restservice/v1/d2c/cmdresponse"
+	D2C_LOG_LINK = "http://52.172.40.101:8080/restservice/v1/d2c/logfile"
 	MQTT_USERNAME =IOTHUB+"/"+NAME+"/"+"api-version=2016-11-14"
 	LOGFILE_BLE = "/home/pi/tagbox/logs/blemaster_"+NAME+".log"
 	LOGFILE_MQTT = "/home/pi/tagbox/logs/mqttservice_"+NAME+".log"

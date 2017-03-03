@@ -236,7 +236,10 @@ def uploadPayload():
 	if rowId != None:
 		try:
 			if GatewayParams.COMMTYPE == "HTTPS" :			
-				r = requests.post(GatewayParamsStatic.DATA_LINK,data=payload, headers=GatewayParamsStatic.POST_HEADERS,timeout=GatewayParams.POST_TIMEOUT)
+				r = requests.post(GatewayParamsStatic.DATA_LINK,
+					data=payload, 
+					headers=GatewayParamsStatic.POST_HEADERS,
+					timeout=GatewayParams.POST_TIMEOUT)
 			elif GatewayParams.COMMTYPE == "MQTT" :
 				mqtter = mqttClient.MQTTClient("azure")
 				(r,mid) = mqtter.pubSingle(payload)

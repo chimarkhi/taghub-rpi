@@ -155,18 +155,28 @@ def dBFlush():
 	dber.close()
 
 
-def logging_init():
-	log_formatter = logging.Formatter('[%(asctime)s] %(levelname)s %(message)s',datefmt='%Y-%m-%d %H:%M:%S')
-	logFile = 'C:\\Temp\\log'
-	my_handler = RotatingFileHandler(logFile, mode='a', maxBytes=5*1024*1024, 
-                                	backupCount=2, encoding=None, delay=0)
-	my_handler.setFormatter(log_formatter)
-	my_handler.setLevel(logging.INFO)
+def file_upload(upFile):
+	payload = {'file': upFile,
+		'GwId': GatewayParamsStatic.NAME}
+	try:
+		r = requests.post(GatewayParamsStatic.D2C_LOG_LINK, 
+				file=payload,
+				timeout=GatewayParams.POST_TIMEOUT)
+		upDone = r.status_code
+	except Exception as ex:
+		upDone = 0
+		logger.exception('Exception in uploading log file %s: %s',upFile,ex)
+	finally:
+		if divmod(upDone,100)[0] == 2:	
+			logger.info('Log file %s uploaded with status : %d',upFile,upDone)
+		else:
+			logger.error('Log file upload failed with status: %d',upFile, upDone)
 
-	app_log = logging.getLogger('root')
-	app_log.setLevel(logging.INFO)
 
-	app_log.addHandler(my_handler)
+@sched.scheduled_job('interval',hours = GatewayParams.LOG_UPLOAD_INTERVAL)
+def logs_upload():
+	file_upload(GatewayParamsStatic.LOGFILE_BLE+'.1')
+	file_upload(GatewayParamsStatic.LOGFILE_MQTT+'.1')
 
 
 if __name__ ==  "__main__" :
@@ -180,7 +190,6 @@ if __name__ ==  "__main__" :
 	logger = logging.getLogger('__main__')	
 
 	logger.info('Logging started')	
-	logger.error('ERORRR||')
 	whitelistGlobal = readWhitelist()
 
 	bledb.createDB()		

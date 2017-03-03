@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import paho.mqtt.client as mqtt
 import paho.mqtt.publish as publish
 import time
@@ -6,11 +7,13 @@ import ssl
 import paho.mqtt.client as mqtt
 import requests
 import json
+import logging.config
 
 from  gateway import GatewayParamsStatic
 import gateway
 import msgParser
 import GatewayParams
+
 
 broker_type = "azure"
 azure_username = GatewayParamsStatic.IOTHUB + "/" + GatewayParamsStatic.NAME
@@ -57,41 +60,41 @@ def postD2CAck(cmAck):
 	try: 
 		r = requests.post(GatewayParamsStatic.D2C_ACK_LINK,data=payload, timeout=GatewayParams.POST_TIMEOUT)	
 		if divmod(r.status_code,100)[0] == 2:						
-			logging.info('D2C Ack CmId: %s, CmResult: %s successfully sent status: %d', cmAck.CmId, cmAck.CmSt, r.status_code)
-			logging.debug("D2C Ack : %s", payload)
+			logger.info('D2C Ack CmId: %s, CmResult: %s successfully sent status: %d', cmAck.CmId, cmAck.CmSt, r.status_code)
+			logger.debug("D2C Ack : %s", payload)
 		else:
-			logging.error("D2C ack post failed, with status : %d", r.status_code)
+			logger.error("D2C ack post failed, with status : %d", r.status_code)
 	except Exception as ex: 
-			logging.exception("Exception in D2C ack post %s", ex)		
+			logger.exception("Exception in D2C ack post %s", ex)		
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
 	print("Connected with result code "+str(rc))
-	logging.info("Connected with result code "+str(rc))
+	logger.info("Connected with result code "+str(rc))
 	client.subscribe(c2d_topic)
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
 	print(msg.topic+" "+str(msg.payload))
-	logging.info("Message recieved from server TOPIC: %s, MSG: %s ", msg.topic, msg.payload)
+	logger.info("Message recieved from server TOPIC: %s, MSG: %s ", msg.topic, msg.payload)
 	try:
 		cmAck = msgParser.inMQTTJSON(msg.payload)
 		print cmAck.CmId, cmAck.GwTs, cmAck.CmSt
 		gateway.appRestart()
 		postD2CAck(cmAck)
 	except Exception as ex:
-		logging.exception("C2D command flow  failed : %s", ex)
+		logger.exception("C2D command flow  failed : %s", ex)
 		print("C2D command flow failed : %s", ex)
 
 # The callback for when broker has responded to SUBSCRIBE request.
 def on_subscribe(client, userdata, mid, granted_qos):
 	print("Subscribed: "+str(mid)+" "+str(granted_qos))
-	logging.info("Subscribed: "+str(mid)+" "+str(granted_qos))
+	logger.info("Subscribed: "+str(mid)+" "+str(granted_qos))
 
 # Callback for when client publishes to a topic
 def on_publish(mqttc, obj, mid):
 	print("mid: "+str(mid))
-	logging.info("Published message with mid: "+str(mid))
+	logger.info("Published message with mid: "+str(mid))
 
 class MQTTClient():
 	def __init__(self,broker_type):
@@ -127,18 +130,19 @@ def mqttPublish(payloadPacket):
 	qos = 1)	
 	return r
 
-def main() :
-	logging.basicConfig(filename=GatewayParamsStatic.LOGFILE_MQTT, filemode = 'w', 
-						format='[%(asctime)s] %(levelname)s %(message)s', 
-						datefmt='%Y-%m-%d %H:%M:%S',  
-						level = GatewayParams.LOGLEVEL)
-	logging.info('Logging started')	
+if __name__ == "__main__" :
+	logging.config.fileConfig('./logging.conf',
+				disable_existing_loggers = False,
+				defaults={'logFileName'	:GatewayParamsStatic.LOGFILE_MQTT,
+					  'logLevel'	:GatewayParams.LOGLEVEL,
+					  'logFileSize' :GatewayParams.LOGFILE_SIZE,
+					  'logBackupCount':GatewayParams.LOG_BACKUPS })
+					  
+	logger = logging.getLogger('__main__')	
 	
 	gateway.appRestart()
-	logging.info("blemaster process started")
+	logger.info("blemaster process started")
 	
-if __name__ == "__main__":
-	main()
 	mqtter = MQTTClient(broker_type)
 	(r,mid) = mqtter.pubSingle("testup through method")
 	print "through method", r,mid	
