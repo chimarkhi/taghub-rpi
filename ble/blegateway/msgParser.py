@@ -56,8 +56,8 @@ key_map = {'ScWn'  : "SCAN_WINDOW", 	 				## seconds the scan window is open for
 class CommandAck:
 	GwId = GatewayParamsStatic.NAME
 	GwTs =  datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-	Message =	None
-	CmData = None
+	Message = ""
+	CmData = ""
 	def __init__(self,msgIn):
 		try:
 			self.CmId = msgIn[commandIDKey]
@@ -85,9 +85,9 @@ def inMQTTJSON(payloadJSON):
 		commandTs = msg[commandTimestampKey]	
 		commandValid = True
 	except Exception as ex:
-		commandId = None
-		commandGwTy = None
-		commandType = None
+		commandId = ""
+		commandGwTy = ""
+		commandType = ""
 		print "C2D command does not have Id/GwTy/Ty/Ts data ",ex
 		logger.exception("C2D command does not have Id/GwTy/Ty/Ts data: %s", ex)
 		commandValid = False
