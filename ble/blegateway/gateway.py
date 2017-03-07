@@ -11,19 +11,19 @@ logger = logging.getLogger(__name__)
 
 ## Gateway's static parameters
 class GatewayParamsStatic:
-	NAME  = 'som_pi_0001' 
+	NAME  = 'cd_pi_0001' 
 	WHITELISTREAD_INTERVAL = 6			## hours in which whitelist is updated 		
-	SAS_KEY = "SharedAccessSignature sr=sub-som-hub.azure-devices.net%2Fdevices%2Fsom_pi_0001&sig=%2BsaeHIbmN2gT7Goj95wkVuNyqn5G%2FwaN3%2BYHcZappUM%3D&se=1519212605"
-	IOTHUB = 'sub-som-hub.azure-devices.net'
+	SAS_KEY = "SharedAccessSignature sr=iot-hub-cd.azure-devices.net%2Fdevices%2Fcd_pi_0001&sig=FsdTJHA8ZrgY7z51ce06zou9rFfnGkuoa0JhLE5nGfU%3D&se=1520417683"
+	IOTHUB = 'iot-hub-cd.azure-devices.net'
 	POST_HEADERS = {'Authorization' : SAS_KEY, 'Content-Type' : 'application/json'}
 	DATA_LINK = "https://"+IOTHUB+"/devices/"+NAME+"/messages/events?api-version=2016-02-03"	
-	D2C_ACK_LINK = "http://52.172.40.101:8080/restservice/v1/d2c/cmdresponse"
-	D2C_LOG_LINK = "http://52.172.40.101:8080/restservice/v1/d2c/logfile"
+	D2C_ACK_LINK = "http://cdc2drest.azurewebsites.net/restservice/v1/d2c/cmdresponse"
+	D2C_LOG_LINK = "http://cdc2drest.azurewebsites.net/restservice/v1/d2c/logfile"
 	MQTT_USERNAME =IOTHUB+"/"+NAME+"/"+"api-version=2016-11-14"
 	LOGFILE_BLE = "/home/pi/tagbox/logs/blemaster_"+NAME+".log"
 	LOGFILE_MQTT = "/home/pi/tagbox/logs/mqttservice_"+NAME+".log"
 	WHITELIST_FILE = "/home/pi/tagbox/ble/blegateway/whitelist"
-	WHITELIST_TYPES = ["Wl_1","Wl_2","Wl_3"]	
+	WHITELIST_TYPES = ["Wl_AM","Wl_Door","Wl_Nrg"]	
 	GATEWAYPARAMS_FILE = "/home/pi/tagbox/ble/blegateway/GatewayParams.py"
 
 
@@ -46,7 +46,7 @@ class GatewayParamsDynamic:
 	PACKET_SIZE = 3500					## bytes, max payload size
 	MAX_PACKET_UNITS = 50				## max data points in one payload
 	MQTT_KEEPALIVE = 60 					## seconds for which the connection is kept alive 	
-	WHITELIST_ENABLE = 3					## 0,1,2,3 enable whitelisting levels
+	WHITELIST_ENABLE = 1					## 0,1,2,3 enable whitelisting levels
 
 ## Gateway type (Android/Pi) specific parameters (can be updated from server)
 class GatewayParamsSpecific:

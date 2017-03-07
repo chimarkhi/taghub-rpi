@@ -1,6 +1,6 @@
 SCAN_WINDOW = 15 ## seconds the scan window is open for 
-SCAN_INTERVAL = 20 ##seconds scan interval 
-UPLOAD_INTERVAL = 30 ## interval (seconds) at which payload is created and posted 
+SCAN_INTERVAL = 150 ##seconds scan interval 
+UPLOAD_INTERVAL = 150 ## interval (seconds) at which payload is created and posted 
 PACKET_SIZE = 3500 ## bytes, max payload size 
 MAX_PACKET_UNITS = 20 ## max data points in one payload 
 DBFLUSH_INTERVAL = 6 ## hours, interval at which db is flushed of data older than KEEPDATA_DAYS 
@@ -12,7 +12,7 @@ LOGLEVEL = "DEBUG" ## logging level
 LOGFILE_SIZE = 2000000		## size of logfile
 LOG_BACKUPS = 2			## number of backup files
 READNRG = 0			## read modbus for energy data
-WHITELIST_ENABLE = 0 ## 0,1,2,3 enable whitelisting levels 
+WHITELIST_ENABLE = 1 ## 0,1,2,3 enable whitelisting levels 
 COMMTYPE = "HTTPS" ## HTTPS, MQTT 
 WHITELISTREAD_INTERVAL =6 	## REMOVE FROM blemaster.py
 BLE_ENABLE = 1			## Enable ble radio

@@ -42,8 +42,8 @@ def readWhitelist():
 			whitelist = []
 			logger.exception("Error in reading whitelist %s: %s", wlType, ex)
 		finally:
-			 if wlType in GatewayParamsStatic.WHITELIST_TYPES[:GatewayParams.WHITELIST_ENABLE ] :							
-				whitelistMaster.extend(whitelist)
+			# if wlType in GatewayParamsStatic.WHITELIST_TYPES[:GatewayParams.WHITELIST_ENABLE ] :							
+			whitelistMaster.extend(whitelist)
 	logger.debug("Whitelisting level : %s; Whitelist elements: %s", GatewayParams.WHITELIST_ENABLE, whitelistMaster)
 	logger.info("No. of devices in whitelist level %s are %d", GatewayParams.WHITELIST_ENABLE, len(whitelistMaster))
 	global whitelistGlobal 

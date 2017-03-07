@@ -80,12 +80,16 @@ def on_message(client, userdata, msg):
 	try:
 		cmAck = msgParser.inMQTTJSON(msg.payload)
 		print cmAck.CmId, cmAck.GwTs, cmAck.CmSt
-		gateway.appRestart()
+		commandStatus = cmAck.CmSt
 		postD2CAck(cmAck)
 	except Exception as ex:
+		commandStatus = 0
 		logger.exception("C2D command flow  failed : %s", ex)
 		print("C2D command flow failed : %s", ex)
-
+	finally:
+		if commandStatus:
+			gateway.appRestart()
+			
 # The callback for when broker has responded to SUBSCRIBE request.
 def on_subscribe(client, userdata, mid, granted_qos):
 	print("Subscribed: "+str(mid)+" "+str(granted_qos))
