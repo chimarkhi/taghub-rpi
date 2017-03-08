@@ -157,9 +157,10 @@ def dBFlush():
 
 
 def file_upload(upFile):
-	payload = {'file': upFile,
-		'GwId': GatewayParamsStatic.NAME}
 	try:
+		payload = {'file': open(upFile, 'rb'),
+		'GwId': GatewayParamsStatic.NAME}
+
 		r = requests.post(GatewayParamsStatic.D2C_LOG_LINK, 
 				files=payload,
 				timeout=GatewayParams.POST_TIMEOUT)
@@ -176,8 +177,8 @@ def file_upload(upFile):
 
 @sched.scheduled_job('interval',hours = GatewayParams.LOG_UPLOAD_INTERVAL)
 def logs_upload():
-	file_upload(GatewayParamsStatic.LOGFILE_BLE+'.1')
-	file_upload(GatewayParamsStatic.LOGFILE_MQTT+'.1')
+	file_upload(GatewayParamsStatic.LOGFILE_BLE)
+	file_upload(GatewayParamsStatic.LOGFILE_MQTT)
 
 
 if __name__ ==  "__main__" :
