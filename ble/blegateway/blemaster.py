@@ -5,6 +5,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 import logging
 import os
 import logging.config
+import requests
 
 import bledb
 import GatewayParams
@@ -33,7 +34,7 @@ def readWhitelist():
 		try:
 			with open(GatewayParamsStatic.WHITELIST_FILE + wlType+".txt","r") as whitelistFile:
 				macidList = [line.split(" ")[0] for line in whitelistFile]
-			whitelist = [macid.lower() for macid in macidList]
+			whitelist = [macid.lower().replace(":","") for macid in macidList]
 			logger.debug("Whitelist %s elements %s", wlType, whitelist)
 		except IOError as ex:
 			whitelist = []
@@ -160,7 +161,7 @@ def file_upload(upFile):
 		'GwId': GatewayParamsStatic.NAME}
 	try:
 		r = requests.post(GatewayParamsStatic.D2C_LOG_LINK, 
-				file=payload,
+				files=payload,
 				timeout=GatewayParams.POST_TIMEOUT)
 		upDone = r.status_code
 	except Exception as ex:
