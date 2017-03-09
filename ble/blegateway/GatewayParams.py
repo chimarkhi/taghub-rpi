@@ -1,6 +1,6 @@
 SCAN_WINDOW = 15 ## seconds the scan window is open for 
-SCAN_INTERVAL = 150 ##seconds scan interval 
-UPLOAD_INTERVAL = 75 ## interval (seconds) at which payload is created and posted 
+SCAN_INTERVAL = 30 ##seconds scan interval 
+UPLOAD_INTERVAL = 30 ## interval (seconds) at which payload is created and posted 
 PACKET_SIZE = 3500 ## bytes, max payload size 
 MAX_PACKET_UNITS = 100 ## max data points in one payload 
 DBFLUSH_INTERVAL = 6 ## hours, interval at which db is flushed of data older than KEEPDATA_DAYS 

@@ -11,10 +11,13 @@ logger = logging.getLogger(__name__)
 
 ## Gateway's static parameters
 class GatewayParamsStatic:
-	NAME  = 'cd_pi_0001' 
+	NAME  = "dem_pi_0001" 
+		#'cd_pi_0001' 
 	WHITELISTREAD_INTERVAL = 6			## hours in which whitelist is updated 		
-	SAS_KEY = "SharedAccessSignature sr=iot-hub-cd.azure-devices.net%2Fdevices%2Fcd_pi_0001&sig=FsdTJHA8ZrgY7z51ce06zou9rFfnGkuoa0JhLE5nGfU%3D&se=1520417683"
-	IOTHUB = 'iot-hub-cd.azure-devices.net'
+#	SAS_KEY = "SharedAccessSignature sr=iot-hub-cd.azure-devices.net%2Fdevices%2Fcd_pi_0001&sig=FsdTJHA8ZrgY7z51ce06zou9rFfnGkuoa0JhLE5nGfU%3D&se=1520417683"
+	SAS_KEY = "SharedAccessSignature sr=tbox-iothub-demo.azure-devices.net%2Fdevices%2Fdem_pi_0001&sig=YgGtfzoxMJjFwj4eFB%2FA379eFGB9b8tLKk5fT55G4hk%3D&se=1520607512"
+	IOTHUB = "tbox-iothub-demo.azure-devices.net"
+		#'iot-hub-cd.azure-devices.net'
 	POST_HEADERS = {'Authorization' : SAS_KEY, 'Content-Type' : 'application/json'}
 	DATA_LINK = "https://"+IOTHUB+"/devices/"+NAME+"/messages/events?api-version=2016-02-03"	
 	D2C_ACK_LINK = "http://cdc2drest.azurewebsites.net/restservice/v1/d2c/cmdresponse"
