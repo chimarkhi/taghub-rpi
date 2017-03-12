@@ -8,6 +8,8 @@ import paho.mqtt.client as mqtt
 import requests
 import json
 import logging.config
+from apscheduler.schedulers.blocking import BlockingScheduler
+
 
 from  gateway import GatewayParamsStatic
 import gateway
@@ -22,6 +24,7 @@ ca_cert_path = "./baltimorebase64.cer"
 dev_topic = "devices/"+GatewayParamsStatic.NAME+"/messages/events/"
 c2d_topic = "devices/"+GatewayParamsStatic.NAME+"/messages/devicebound/#"
 
+sched = BlockingScheduler()
 
 # MQTT connection details
 if broker_type == "azure" :
@@ -88,7 +91,7 @@ def on_message(client, userdata, msg):
 		print("C2D command flow failed : %s", ex)
 	finally:
 		if commandStatus:
-			gateway.appRestart()
+			gateway.appMonitor(hardRestart=True)
 			
 # The callback for when broker has responded to SUBSCRIBE request.
 def on_subscribe(client, userdata, mid, granted_qos):
@@ -134,6 +137,11 @@ def mqttPublish(payloadPacket):
 	qos = 1)	
 	return r
 
+@sched.scheduled_job('interval',minutes = GatewayParams.BLEMONITOR_INTERVAL)
+def bleMonitor():
+	gateway.appMonitor(hardRestart=False)
+
+
 if __name__ == "__main__" :
 	logging.config.fileConfig('./logging.conf',
 				disable_existing_loggers = False,
@@ -144,9 +152,12 @@ if __name__ == "__main__" :
 					  
 	logger = logging.getLogger('__main__')	
 	
-	gateway.appRestart()
+	gateway.appMonitor(hardRestart=False)
 	logger.info("blemaster process started")
 	
+	logger.info("Starting scheduler")	
+	sched.start()
+
 	mqtter = MQTTClient(broker_type)
 	(r,mid) = mqtter.pubSingle("testup through method")
 	print "through method", r,mid	

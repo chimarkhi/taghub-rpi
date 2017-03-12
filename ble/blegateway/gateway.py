@@ -88,20 +88,22 @@ class Gateway:
 		return gwInfo
 
 
-def appRestart():
+def appMonitor(hardRestart):
 	try:
 		blemasterPID = map(int,subprocess.check_output(["pgrep","-f", "sudo python blemaster.py"]).split())
-		if len(blemasterPID) is not 0:
+		if len(blemasterPID) is not 0 and (hardRestart is True):
 			for i in range(len(blemasterPID)):			
 				os.kill(blemasterPID[i],signal.SIGTERM)
-		logger.info("All blemaster.py processes killed. Relevant pids found %d", len(blemasterPID))
-		blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-		logger.info("blemaster process started ")	
-		cmSuccess = 1
+			logger.info("All blemaster.py processes killed. Relevant pids found %d", len(blemasterPID))
+			blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+			logger.info("blemaster process started ")	
+			cmSuccess = 1
+		else: 
+			cmSuccess = 0
 	except subprocess.CalledProcessError:
-		logger.info("blemaster process not running ")	
+		logger.warning("blemaster process not running ")	
 		blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-		logger.info("blemaster process started ")	
+		logger.warning("blemaster process started ")	
 		cmSuccess = 1
 	except Exception as ex:
 		logger.exception("Exception during process restart : %s",ex)
