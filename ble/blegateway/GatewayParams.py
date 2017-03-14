@@ -17,5 +17,5 @@ COMMTYPE = "HTTPS" ## HTTPS, MQTT
 WHITELISTREAD_INTERVAL =6 	## REMOVE FROM blemaster.py
 BLE_ENABLE = 1			## Enable ble radio
 LOG_UPLOAD_INTERVAL = 1		## Log file upload interval in hours
-BLEMONITOR_INTERVAL =10		## minutes at which mqttservice monitors bleservice
+BLEMONITOR_INTERVAL = 5		## minutes at which mqttservice monitors bleservice
 

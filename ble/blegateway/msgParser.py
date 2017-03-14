@@ -50,7 +50,9 @@ key_map = {'ScWn'  : "SCAN_WINDOW", 	 				## seconds the scan window is open for
 	'CommTy'  : "COMMTYPE",						## HTTPS, MQTT 
 
 	'NrgCtrl'  : "READNRG",						## read modbus for energy data
-	'BlCtrl'	: "BLE_ENABLE"					## enable gateway's ble radio
+	'BlCtrl'	: "BLE_ENABLE",					## enable gateway's ble radio
+	
+	'BLEMonInt': "BLEMONITOR_INTERVAL"				## interval at which mqtt service monitors blemaster
 	}		
 
 class CommandAck:
