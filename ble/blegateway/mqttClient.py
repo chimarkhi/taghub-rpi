@@ -9,7 +9,7 @@ import requests
 import json
 import logging.config
 from apscheduler.schedulers.blocking import BlockingScheduler
-
+from apscheduler.schedulers.background import BackgroundScheduler
 
 from  gateway import GatewayParamsStatic
 import gateway
@@ -24,7 +24,8 @@ ca_cert_path = "./baltimorebase64.cer"
 dev_topic = "devices/"+GatewayParamsStatic.NAME+"/messages/events/"
 c2d_topic = "devices/"+GatewayParamsStatic.NAME+"/messages/devicebound/#"
 
-sched = BlockingScheduler()
+#sched = BlockingScheduler()
+sched = BackgroundScheduler()
 
 # MQTT connection details
 if broker_type == "azure" :
