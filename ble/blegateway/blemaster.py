@@ -52,7 +52,7 @@ def readWhitelist():
 		whitelistGlobal = whitelistMaster
 	return whitelistMaster
 
-@sched.scheduled_job('interval',seconds = GatewayParams.SCAN_INTERVAL)
+@sched.scheduled_job('interval',seconds = GatewayParams.SCAN_INTERVAL,max_instances=10)
 def scanParse():
 	
 	## start scan using delegate for scanWindow seconds
