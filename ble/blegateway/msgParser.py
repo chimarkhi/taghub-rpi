@@ -158,7 +158,7 @@ def gatewayAction(actionIn):
 		if key == cmKeyRestart:
 			if actionIn[key] == cmValueAppRestart :
 				cmSuccess = gateway.appMonitor(hardRestart=True)
-			elif actionIn[key] == cmValueGwRestart:
+			elif actionIn[key] == cmValueGwReboot:
 				cmSuccess = gateway.reboot()
 			else :
 				cmSuccess = 0			
