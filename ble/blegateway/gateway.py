@@ -95,14 +95,16 @@ def appMonitor(hardRestart):
 			for i in range(len(blemasterPID)):			
 				os.kill(blemasterPID[i],signal.SIGTERM)
 			logger.info("All blemaster.py processes killed. Relevant pids found %d", len(blemasterPID))
-			blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+			blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=None, stderr=None, stdin=None)
+#			blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
 			logger.info("blemaster process started ")	
 			cmSuccess = 1
 		else: 
 			cmSuccess = 0
 	except subprocess.CalledProcessError:
 		logger.warning("blemaster process not running ")	
-		blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+		blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=None, stderr=None, stdin=None)
+#		blemasterProcess = subprocess.Popen(["sudo","python","blemaster.py"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
 		logger.warning("blemaster process started ")	
 		cmSuccess = 1
 	except Exception as ex:
