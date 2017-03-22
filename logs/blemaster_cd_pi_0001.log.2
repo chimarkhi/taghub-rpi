@@ -1,0 +1,329 @@
+'2017-03-08 11:57:40' || [bledb] DEBUG : {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 52.0, 
+                "NdBat": null, 
+                "NdId": "ebd3c7daba2c", 
+                "NdTs": "2017-03-08 11:57:24"
+            }, 
+            {
+                "Hum": 50.0, 
+                "NdBat": null, 
+                "NdId": "eac774a57710", 
+                "NdTs": "2017-03-08 11:57:24"
+            }, 
+            {
+                "Hum": 50.0, 
+                "NdBat": null, 
+                "NdId": "f8c78d10c6f3", 
+                "NdTs": "2017-03-08 11:57:24"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": null, 
+                "NdId": "ebd3c7daba2c", 
+                "NdTs": "2017-03-08 11:57:24", 
+                "Temp": 24.8
+            }, 
+            {
+                "NdBat": null, 
+                "NdId": "eac774a57710", 
+                "NdTs": "2017-03-08 11:57:24", 
+                "Temp": 24.8
+            }, 
+            {
+                "NdBat": null, 
+                "NdId": "f8c78d10c6f3", 
+                "NdTs": "2017-03-08 11:57:24", 
+                "Temp": 24.63
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "cd_pi_0001", 
+    "GwIsPwr": "1", 
+    "GwTs": "2017-03-08 11:57:39"
+}
+'2017-03-08 11:57:40' || [__main__] INFO : Payload created in DB
+'2017-03-08 11:57:40' || [apscheduler.executors.default] INFO : Job "packetCreation (trigger: interval[0:00:30], next run at: 2017-03-08 11:58:09 UTC)" executed successfully
+'2017-03-08 11:57:41' || [urllib3.connectionpool] DEBUG : "POST /devices/cd_pi_0001/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+'2017-03-08 11:57:41' || [bledb] INFO : Post request successful with status : 204
+'2017-03-08 11:57:41' || [__main__] INFO : Payload uploaded with response 1
+'2017-03-08 11:57:41' || [apscheduler.executors.default] INFO : Job "dBToServer (trigger: interval[0:00:30], next run at: 2017-03-08 11:58:09 UTC)" executed successfully
+'2017-03-08 11:57:54' || [__main__] INFO : No. of devices scanned are 9
+'2017-03-08 11:57:54' || [__main__] INFO : No. of scanned devices in whitelist are 9
+'2017-03-08 11:57:54' || [ankhmaway] INFO : AM temp data:[u'ebd3c7daba2c', 24.8, '2017-03-08 11:57:54', None]
+'2017-03-08 11:57:54' || [ankhmaway] INFO : AM humid data:[u'ebd3c7daba2c', 52.0, '2017-03-08 11:57:54', None]
+'2017-03-08 11:57:54' || [ankhmaway] INFO : AM temp data:[u'f8c78d10c6f3', 24.46, '2017-03-08 11:57:54', None]
+'2017-03-08 11:57:54' || [ankhmaway] INFO : AM humid data:[u'f8c78d10c6f3', 51.0, '2017-03-08 11:57:54', None]
+'2017-03-08 11:57:54' || [ankhmaway] INFO : AM temp data:[u'eac774a57710', 24.8, '2017-03-08 11:57:54', None]
+'2017-03-08 11:57:54' || [ankhmaway] INFO : AM humid data:[u'eac774a57710', 50.0, '2017-03-08 11:57:54', None]
+'2017-03-08 11:57:56' || [apscheduler.executors.default] INFO : Job "scanParse (trigger: interval[0:00:30], next run at: 2017-03-08 11:58:09 UTC)" executed successfully
+'2017-03-08 11:58:09' || [apscheduler.scheduler] DEBUG : Looking for jobs to run
+'2017-03-08 11:58:09' || [apscheduler.executors.default] INFO : Running job "scanParse (trigger: interval[0:00:30], next run at: 2017-03-08 11:58:39 UTC)" (scheduled at 2017-03-08 11:58:09.491707+00:00)
+'2017-03-08 11:58:09' || [apscheduler.executors.default] INFO : Running job "packetCreation (trigger: interval[0:00:30], next run at: 2017-03-08 11:58:39 UTC)" (scheduled at 2017-03-08 11:58:09.493211+00:00)
+'2017-03-08 11:58:09' || [apscheduler.executors.default] INFO : Running job "dBToServer (trigger: interval[0:00:30], next run at: 2017-03-08 11:58:09 UTC)" (scheduled at 2017-03-08 11:58:09.494641+00:00)
+'2017-03-08 11:58:09' || [apscheduler.scheduler] DEBUG : Next wakeup is due at 2017-03-08 11:58:33.497671+00:00 (in 23.970422 seconds)
+'2017-03-08 11:58:09' || [urllib3.connectionpool] INFO : Starting new HTTPS connection (1): iot-hub-cd.azure-devices.net
+'2017-03-08 11:58:10' || [bledb] INFO : All data from all tables copied to Payloads table
+'2017-03-08 11:58:10' || [bledb] INFO : Payload size 636
+'2017-03-08 11:58:10' || [bledb] INFO : Payload components [(u'TempData', 3720), (u'HumData', 3720), (u'TempData', 3721), (u'HumData', 3721), (u'TempData', 3722), (u'HumData', 3722)]
+'2017-03-08 11:58:10' || [bledb] DEBUG : {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 52.0, 
+                "NdBat": null, 
+                "NdId": "ebd3c7daba2c", 
+                "NdTs": "2017-03-08 11:57:54"
+            }, 
+            {
+                "Hum": 51.0, 
+                "NdBat": null, 
+                "NdId": "f8c78d10c6f3", 
+                "NdTs": "2017-03-08 11:57:54"
+            }, 
+            {
+                "Hum": 50.0, 
+                "NdBat": null, 
+                "NdId": "eac774a57710", 
+                "NdTs": "2017-03-08 11:57:54"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": null, 
+                "NdId": "ebd3c7daba2c", 
+                "NdTs": "2017-03-08 11:57:54", 
+                "Temp": 24.8
+            }, 
+            {
+                "NdBat": null, 
+                "NdId": "f8c78d10c6f3", 
+                "NdTs": "2017-03-08 11:57:54", 
+                "Temp": 24.46
+            }, 
+            {
+                "NdBat": null, 
+                "NdId": "eac774a57710", 
+                "NdTs": "2017-03-08 11:57:54", 
+                "Temp": 24.8
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "cd_pi_0001", 
+    "GwIsPwr": "1", 
+    "GwTs": "2017-03-08 11:58:09"
+}
+'2017-03-08 11:58:10' || [__main__] INFO : Payload created in DB
+'2017-03-08 11:58:10' || [apscheduler.executors.default] INFO : Job "packetCreation (trigger: interval[0:00:30], next run at: 2017-03-08 11:58:39 UTC)" executed successfully
+'2017-03-08 11:58:10' || [urllib3.connectionpool] DEBUG : "POST /devices/cd_pi_0001/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+'2017-03-08 11:58:10' || [bledb] INFO : Post request successful with status : 204
+'2017-03-08 11:58:10' || [__main__] INFO : Payload uploaded with response 1
+'2017-03-08 11:58:10' || [apscheduler.executors.default] INFO : Job "dBToServer (trigger: interval[0:00:30], next run at: 2017-03-08 11:58:39 UTC)" executed successfully
+'2017-03-08 11:58:24' || [__main__] INFO : No. of devices scanned are 11
+'2017-03-08 11:58:24' || [__main__] INFO : No. of scanned devices in whitelist are 11
+'2017-03-08 11:58:24' || [ankhmaway] INFO : AM temp data:[u'ebd3c7daba2c', 24.8, '2017-03-08 11:58:24', None]
+'2017-03-08 11:58:24' || [ankhmaway] INFO : AM humid data:[u'ebd3c7daba2c', 52.0, '2017-03-08 11:58:24', None]
+'2017-03-08 11:58:24' || [ankhmaway] INFO : AM temp data:[u'eac774a57710', 24.63, '2017-03-08 11:58:24', None]
+'2017-03-08 11:58:24' || [ankhmaway] INFO : AM humid data:[u'eac774a57710', 50.0, '2017-03-08 11:58:24', None]
+'2017-03-08 11:58:24' || [ankhmaway] INFO : AM temp data:[u'f8c78d10c6f3', 24.46, '2017-03-08 11:58:24', None]
+'2017-03-08 11:58:24' || [ankhmaway] INFO : AM humid data:[u'f8c78d10c6f3', 51.0, '2017-03-08 11:58:24', None]
+'2017-03-08 11:58:24' || [apscheduler.executors.default] INFO : Job "scanParse (trigger: interval[0:00:30], next run at: 2017-03-08 11:58:39 UTC)" executed successfully
+'2017-03-08 11:58:33' || [apscheduler.scheduler] DEBUG : Looking for jobs to run
+'2017-03-08 11:58:33' || [apscheduler.scheduler] DEBUG : Next wakeup is due at 2017-03-08 11:58:39.491707+00:00 (in 5.965944 seconds)
+'2017-03-08 11:58:33' || [apscheduler.executors.default] INFO : Running job "logs_upload (trigger: interval[0:01:12], next run at: 2017-03-08 11:59:45 UTC)" (scheduled at 2017-03-08 11:58:33.497671+00:00)
+'2017-03-08 11:58:33' || [urllib3.connectionpool] INFO : Starting new HTTP connection (1): cdc2drest.azurewebsites.net
+'2017-03-08 11:58:34' || [urllib3.connectionpool] DEBUG : "POST /restservice/v1/d2c/logfile HTTP/1.1" 500 30
+'2017-03-08 11:58:34' || [urllib3.connectionpool] INFO : Starting new HTTP connection (1): cdc2drest.azurewebsites.net
+'2017-03-08 11:58:35' || [urllib3.connectionpool] DEBUG : "POST /restservice/v1/d2c/logfile HTTP/1.1" 500 30
+'2017-03-08 11:58:35' || [apscheduler.executors.default] INFO : Job "logs_upload (trigger: interval[0:01:12], next run at: 2017-03-08 11:59:45 UTC)" executed successfully
+'2017-03-08 11:58:39' || [apscheduler.scheduler] DEBUG : Looking for jobs to run
+'2017-03-08 11:58:39' || [apscheduler.executors.default] INFO : Running job "scanParse (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:09 UTC)" (scheduled at 2017-03-08 11:58:39.491707+00:00)
+'2017-03-08 11:58:39' || [apscheduler.executors.default] INFO : Running job "packetCreation (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:09 UTC)" (scheduled at 2017-03-08 11:58:39.493211+00:00)
+'2017-03-08 11:58:39' || [apscheduler.scheduler] DEBUG : Next wakeup is due at 2017-03-08 11:59:09.491707+00:00 (in 29.995822 seconds)
+'2017-03-08 11:58:39' || [apscheduler.executors.default] INFO : Running job "dBToServer (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:09 UTC)" (scheduled at 2017-03-08 11:58:39.494641+00:00)
+'2017-03-08 11:58:39' || [urllib3.connectionpool] INFO : Starting new HTTPS connection (1): iot-hub-cd.azure-devices.net
+'2017-03-08 11:58:40' || [bledb] INFO : All data from all tables copied to Payloads table
+'2017-03-08 11:58:40' || [bledb] INFO : Payload size 637
+'2017-03-08 11:58:40' || [bledb] INFO : Payload components [(u'TempData', 3723), (u'HumData', 3723), (u'TempData', 3724), (u'HumData', 3724), (u'TempData', 3725), (u'HumData', 3725)]
+'2017-03-08 11:58:40' || [bledb] DEBUG : {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 52.0, 
+                "NdBat": null, 
+                "NdId": "ebd3c7daba2c", 
+                "NdTs": "2017-03-08 11:58:24"
+            }, 
+            {
+                "Hum": 50.0, 
+                "NdBat": null, 
+                "NdId": "eac774a57710", 
+                "NdTs": "2017-03-08 11:58:24"
+            }, 
+            {
+                "Hum": 51.0, 
+                "NdBat": null, 
+                "NdId": "f8c78d10c6f3", 
+                "NdTs": "2017-03-08 11:58:24"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": null, 
+                "NdId": "ebd3c7daba2c", 
+                "NdTs": "2017-03-08 11:58:24", 
+                "Temp": 24.8
+            }, 
+            {
+                "NdBat": null, 
+                "NdId": "eac774a57710", 
+                "NdTs": "2017-03-08 11:58:24", 
+                "Temp": 24.63
+            }, 
+            {
+                "NdBat": null, 
+                "NdId": "f8c78d10c6f3", 
+                "NdTs": "2017-03-08 11:58:24", 
+                "Temp": 24.46
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "cd_pi_0001", 
+    "GwIsPwr": "1", 
+    "GwTs": "2017-03-08 11:58:39"
+}
+'2017-03-08 11:58:40' || [__main__] INFO : Payload created in DB
+'2017-03-08 11:58:40' || [apscheduler.executors.default] INFO : Job "packetCreation (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:09 UTC)" executed successfully
+'2017-03-08 11:58:40' || [urllib3.connectionpool] DEBUG : "POST /devices/cd_pi_0001/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+'2017-03-08 11:58:40' || [bledb] INFO : Post request successful with status : 204
+'2017-03-08 11:58:40' || [__main__] INFO : Payload uploaded with response 1
+'2017-03-08 11:58:40' || [apscheduler.executors.default] INFO : Job "dBToServer (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:09 UTC)" executed successfully
+'2017-03-08 11:58:54' || [__main__] INFO : No. of devices scanned are 7
+'2017-03-08 11:58:54' || [__main__] INFO : No. of scanned devices in whitelist are 7
+'2017-03-08 11:58:54' || [ankhmaway] INFO : AM temp data:[u'ebd3c7daba2c', 24.8, '2017-03-08 11:58:54', None]
+'2017-03-08 11:58:54' || [ankhmaway] INFO : AM humid data:[u'ebd3c7daba2c', 52.0, '2017-03-08 11:58:54', None]
+'2017-03-08 11:58:54' || [ankhmaway] INFO : AM temp data:[u'eac774a57710', 24.63, '2017-03-08 11:58:54', None]
+'2017-03-08 11:58:54' || [ankhmaway] INFO : AM humid data:[u'eac774a57710', 50.0, '2017-03-08 11:58:54', None]
+'2017-03-08 11:58:57' || [apscheduler.executors.default] INFO : Job "scanParse (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:09 UTC)" executed successfully
+'2017-03-08 11:59:09' || [apscheduler.scheduler] DEBUG : Looking for jobs to run
+'2017-03-08 11:59:09' || [apscheduler.executors.default] INFO : Running job "scanParse (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:39 UTC)" (scheduled at 2017-03-08 11:59:09.491707+00:00)
+'2017-03-08 11:59:09' || [apscheduler.executors.default] INFO : Running job "packetCreation (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:39 UTC)" (scheduled at 2017-03-08 11:59:09.493211+00:00)
+'2017-03-08 11:59:09' || [apscheduler.executors.default] INFO : Running job "dBToServer (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:09 UTC)" (scheduled at 2017-03-08 11:59:09.494641+00:00)
+'2017-03-08 11:59:09' || [apscheduler.scheduler] DEBUG : Next wakeup is due at 2017-03-08 11:59:39.491707+00:00 (in 29.990167 seconds)
+'2017-03-08 11:59:09' || [urllib3.connectionpool] INFO : Starting new HTTPS connection (1): iot-hub-cd.azure-devices.net
+'2017-03-08 11:59:09' || [bledb] INFO : All data from all tables copied to Payloads table
+'2017-03-08 11:59:09' || [bledb] INFO : Payload size 465
+'2017-03-08 11:59:09' || [bledb] INFO : Payload components [(u'TempData', 3726), (u'HumData', 3726), (u'TempData', 3727), (u'HumData', 3727)]
+'2017-03-08 11:59:09' || [bledb] DEBUG : {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 52.0, 
+                "NdBat": null, 
+                "NdId": "ebd3c7daba2c", 
+                "NdTs": "2017-03-08 11:58:54"
+            }, 
+            {
+                "Hum": 50.0, 
+                "NdBat": null, 
+                "NdId": "eac774a57710", 
+                "NdTs": "2017-03-08 11:58:54"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": null, 
+                "NdId": "ebd3c7daba2c", 
+                "NdTs": "2017-03-08 11:58:54", 
+                "Temp": 24.8
+            }, 
+            {
+                "NdBat": null, 
+                "NdId": "eac774a57710", 
+                "NdTs": "2017-03-08 11:58:54", 
+                "Temp": 24.63
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "cd_pi_0001", 
+    "GwIsPwr": "1", 
+    "GwTs": "2017-03-08 11:59:09"
+}
+'2017-03-08 11:59:09' || [__main__] INFO : Payload created in DB
+'2017-03-08 11:59:09' || [apscheduler.executors.default] INFO : Job "packetCreation (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:39 UTC)" executed successfully
+'2017-03-08 11:59:10' || [urllib3.connectionpool] DEBUG : "POST /devices/cd_pi_0001/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+'2017-03-08 11:59:11' || [bledb] INFO : Post request successful with status : 204
+'2017-03-08 11:59:11' || [__main__] INFO : Payload uploaded with response 1
+'2017-03-08 11:59:11' || [apscheduler.executors.default] INFO : Job "dBToServer (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:39 UTC)" executed successfully
+'2017-03-08 11:59:24' || [__main__] INFO : No. of devices scanned are 9
+'2017-03-08 11:59:24' || [__main__] INFO : No. of scanned devices in whitelist are 9
+'2017-03-08 11:59:24' || [ankhmaway] INFO : AM temp data:[u'ebd3c7daba2c', 24.8, '2017-03-08 11:59:24', None]
+'2017-03-08 11:59:24' || [ankhmaway] INFO : AM humid data:[u'ebd3c7daba2c', 52.0, '2017-03-08 11:59:24', None]
+'2017-03-08 11:59:24' || [ankhmaway] INFO : AM temp data:[u'eac774a57710', 24.63, '2017-03-08 11:59:24', None]
+'2017-03-08 11:59:24' || [ankhmaway] INFO : AM humid data:[u'eac774a57710', 50.0, '2017-03-08 11:59:24', None]
+'2017-03-08 11:59:24' || [apscheduler.executors.default] INFO : Job "scanParse (trigger: interval[0:00:30], next run at: 2017-03-08 11:59:39 UTC)" executed successfully
+'2017-03-08 11:59:39' || [apscheduler.scheduler] DEBUG : Looking for jobs to run
+'2017-03-08 11:59:39' || [apscheduler.executors.default] INFO : Running job "scanParse (trigger: interval[0:00:30], next run at: 2017-03-08 12:00:09 UTC)" (scheduled at 2017-03-08 11:59:39.491707+00:00)
+'2017-03-08 11:59:39' || [apscheduler.executors.default] INFO : Running job "packetCreation (trigger: interval[0:00:30], next run at: 2017-03-08 12:00:09 UTC)" (scheduled at 2017-03-08 11:59:39.493211+00:00)
+'2017-03-08 11:59:39' || [apscheduler.executors.default] INFO : Running job "dBToServer (trigger: interval[0:00:30], next run at: 2017-03-08 12:00:09 UTC)" (scheduled at 2017-03-08 11:59:39.494641+00:00)
+'2017-03-08 11:59:39' || [apscheduler.scheduler] DEBUG : Next wakeup is due at 2017-03-08 11:59:45.497671+00:00 (in 5.978968 seconds)
+'2017-03-08 11:59:39' || [urllib3.connectionpool] INFO : Starting new HTTPS connection (1): iot-hub-cd.azure-devices.net
+'2017-03-08 11:59:39' || [bledb] INFO : All data from all tables copied to Payloads table
+'2017-03-08 11:59:39' || [bledb] INFO : Payload size 465
+'2017-03-08 11:59:39' || [bledb] INFO : Payload components [(u'TempData', 3728), (u'HumData', 3728), (u'TempData', 3729), (u'HumData', 3729)]
+'2017-03-08 11:59:40' || [bledb] DEBUG : {
+    "Data": {
+        "HumData": [
+            {
+                "Hum": 52.0, 
+                "NdBat": null, 
+                "NdId": "ebd3c7daba2c", 
+                "NdTs": "2017-03-08 11:59:24"
+            }, 
+            {
+                "Hum": 50.0, 
+                "NdBat": null, 
+                "NdId": "eac774a57710", 
+                "NdTs": "2017-03-08 11:59:24"
+            }
+        ], 
+        "TempData": [
+            {
+                "NdBat": null, 
+                "NdId": "ebd3c7daba2c", 
+                "NdTs": "2017-03-08 11:59:24", 
+                "Temp": 24.8
+            }, 
+            {
+                "NdBat": null, 
+                "NdId": "eac774a57710", 
+                "NdTs": "2017-03-08 11:59:24", 
+                "Temp": 24.63
+            }
+        ]
+    }, 
+    "GwBat": "100", 
+    "GwId": "cd_pi_0001", 
+    "GwIsPwr": "1", 
+    "GwTs": "2017-03-08 11:59:39"
+}
+'2017-03-08 11:59:40' || [__main__] INFO : Payload created in DB
+'2017-03-08 11:59:40' || [apscheduler.executors.default] INFO : Job "packetCreation (trigger: interval[0:00:30], next run at: 2017-03-08 12:00:09 UTC)" executed successfully
+'2017-03-08 11:59:40' || [urllib3.connectionpool] DEBUG : "POST /devices/cd_pi_0001/messages/events?api-version=2016-02-03 HTTP/1.1" 204 0
+'2017-03-08 11:59:40' || [bledb] INFO : Post request successful with status : 204
+'2017-03-08 11:59:40' || [__main__] INFO : Payload uploaded with response 1
+'2017-03-08 11:59:40' || [apscheduler.executors.default] INFO : Job "dBToServer (trigger: interval[0:00:30], next run at: 2017-03-08 12:00:09 UTC)" executed successfully
+'2017-03-08 11:59:45' || [apscheduler.scheduler] DEBUG : Looking for jobs to run
+'2017-03-08 11:59:45' || [apscheduler.scheduler] DEBUG : Next wakeup is due at 2017-03-08 12:00:09.491707+00:00 (in 23.971683 seconds)
+'2017-03-08 11:59:45' || [apscheduler.executors.default] INFO : Running job "logs_upload (trigger: interval[0:01:12], next run at: 2017-03-08 12:00:57 UTC)" (scheduled at 2017-03-08 11:59:45.497671+00:00)
+'2017-03-08 11:59:45' || [urllib3.connectionpool] INFO : Starting new HTTP connection (1): cdc2drest.azurewebsites.net
+'2017-03-08 11:59:46' || [urllib3.connectionpool] DEBUG : "POST /restservice/v1/d2c/logfile HTTP/1.1" 500 30
+'2017-03-08 11:59:46' || [urllib3.connectionpool] INFO : Starting new HTTP connection (1): cdc2drest.azurewebsites.net
+'2017-03-08 11:59:46' || [urllib3.connectionpool] DEBUG : "POST /restservice/v1/d2c/logfile HTTP/1.1" 500 30
