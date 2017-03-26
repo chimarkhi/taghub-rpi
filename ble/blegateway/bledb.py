@@ -38,6 +38,7 @@ def createDB():
                 Temp REAL, 
                 NdTs TEXT, 
 		NdBat INTEGER,
+		NdRssi INTEGER,
 		upFlag INTEGER);""")
 		
 	# Humidity table
@@ -48,6 +49,7 @@ def createDB():
                 Hum REAL, 
                 NdTs TEXT, 
 		NdBat INTEGER,
+		NdRssi INTEGER,
 		upFlag INTEGER);""")
 
 	# Probe table
@@ -59,6 +61,7 @@ def createDB():
                 Prb2 REAL, \
                 NdTs TEXT, \
 		NdBat INTEGER,
+		NdRssi INTEGER,
 		upFlag INTEGER);""")
 		
 	# Door Activity  table
@@ -69,6 +72,7 @@ def createDB():
                 DoorSts INTEGER, 
                 NdTs TEXT, 
 		NdBat INTEGER,
+		NdRssi INTEGER,
 		upFlag INTEGER);""")
 
 	# Energy Meter readings  table

@@ -4,6 +4,7 @@ import logging
 import subprocess
 import os
 import signal
+from pythonwifi.iwlibs import Wireless
 
 import GatewayParams
 
@@ -11,11 +12,12 @@ logger = logging.getLogger(__name__)
 
 ## Gateway's static parameters
 class GatewayParamsStatic:
-	NAME  = "an_pi_0002" 
+	NAME  = "an_pi_0001" 
 		#'cd_pi_0001' 
 	WHITELISTREAD_INTERVAL = 6			## hours in which whitelist is updated 		
+	SAS_KEY = "SharedAccessSignature sr=iot-hub-an.azure-devices.net%2Fdevices%2Fan_pi_0001&sig=rpNRts2PxagkD9ZHa%2FCsiKo%2BfrsZ%2BK6LroRxQkLJI6k%3D&se=1521692695"
 #	SAS_KEY = "SharedAccessSignature sr=iot-hub-cd.azure-devices.net%2Fdevices%2Fcd_pi_0001&sig=FsdTJHA8ZrgY7z51ce06zou9rFfnGkuoa0JhLE5nGfU%3D&se=1520417683"
-	SAS_KEY = "SharedAccessSignature sr=iot-hub-an.azure-devices.net%2Fdevices%2Fan_pi_0002&sig=ruIBlaga0B%2F%2BL6X1av6WoR09oczCm%2BDL7lyRbMm2N4Q%3D&se=1521018851"
+#	SAS_KEY = "SharedAccessSignature sr=iot-hub-an.azure-devices.net%2Fdevices%2Fan_pi_0002&sig=ruIBlaga0B%2F%2BL6X1av6WoR09oczCm%2BDL7lyRbMm2N4Q%3D&se=1521018851"
 	IOTHUB = "iot-hub-an.azure-devices.net"
 		#'iot-hub-cd.azure-devices.net'
 	POST_HEADERS = {'Authorization' : SAS_KEY, 'Content-Type' : 'application/json'}
@@ -79,12 +81,18 @@ class Gateway:
 		## Add battery level detection
 		return str(100)
 	
+	def wifiSignalLevel(self):	
+		wifi = Wireless("wlan0")
+		sigLevel = wifi.getStatistics()[1].getSignallevel()
+		return sigLevel*100/255
+
 	def payload(self):
 		gwInfo = defaultdict(dict)
 		gwInfo['GwId'] 	= self.ID
 		gwInfo['GwTs'] 	= datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 		gwInfo['GwIsPwr'] =  self.isPower() 
 		gwInfo['GwBat'] = self.batt()
+		gwInfo['GwNetInfo'] = {"pcWiFiSigLevel":self.wifiSignalLevel()}
 		return gwInfo
 
 

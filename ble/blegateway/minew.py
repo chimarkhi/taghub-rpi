@@ -22,6 +22,7 @@ class MinewScanHandler(object):
 	self.services = dev.serviceData
 	self.addr    = dev.addr
 	self.macid = self.addr.replace(":","")
+	self.rssi  = dev.rssi
 
     def getS1Temp(self):
 	rawTemp = self.servicedata[28:30] + self.servicedata[26:28]
@@ -54,11 +55,15 @@ class MinewScanHandler(object):
 	self.temp =  int(self.services[MinewUUIDS.TEMPSERVICE],16)
 	return self.temp
 		
+    def getRssi(self):
+	return self.rssi
+
+
     def pushToDB(self):
         
 	nodeTS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-	minewTempData  = [self.macid,self.getS1Temp(),nodeTS, self.getS1Batt()]
-	minewHumidData = [self.macid,self.getS1Humid(),nodeTS,self.getS1Batt()]
+	minewTempData  = [self.macid,self.getS1Temp(),nodeTS, self.getS1Batt(),self.getRssi()]
+	minewHumidData = [self.macid,self.getS1Humid(),nodeTS,self.getS1Batt(),self.getRssi()]
 #	print minewTempData
 #	print minewHumidData
 	try:
@@ -67,12 +72,12 @@ class MinewScanHandler(object):
                 	cur = con.cursor()
 				
 			cur.execute("""INSERT INTO TempData (NdId, \
-			Temp,NdTs,NdBat,upFlag) \
-			values (?,?,?,?,0);""", minewTempData)
+			Temp,NdTs,NdBat,Ndrssi,upFlag) \
+			values (?,?,?,?,?,0);""", minewTempData)
 					
 			cur.execute("""INSERT INTO HumData (NdId, \
-			Hum,NdTs,NdBat,upFlag) \
-			values (?,?,?,?,0);""", minewHumidData)
+			Hum,NdTs,NdBat,Ndrssi,upFlag) \
+			values (?,?,?,?,?,0);""", minewHumidData)
 
 			logger.info('MinewS1 temp data:%s', minewTempData)
 			logger.info('MinewS1 humid data:%s', minewHumidData)
@@ -85,7 +90,7 @@ class MinewScanHandler(object):
     def pushDoorActToDB(self):
         
 	nodeTS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-	DoorActData  = [self.macid,self.getDoorStatus(),nodeTS, self.getBatt()]
+	DoorActData  = [self.macid,self.getDoorStatus(),nodeTS, self.getBatt(),self.getRssi()]
 #	print DoorActData
 	try:
 		con = sql.connect(bledb.PATHS.DB_PATH)
@@ -93,8 +98,8 @@ class MinewScanHandler(object):
                 	cur = con.cursor()
 				
 			cur.execute("""INSERT INTO DoorActData (NdId, \
-			DoorSts,NdTs,NdBat,upFlag) \
-			values (?,?,?,?,0);""", DoorActData)
+			DoorSts,NdTs,NdBat,NdRssi,upFlag) \
+			values (?,?,?,?,?,0);""", DoorActData)
 					
 			logger.info('Door Activity data:%s', DoorActData)
         	return True

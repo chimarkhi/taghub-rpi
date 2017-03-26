@@ -23,7 +23,7 @@ class CappecPeripheral(btle.Peripheral):
     	btle.Peripheral.__init__(self, dev.addr,addrType=btle.ADDR_TYPE_RANDOM)
 	self.addr = dev.addr
 	self.macid = self.addr.replace(":","")
-
+	self.rssi  = dev.rssi
 	
     def characteristic(self, uuid):
         """
@@ -47,11 +47,13 @@ class CappecPeripheral(btle.Peripheral):
 
         return [tempProbeOne, tempProbeTwo]
 	
-
+    def getRssi(self):
+	return self.rssi
+	
     def pushToDB(self):
         
 	nodeTS = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-	probeData = [self.macid,self.getProbeTemp()[0],self.getProbeTemp()[1],nodeTS,None]
+	probeData = [self.macid,self.getProbeTemp()[0],self.getProbeTemp()[1],nodeTS,None,self.getRssi()]
 	
 	
 	try:
@@ -60,8 +62,8 @@ class CappecPeripheral(btle.Peripheral):
                 	cur = con.cursor()
 		
 			cur.execute("""INSERT INTO PrbData (NdId, \
-			Prb1,Prb2,NdTs,NdBat,upFlag) \
-			values (?,?,?,?,?,0);""", probeData)
+			Prb1,Prb2,NdTs,NdBat,NdRssi,upFlag) \
+			values (?,?,?,?,?,?,0);""", probeData)
 		
 			logger.info('Probe temp readings : %s',probeData)
 			
