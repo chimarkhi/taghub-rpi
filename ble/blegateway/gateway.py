@@ -7,18 +7,22 @@ import signal
 from pythonwifi.iwlibs import Wireless
 
 import GatewayParams
+import raspiupshat
 
 logger = logging.getLogger(__name__)
 
 ## Gateway's static parameters
 class GatewayParamsStatic:
-	NAME  = "an_pi_0001" 
+	NAME  = "str-pi-0001"
+		#"an_pi_0001" 
 		#'cd_pi_0001' 
 	WHITELISTREAD_INTERVAL = 6			## hours in which whitelist is updated 		
-	SAS_KEY = "SharedAccessSignature sr=iot-hub-an.azure-devices.net%2Fdevices%2Fan_pi_0001&sig=rpNRts2PxagkD9ZHa%2FCsiKo%2BfrsZ%2BK6LroRxQkLJI6k%3D&se=1521692695"
+	SAS_KEY = "SharedAccessSignature sr=tbox-hub-str.azure-devices.net%2Fdevices%2Fstr-pi-0001&sig=xrGb%2FZKe%2F0JL4B%2BSG4vd2TcsRyLrxXxF9ak7Fi7pih4%3D&se=1523962234"
+#	SAS_KEY = "SharedAccessSignature sr=iot-hub-an.azure-devices.net%2Fdevices%2Fan_pi_0001&sig=rpNRts2PxagkD9ZHa%2FCsiKo%2BfrsZ%2BK6LroRxQkLJI6k%3D&se=1521692695"
 #	SAS_KEY = "SharedAccessSignature sr=iot-hub-cd.azure-devices.net%2Fdevices%2Fcd_pi_0001&sig=FsdTJHA8ZrgY7z51ce06zou9rFfnGkuoa0JhLE5nGfU%3D&se=1520417683"
 #	SAS_KEY = "SharedAccessSignature sr=iot-hub-an.azure-devices.net%2Fdevices%2Fan_pi_0002&sig=ruIBlaga0B%2F%2BL6X1av6WoR09oczCm%2BDL7lyRbMm2N4Q%3D&se=1521018851"
-	IOTHUB = "iot-hub-an.azure-devices.net"
+	IOTHUB =  "tbox-hub-str.azure-devices.net"
+		# "iot-hub-an.azure-devices.net"
 		#'iot-hub-cd.azure-devices.net'
 	POST_HEADERS = {'Authorization' : SAS_KEY, 'Content-Type' : 'application/json'}
 	DATA_LINK = "https://"+IOTHUB+"/devices/"+NAME+"/messages/events?api-version=2016-02-03"	
@@ -78,8 +82,8 @@ class Gateway:
 		return str(1)
 		
 	def batt(self):
-		## Add battery level detection
-		return str(100)
+		## state of charge through i2c
+		return raspiupshat.getsoc()
 	
 	def wifiSignalLevel(self):	
 		wifi = Wireless("wlan0")
