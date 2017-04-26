@@ -26,9 +26,9 @@ class GatewayParamsStatic:
 		#'iot-hub-cd.azure-devices.net'
 	POST_HEADERS = {'Authorization' : SAS_KEY, 'Content-Type' : 'application/json'}
 	DATA_LINK = "https://"+IOTHUB+"/devices/"+NAME+"/messages/events?api-version=2016-02-03"	
-	D2C_ACK_LINK = "http://anc2drest.azurewebsites.net/restservice/v1/d2c/cmdresponse"
+	D2C_ACK_LINK = "http://52.187.79.46:8080/restservice/v1/d2c/cmdresponse"
 #	D2C_LOG_LINK = "http://anc2drest.azurewebsites.net/restservice/v1/d2c/logfile"
-	D2C_LOG_LINK = "http://104.215.248.40:8080/restservice/v1/d2c/logfile"
+	D2C_LOG_LINK = "http://52.187.79.46:8080/restservice/v1/d2c/logfile"
 	MQTT_USERNAME =IOTHUB+"/"+NAME+"/"+"api-version=2016-11-14"
 	LOGFILE_BLE = "/home/pi/tagbox/logs/blemaster_"+NAME+".log"
 	LOGFILE_MQTT = "/home/pi/tagbox/logs/mqttservice_"+NAME+".log"
@@ -82,9 +82,15 @@ class Gateway:
 		return str(1)
 		
 	def batt(self):
-		## state of charge through i2c
-		return raspiupshat.getsoc()
-	
+		try:
+			raspiupshat.init()
+			## state of charge through i2c
+			battery_level = int(raspiupshat.getsoc())
+		except :
+			battery_level = int(100)
+		finally:
+			return battery_level
+			
 	def wifiSignalLevel(self):	
 		wifi = Wireless("wlan0")
 		sigLevel = wifi.getStatistics()[1].getSignallevel()
