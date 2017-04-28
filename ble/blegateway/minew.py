@@ -24,7 +24,7 @@ class MinewScanHandler(object):
 	self.macid = self.addr.replace(":","")
 	self.rssi  = dev.rssi
 
-    def getS1Temp(self):
+    def getS1Temp_old(self):
 	rawTemp = self.servicedata[28:30] + self.servicedata[26:28]
 	tempInt1 = int(rawTemp,16)
 	tempInt2 = tempInt1 if tempInt1 < 0x7FFF else tempInt1 - 0x8000 - 0x8000 
@@ -32,16 +32,37 @@ class MinewScanHandler(object):
 	print rawTemp, self.S1temp
 	return self.S1temp
     
-    def getS1Humid(self):
+    def getS1Humid_old(self):
 	rawHumid = self.servicedata[32:34] + self.servicedata[30:32]
 	humidInt1 = int(rawHumid,16)
 	humidInt2 = humidInt1 if humidInt1 < 0x7FFF else humidInt1 - 0x8000  - 0x8000
 	self.S1humid = humidInt2/10.0	
     	return self.S1humid
 	
-    def getS1Batt(self):
+    def getS1Batt_old(self):
 	self.S1batt   = int(self.servicedata[14:16],16)
 	return self.S1batt
+
+    def getS1Temp(self):
+	rawTemp = self.servicedata[10:14]
+	tempInt1 = int(rawTemp,16)
+	tempInt2 = tempInt1 if tempInt1 < 0x7FFF else tempInt1 - 0x8000 - 0x8000 
+	self.S1temp = tempInt2/256
+	print rawTemp, self.S1temp
+	return self.S1temp
+    
+    def getS1Humid(self):
+	rawHumid = self.servicedata[14:18]
+	humidInt1 = int(rawHumid,16)
+	humidInt2 = humidInt1 if humidInt1 < 0x7FFF else humidInt1 - 0x8000  - 0x8000
+	self.S1humid = humidInt2/256	
+    	return self.S1humid
+	
+    def getS1Batt(self):
+	self.S1batt   = int(self.servicedata[8:10],16)
+	return self.S1batt
+
+
 
     def getBatt(self):
 	self.doorSensorBatt =  int(self.services[MinewUUIDS.BATTERYSERVICE],16)
