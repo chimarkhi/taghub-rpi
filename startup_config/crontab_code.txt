@@ -32,3 +32,4 @@
 
 #*/10 * * * * sudo /home/pi/tagbox/startup_config/mqttservice_run_check.sh > /home/pi/tagbox/startup_config/mqttservie_status.txt
 
+0 1,4,7,10,13,16,19,22 * * * sudo reboot -f
