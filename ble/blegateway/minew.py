@@ -21,7 +21,7 @@ class MinewScanHandler(object):
         self.servicedata = dev.getValueText(MinewUUIDS.TYPE16BSERVICEDATA)
 	self.services = dev.serviceData
 	self.addr    = dev.addr
-	self.macid = self.addr.replace(":","")
+	self.macid = self.addr.replace(":","").upper()
 	self.rssi  = dev.rssi
 
     def getS1Temp_old(self):

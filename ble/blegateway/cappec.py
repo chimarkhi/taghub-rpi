@@ -22,7 +22,7 @@ class CappecPeripheral(btle.Peripheral):
         """
     	btle.Peripheral.__init__(self, dev.addr,addrType=btle.ADDR_TYPE_RANDOM)
 	self.addr = dev.addr
-	self.macid = self.addr.replace(":","")
+	self.macid = self.addr.replace(":","").upper()
 	self.rssi  = dev.rssi
 	
     def characteristic(self, uuid):

@@ -17,7 +17,7 @@ class AMScanHandler(object):
     def __init__(self, dev):
         self.advdata = dev.getValueText(UUIDS.TYPEMANUDATA)
 	self.addr    = dev.addr
-	self.macid = self.addr.replace(":","") 
+	self.macid = self.addr.replace(":","").upper() 
 	self.majorID = self.advdata[40:44]
 	self.minorID = self.advdata[44:48]
 	self.battHex = self.advdata[50:52];

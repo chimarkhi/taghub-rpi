@@ -22,7 +22,7 @@ class VeritekVips84(minimalmodbus.Instrument):
         minimalmodbus.PARITY = 'E'
         minimalmodbus.TIMEOUT = 1
         minimalmodbus.Instrument.__init__(self, portname, slaveaddress, mode='rtu')
-	self.macid = "nrgmeter0001"
+	self.macid = "nrgmeter0001".upper()
 
     ## Process value
 
